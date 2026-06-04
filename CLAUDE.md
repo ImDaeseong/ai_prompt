@@ -61,7 +61,14 @@
 - 표(Table), 리스트(Bullet), 코드 블록으로 가독성을 높인다.
 - 분석 결과 파일 상단에는 분석 일시와 대상 범위를 명시한다.
 
+## 8. 사용률 90% 이어받기 규칙 (Usage Handoff Rule)
+
+- Claude Code 또는 Codex 사용률이 약 90%에 도달하면 작업을 더 진행하기 전에 이어받기 기록을 남긴다.
+- 기록 항목: 현재 작업 목표, 완료된 항목, 미완료 항목, 관련 파일 경로, 실행한 명령, 검증 상태, 미해결 이슈, 다음에 바로 실행할 단계.
+- 새 세션이 `HANDOFF.md`만 읽고 바로 이어서 진행할 수 있도록 `ai-workspace/HANDOFF.md`의 `Current State`를 업데이트한다.
+- 이어받기 기록에는 비밀 정보, 인증 정보, 토큰, 내부 전용 식별자, 서버 주소, 고객 정보를 포함하지 않는다.
+
 ---
 
 *Based on: GLOBAL_RULES.md + Andrej Karpathy's LLM coding guidelines*
-*Last Updated: 2026-06-01*
+*Last Updated: 2026-06-04*
