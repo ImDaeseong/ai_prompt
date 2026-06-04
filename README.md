@@ -183,7 +183,7 @@ Visual Studio 버전: 2022
 | 보안/설계 | 1 | project_보안_초기설계 |
 | 음악/미디어 | 1 | sunoai |
 | 전략/아키텍처 참고 | 3 | llm-service-market-strategy, multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 15 | skills/ 폴더 내 스킬 파일 |
+| antigravity_test 스킬 | 16 | skills/ 폴더 내 스킬 파일 |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
 
 ### 주요 변경 이력
