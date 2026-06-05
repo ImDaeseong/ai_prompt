@@ -56,7 +56,19 @@
 - 사고 과정을 장황하게 출력하지 않는다. 근거와 결론 중심으로 요약한다.
 - 빌드 산출물, 외부 라이브러리, 미디어, 로그, 바이너리는 분석 전 기본 제외.
 
-## 7. 문서화 규칙
+## 7. UI 개발 필수 참조 스킬
+
+UI 컴포넌트, 페이지, 앱 화면, 디자인 시스템 작업 시 아래 스킬을 **반드시 먼저 읽고 적용**한다.
+
+- `antigravity_test/skills/frontend_design.md` — 웹 UI 디자인 철학, 타이포그래피, 컬러, 모션, 공간 구성
+- `antigravity_test/skills/ui_ux_pro_max.md` — 전문 UI 규칙, Pre-Delivery 체크리스트, 접근성, 다크모드, 터치 타겟
+
+적용 기준:
+- 웹 컴포넌트/페이지/랜딩/대시보드 → `frontend_design.md` 우선
+- 모바일 앱(Flutter, SwiftUI, React Native) → `ui_ux_pro_max.md` 우선
+- 두 영역 모두 걸치면 두 파일 모두 참조
+
+## 8. 문서화 규칙
 
 - 표(Table), 리스트(Bullet), 코드 블록으로 가독성을 높인다.
 - 분석 결과 파일 상단에는 분석 일시와 대상 범위를 명시한다.

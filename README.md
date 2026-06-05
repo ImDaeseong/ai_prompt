@@ -49,10 +49,12 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 코드 변경 후 아키텍처 문서를 업데이트하고 싶다 | [common_프로젝트_분석_Prompts.md](./common_프로젝트_분석_Prompts.md) | 변경 파일, 기존 분석 문서 |
 | SVN 또는 로컬 폴더를 Git으로 옮길 계획을 세우고 싶다 | [common_git_마이그레이션_Prompts.md](./common_git_마이그레이션_Prompts.md) | 이관 대상 최상위 폴더 |
 | Suno AI로 상업용 음악 제작 프롬프트를 만들고 싶다 | [sunoai_Prompts.md](./sunoai_Prompts.md) | 가사, 장르, 분위기, 제작 방향 |
-| LLM 서비스 시장 구조를 이해하고 AI MV 제작 관리 도구 방향을 잡고 싶다 | [llm-service-market-strategy.md](./llm-service-market-strategy.md) | 현재 개발 목표, 강점 정리 |
 | Multi-Agent 시스템을 Python부터 단계별로 구현하고 싶다 | [multi-agent-implementation-guide.md](./multi-agent-implementation-guide.md) | Agent 역할 목록, LLM API 키 |
 | Claude Code 플러그인을 한 번에 설치하고 싶다 | [claude-plugins-setup.md](./claude-plugins-setup.md) | Claude Code 설치 완료 |
-| VS Code에서 AI 코딩 세션 무한 루프·토큰 낭비를 방지하고 싶다 | [VSCODE_AI_RULES.md](./VSCODE_AI_RULES.md) | VS Code + Claude Code 또는 GitHub Copilot 설치 완료 |
+| VS Code에서 AI 코딩 세션 무한 루프·토큰 낭비를 방지하고 싶다 | [ai-workspace/_templates/VSCODE_AI_RULES.md](../ai-workspace/_templates/VSCODE_AI_RULES.md) | VS Code + Claude Code 또는 GitHub Copilot 설치 완료 |
+| 웹 UI/컴포넌트/페이지 개발 시 디자인 품질을 높이고 싶다 | [antigravity_test/skills/frontend_design.md](./antigravity_test/skills/frontend_design.md) | 개발할 UI 목적, 기술 스택 |
+| 모바일 앱(Flutter/SwiftUI/RN) UI 품질 체크리스트가 필요하다 | [antigravity_test/skills/ui_ux_pro_max.md](./antigravity_test/skills/ui_ux_pro_max.md) | 앱 유형, 플랫폼 |
+| Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | [prompts/](./prompts/) | 작업 목적 |
 
 ## 권장 작업 흐름
 
@@ -134,7 +136,7 @@ Visual Studio 버전: 2022
 - 개인 식별 정보와 민감한 개인정보
 - 공개하면 안 되는 제품, 정책, 계약 정보
 
-## 실험적 스킬 시스템 (antigravity_test)
+## 스킬 시스템 (antigravity_test)
 
 [antigravity_test](./antigravity_test/README.md) 폴더는 창의적 글쓰기, 에이전트 스킬, 프롬프트 엔지니어링 실험 모음입니다.
 모든 스킬은 표준 헤더(ID/Version), 핵심 기능, 사용 명령어, 실전 예시(Before→After)를 포함합니다.
@@ -143,6 +145,8 @@ Visual Studio 버전: 2022
 
 | 카테고리 | 스킬 | 핵심 명령어 |
 |---|---|---|
+| **UI/디자인** | `frontend_design` | 웹 UI 개발 시 필수 참조 — 타이포그래피, 컬러, 모션 |
+| **UI/디자인** | `ui_ux_pro_max` | 모바일 앱 UI 규칙, Pre-Delivery 체크리스트, 접근성 |
 | **프롬프트 기반** | `rtcf_expert` | `/rtcf`, `/audit` |
 | **프롬프트 기반** | `prompt_engineer` | `/refine`, `/image`, `/music` |
 | **에이전트 조율** | `agentic_orchestrator` | `/orchestrate`, `/delegate` |
@@ -176,33 +180,34 @@ Visual Studio 버전: 2022
 
 | 카테고리 | 파일 수 | 파일 목록 |
 |----------|---------|-----------|
-| 공통 지침 | 2 | CLAUDE.md (현행), GLOBAL_RULES.md (레거시·DEPRECATED) |
-| VS Code AI 운용 | 1 | VSCODE_AI_RULES.md |
+| 공통 지침 | 1 | CLAUDE.md |
 | MFC 프롬프트 | 5 | 프로젝트생성, 구조, 정밀분석, 최종검수, 클래스심층분석 |
 | Python/공통 프롬프트 | 3 | python_프로젝트생성, common_프로젝트_분석, common_git_마이그레이션 |
 | 보안/설계 | 1 | project_보안_초기설계 |
 | 음악/미디어 | 1 | sunoai |
-| 전략/아키텍처 참고 | 3 | llm-service-market-strategy, multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 16 | skills/ 폴더 내 스킬 파일 |
+| 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
+| antigravity_test 스킬 | 18 | skills/ 폴더 — UI/디자인 2개 포함 (frontend_design, ui_ux_pro_max) |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
+| Hermes 워크플로우 프롬프트 | 7 | prompts/ 폴더 (ai-architect, validation, quality-gate 등) |
 
 ### 주요 변경 이력
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-06-05 | GLOBAL_RULES.md 삭제 (DEPRECATED — CLAUDE.md로 대체 완료) |
+| 2026-06-05 | VSCODE_AI_RULES.md 삭제 (ai-workspace/_templates/ 단일 관리로 통합) |
+| 2026-06-05 | llm-service-market-strategy.md → ai-workspace/business/ 이동 (전략 문서) |
+| 2026-06-05 | prompts/ 폴더 추가 — ai-workspace에서 이전 (Hermes 워크플로우 프롬프트 7개) |
+| 2026-06-05 | frontend_design.md 스킬 추가 (Anthropic 공식 — 웹 UI 디자인 철학) |
+| 2026-06-05 | ui_ux_pro_max.md 스킬 추가 (NextLevelBuilder — 전문 UI 규칙·체크리스트) |
+| 2026-06-05 | CLAUDE.md에 UI 개발 필수 참조 규칙 추가 (섹션 7) |
 | 2026-06-04 | scenario_writer_hermes_Prompts.md 참조 제거 (파일 미존재) |
 | 2026-06-04 | 전체 프롬프트 파일의 GLOBAL_RULES.md 참조를 CLAUDE.md로 통일 (7개 파일) |
 | 2026-06-04 | MFC 분석 결과물 파일명 충돌 수정: mfc_정밀분석·최종검수의 [CLAUDE.md] 출력 → [MFC_CONTEXT.md] |
-| 2026-06-04 | README 상황별 가이드에 VSCODE_AI_RULES.md 항목 추가 |
-| 2026-06-04 | 권장 작업 흐름에 ai-workspace 템플릿 연계 흐름 추가 |
-| 2026-06-04 | VSCODE_AI_RULES.md 신규 추가 (ai_prompt 로컬 복사본) |
-| 2026-06-04 | GLOBAL_RULES.md DEPRECATED 안내 추가 (CLAUDE.md로 대체) |
-| 2026-06-04 | sunoai_Prompts.md 표준 헤더 추가 (ID/Version/CLAUDE.md 참조) |
-| 2026-06-04 | multi-agent-guide 존재하지 않는 파일 참조 제거, 절대 경로 추상화 |
 | 2026-06-04 | antigravity_test 스킬 15개 전면 보완 (표준 헤더, 실전 예시, 경로 수정, 스킬 구분 명확화) |
 | 2026-06-04 | rtcf_expert.md 완전 재작성 (18줄 → 변환 프로세스 + 예시 3개 + 조합 가이드) |
 | 2026-05-30 | README 최초 정비 |
 
 ---
 
-Last Updated: 2026-06-04
+Last Updated: 2026-06-05
