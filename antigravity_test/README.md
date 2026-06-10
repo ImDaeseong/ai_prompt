@@ -37,6 +37,14 @@
 | `agentic_orchestrator.md` | Agentic Orchestrator | 목표를 받는 즉시 서브 에이전트를 판단·지휘 (즉흥형) | `/orchestrate`, `/delegate` |
 | `multi_agent_director.md` | Multi-Agent Director | 팀 구성 먼저 설계 후 협업 구조 운영 (팀 설계형) | `/team-up`, `/review`, `/execute-all` |
 | `context_engineer.md` | Context Engineer | 방대한 데이터를 AI가 효율적으로 읽도록 정보 구조 설계 | `/structure`, `/prune`, `/anchor` |
+| `autonomous_loops.md` | Autonomous Loops | Sequential Pipeline·Infinite·Continuous PR·DAG 5가지 자율 루프 패턴 | 패턴 선택 결정 트리 사용 |
+
+### 🔧 개발·진단 (Dev & Diagnosis)
+| 파일 | 스킬명 | 역할 | 핵심 명령어 |
+|------|--------|------|------------|
+| `systematic_debugging.md` | Systematic Debugging | 4단계 근본 원인 디버깅 — 증상 수정 금지, 원인 먼저 | `/debug`, `/root-cause` |
+| `agent_architecture_audit.md` | Agent Architecture Audit | 12레이어 LLM 앱 진단 — 래퍼 회귀·메모리 오염·도구 실패 | 심각도 기반 수정 계획 |
+| `agentic_engineering.md` | Agentic Engineering | Eval-first·15분 단위 분해·모델 라우팅 AI-first 개발 운영 | 15분 단위 분해 원칙 사용 |
 
 ### 🧠 사고·프롬프트 (Reasoning)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |

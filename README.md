@@ -35,6 +35,23 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 - 분석 작업은 대상 프로젝트 폴더를 AI가 읽을 수 있는 상태로 준비합니다.
 - API 키, 토큰, 비밀번호, 고객 정보, 회사 내부 정보는 프롬프트나 코드에 넣지 않습니다.
 
+## Quick Pick — 가장 자주 쓰는 5가지
+
+| 상황 | 파일 |
+|------|------|
+| 새 프로젝트 시작 전 보안 점검 | [project_보안_초기설계_Prompts.md](./project_보안_초기설계_Prompts.md) |
+| MFC 프로젝트 구조 파악 | [mfc_프로젝트_구조_Prompts.md](./mfc_프로젝트_구조_Prompts.md) |
+| Python 자동화 스크립트 생성 | [python_프로젝트생성_Prompts.md](./python_프로젝트생성_Prompts.md) |
+| Suno 음악 프롬프트 제작 | [sunoai_Prompts.md](./sunoai_Prompts.md) |
+| 멀티 에이전트 시스템 설계 | [multi-agent-implementation-guide.md](./multi-agent-implementation-guide.md) |
+| 최근 30일 트렌드·인물·도구 리서치 | `/last30days <topic>` (설치: `/plugin marketplace add mvanhorn/last30days-skill`) |
+| LLM 앱 에이전트 아키텍처 진단 | [antigravity_test/skills/agent_architecture_audit.md](./antigravity_test/skills/agent_architecture_audit.md) |
+| 자율 에이전트 루프 패턴 선택 | [antigravity_test/skills/autonomous_loops.md](./antigravity_test/skills/autonomous_loops.md) |
+
+전체 목록은 아래 상황별 선택 가이드를 참고하세요.
+
+---
+
 ## 상황별 선택 가이드
 
 | 상황 | 사용할 파일 | 먼저 준비할 것 |
