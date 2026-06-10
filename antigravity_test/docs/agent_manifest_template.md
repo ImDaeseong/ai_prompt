@@ -1,5 +1,7 @@
 # Template: Agent Manifest (에이전트 설계도)
 
+> **참고:** 이 템플릿은 도구 무관 일반 AI 에이전트 설계용입니다. Claude Code 에이전트 페르소나 형식은 `persona_code_reviewer.md` 등 `persona_*.md` 파일을 참조하세요.
+
 고성능 AI 에이전트를 구축하기 위한 표준 설계 템플릿입니다. 새로운 스킬 파일을 만들 때 이 구조를 따르세요.
 
 ---

@@ -47,6 +47,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 최근 30일 트렌드·인물·도구 리서치 | `/last30days <topic>` (설치: `/plugin marketplace add mvanhorn/last30days-skill`) |
 | LLM 앱 에이전트 아키텍처 진단 | [antigravity_test/skills/agent_architecture_audit.md](./antigravity_test/skills/agent_architecture_audit.md) |
 | 자율 에이전트 루프 패턴 선택 | [antigravity_test/skills/autonomous_loops.md](./antigravity_test/skills/autonomous_loops.md) |
+| 바이브 코딩 시 내 코딩 스타일 적용 | [imdaeseong_coding_style.md](./imdaeseong_coding_style.md) |
 
 전체 목록은 아래 상황별 선택 가이드를 참고하세요.
 
