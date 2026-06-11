@@ -34,6 +34,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 - 작업마다 필요한 프롬프트 1개만 추가로 사용합니다.
 - 분석 작업은 대상 프로젝트 폴더를 AI가 읽을 수 있는 상태로 준비합니다.
 - API 키, 토큰, 비밀번호, 고객 정보, 회사 내부 정보는 프롬프트나 코드에 넣지 않습니다.
+- 문서와 규칙 변경은 로컬 수정 및 검증까지만 수행하며, 서버 반영은 수동으로 진행합니다.
 
 ## Quick Pick — 가장 자주 쓰는 5가지
 
@@ -212,6 +213,9 @@ Visual Studio 버전: 2022
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-06-11 | imdaeseong_coding_style.md를 `ImDaeseong Vibe Coding Rules v2`로 전면 개편 — 문법 스타일 중심에서 설계·유지보수·기능 개발 중심으로 재구성 |
+| 2026-06-11 | 책임 분리, UI/비즈니스 로직 분리, DB·API·File·UI 경계, 명시적 데이터 모델, main 오케스트레이션, 오류 처리, 테스트 및 레거시 적용 원칙 추가 |
+| 2026-06-11 | 문서·규칙 변경은 로컬 검증까지만 수행하고 서버 반영은 수동으로 진행하도록 운영 원칙 명시 |
 | 2026-06-05 | GLOBAL_RULES.md 삭제 (DEPRECATED — CLAUDE.md로 대체 완료) |
 | 2026-06-05 | VSCODE_AI_RULES.md 삭제 (ai-workspace/_templates/ 단일 관리로 통합) |
 | 2026-06-05 | llm-service-market-strategy.md → ai-workspace/business/ 이동 (전략 문서) |
@@ -228,4 +232,4 @@ Visual Studio 버전: 2022
 
 ---
 
-Last Updated: 2026-06-05
+Last Updated: 2026-06-11
