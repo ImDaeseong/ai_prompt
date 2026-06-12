@@ -15,13 +15,26 @@
 > 모든 스킬은 표준 헤더(ID/Version/Date), 핵심 기능, 사용 명령어, **실전 예시(Before→After)** 를 포함합니다.
 > `rtcf_expert`는 기반 스킬로, 다른 스킬에 내릴 지시를 먼저 RTCF 구조로 정제할 때 사용합니다.
 
-### ✍️ 창작 (Creative)
+### ✍️ 창작 — 기존 (Creative)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
 |------|--------|------|------------|
 | `novel_manager.md` | Novel Manager | 소설 세계관·등장인물 설정 일관성 관리 | `/char`, `/check`, `/suggest` |
 | `lyrics_analyzer.md` | Lyrics Analyzer | 가사 운율·음절 분석 및 Suno 프롬프트 생성 | `/lyric`, `/rhyme`, `/music-gen` |
 | `story_architect.md` | Story Architect | 플롯 설계 및 서사 구조화 | `/plot`, `/beat`, `/twist` |
 | `mv_director.md` | MV Director | 뮤직비디오 연출 기획 및 영상 AI 프롬프트 생성 | `/storyboard`, `/scene`, `/style` |
+
+### 📖 스토리 생성 프레임워크 — 업계 표준 (Story Generation)
+> 실제 AI 플랫폼·GitHub 프로젝트에서 널리 사용되는 유명 프레임워크를 스킬화
+
+| 파일 | 스킬명 | 출처 | 핵심 명령어 |
+|------|--------|------|------------|
+| `heros_journey.md` | Hero's Journey | Joseph Campbell + Vogler "The Writer's Journey" | `/journey`, `/stage`, `/shadow` |
+| `save_the_cat.md` | Save the Cat | Blake Snyder 15 Beats — 할리우드 표준 시나리오 구조 | `/beats`, `/beat`, `/short` |
+| `story_bible_generator.md` | Story Bible Generator | Sudowrite / ProseWeave AI 표준 — AI 기억 일관성 해결 | `/bible`, `/bible-check`, `/bible-export` |
+| `character_card.md` | Character Card | SillyTavern + NovelAI 캐릭터 카드 표준 | `/card`, `/card-voice`, `/card-react` |
+| `lorebook_world_info.md` | Lorebook / World Info | SillyTavern World Info 공식 형식 — 키워드 기반 동적 설정 | `/lore-add`, `/lore-find`, `/lore-check` |
+| `pixar_story_engine.md` | Pixar Story Engine | Writers Room Story Engine (GitHub) + Pixar 22 Rules + Story Spine | `/spine`, `/btf`, `/pixar-check` |
+| `mv_story_workflow.md` | MV Story Workflow | AI Content Labs MV Workflow — 노래→MV 7단계 자동화 | `/mv-all`, `/mv-step`, `/mv-short` |
 
 ### 📈 경제·전략 (Business)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
@@ -54,6 +67,45 @@
 | `prompt_engineer.md` | Prompt Engineer | 단순 명령을 모델별 최적화 고정밀 프롬프트로 변환 | `/refine`, `/image`, `/video`, `/music` |
 | `community_meta_prompter.md` | Community Meta Prompter | 문제를 분해하고 근거를 점검하는 5단계 메타 프롬프팅 | `/meta-think`, `/blueprint`, `/optimize` |
 | `community_snowflake_writer.md` | Snowflake Writer | 한 문장에서 소설 전체를 9단계로 확장하는 구조적 작법 | `/step`, `/expand`, `/check-structure` |
+
+---
+
+## 🗺 스킬 선택 가이드
+
+### 스토리 설계 — 어느 스킬을 쓸까?
+
+| 상황 | 추천 스킬 |
+|------|---------|
+| 장르·구조 무관, 범용 플롯 설계 | `story_architect` — `/plot`, `/beat-scene`, `/twist` |
+| 성장·모험 서사, 신화적 구조 필요 | `heros_journey` — `/journey`, `/stage` |
+| 시나리오·쇼츠·MV 15개 비트로 쪼개기 | `save_the_cat` — `/beats`, `/beat [번호]`, `/short` |
+| 단편·MV, Pixar식 Story Spine + 인과관계 | `pixar_story_engine` — `/spine`, `/btf`, `/pixar-check` |
+
+### 설정 관리 — 계층 순서대로 사용
+
+```
+STEP 1  character_card       → 인물 한 명씩 정의 (/card)
+STEP 2  story_bible_generator→ 전체 세계관·규칙 통합 문서화 (/bible)
+STEP 3  novel_manager        → 집필 중 설정 충돌 실시간 감지 (/check)
+STEP 4  lorebook_world_info  → 키워드 기반 동적 설정 주입, 토큰 절약 (/lore-add)
+```
+
+### MV 제작 — 순서대로 두 스킬 연계
+
+```
+STEP 1  mv_story_workflow  → 노래 분석 → 세계관/캐릭터/장면 목록/이미지 프롬프트 생성 ("무엇을")
+STEP 2  mv_director        → 생성된 장면 목록 → 카메라·조명·컷 타이밍 결정 ("어떻게")
+```
+
+### 프롬프트 최적화 — 목적별 구분
+
+| 목적 | 추천 스킬 |
+|------|---------|
+| 텍스트 프롬프트 구조 개선 (모달리티 무관) | `prompt_engineer` — `/refine` |
+| 문제 분해 → 근거 점검 → 5단계 메타 최적화 | `community_meta_prompter` — `/meta-think` |
+| 이미지 생성 전용 프롬프트 | `image_prompt_engineer` |
+
+---
 
 ## 🚀 시작하기
 1. **MCP 연결:** [docs/mcp_setup_guide.md](docs/mcp_setup_guide.md)를 참고하여 외부 도구를 연결하세요.
