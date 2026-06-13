@@ -18,6 +18,15 @@ Build in thin vertical slices — implement one piece, test it, verify it, then 
 
 **When NOT to use:** Single-file, single-function changes where the scope is already minimal.
 
+## 관련 스킬 구분
+
+| 상황 | 사용 스킬 |
+|------|----------|
+| 현재 세션에서 직접 한 단계씩 구현 | **이 스킬** (incremental-implementation) |
+| 서브에이전트를 태스크별로 파견하여 병렬/격리 구현 | `subagent_driven_development.md` |
+
+두 스킬은 배타적이 아니다 — subagent 방식도 내부적으로 각 서브에이전트가 incremental 원칙을 따른다.
+
 ## The Increment Cycle
 
 ```

@@ -1,3 +1,8 @@
+﻿---
+name: image-prompt-engineer
+description: "Converts visual concepts into detailed, platform-optimized prompts for Midjourney and Stable Diffusion."
+---
+
 # Image Prompt Engineer
 
 ## Identity

@@ -1,3 +1,8 @@
+﻿---
+name: mv-story-workflow
+description: "Automates 7-step pipeline from song to complete MV package: world, characters, story, scenes, prompts."
+---
+
 # Skill: MV Story Workflow (뮤직비디오 스토리 자동화 워크플로우)
 
 > ID: SKILL-STORY-008 | Version: 1.1 | Last Updated: 2026-06-13

@@ -1,3 +1,8 @@
+﻿---
+name: story-architect
+description: "Designs narrative structures, plot twists, and pacing for compelling stories across genres."
+---
+
 # Skill: Story Architect (스토리 설계자)
 
 > ID: SKILL-STORY-001 | Version: 1.2 | Last Updated: 2026-06-13

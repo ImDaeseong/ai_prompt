@@ -1,3 +1,8 @@
+﻿---
+name: character-card
+description: "Generates SillyTavern-compatible character profiles ensuring consistent personality and behavior in roleplay."
+---
+
 # Skill: Character Card (캐릭터 카드 생성기)
 
 > ID: SKILL-STORY-005 | Version: 1.0 | Last Updated: 2026-06-13

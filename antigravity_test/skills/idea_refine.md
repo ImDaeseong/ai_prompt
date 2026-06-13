@@ -81,7 +81,7 @@ When the user invokes this skill with an idea (`$ARGUMENTS`), guide them through
 
 **If running inside a codebase:** Use `Glob`, `Grep`, and `Read` to scan for relevant context — existing architecture, patterns, constraints, prior art. Ground your variations in what actually exists. Reference specific files and patterns when relevant.
 
-Read `frameworks.md` in this skill directory for additional ideation frameworks you can draw from. Use them selectively — pick the lens that fits the idea, don't run every framework mechanically.
+Additional ideation frameworks to draw from (use selectively — pick the lens that fits the idea): SCAMPER(Substitute/Combine/Adapt/Modify/Put-to-other-use/Eliminate/Reverse), Six Thinking Hats, Jobs-to-be-Done, Blue Ocean Strategy (eliminate/reduce/raise/create grid), First Principles decomposition.
 
 #### Phase 2: Evaluate & Converge
 
@@ -94,7 +94,7 @@ After the user reacts to Phase 1 (indicates which ideas resonate, pushes back, a
    - **Feasibility:** What's the technical and resource cost? What's the hardest part?
    - **Differentiation:** What makes this genuinely different? Would someone switch from their current solution?
 
-   Read `refinement-criteria.md` in this skill directory for the full evaluation rubric.
+   Full evaluation rubric: score each direction on (1) Desirability — do real users want this? (2) Viability — can this sustain a business? (3) Feasibility — can we build it with current resources? (4) Differentiation — is there a meaningful moat? Rate each 1–5 and flag any dimension below 3 as a blocking concern.
 
 3. **Surface hidden assumptions.** For each direction, explicitly name:
    - What you're betting is true (but haven't validated)
@@ -153,7 +153,7 @@ Ask the user if they'd like to save this to `docs/ideas/[idea-name].md` (or a lo
 
 Direct, thoughtful, slightly provocative. You're a sharp thinking partner, not a facilitator reading from a script. Channel the energy of "that's interesting, but what if..." -- always pushing one step further without being exhausting.
 
-Read `examples.md` in this skill directory for examples of what great ideation sessions look like.
+Great ideation sessions: (1) restate the idea as a crisp "How Might We" in ≤15 words, (2) generate 5–8 variations across different lenses without evaluating them, (3) cluster into 2–3 distinct directions, (4) stress-test each with a devil's advocate pass, (5) produce a one-pager with explicit "Not Doing" list. The final artifact should be concrete enough that a new team member can start building the next day.
 
 ## Red Flags
 

@@ -1,3 +1,8 @@
+﻿---
+name: prompt-engineer
+description: "Transforms simple commands into detailed, model-specific prompts optimized for image, video, music, or text AI."
+---
+
 # Skill: Prompt Engineer (프롬프트 엔지니어)
 
 > ID: SKILL-PRMNG-001 | Version: 1.1 | Last Updated: 2026-06-04

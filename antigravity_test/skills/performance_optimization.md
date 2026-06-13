@@ -314,7 +314,7 @@ npx lhci autorun
 
 ## See Also
 
-For detailed performance checklists, optimization commands, and anti-pattern reference, see `references/performance-checklist.md`.
+**Quick checklist:** (1) Measure first — profile before guessing. (2) Fix the biggest bottleneck first. (3) Cache at the right layer (in-memory → CDN → DB query cache). (4) Eliminate unnecessary work (N+1 queries, redundant renders, over-fetching). (5) Defer non-critical work (lazy load, defer JS, async I/O). (6) Re-measure after each change to confirm impact.
 
 
 ## Common Rationalizations

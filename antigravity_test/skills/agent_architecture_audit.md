@@ -1,3 +1,8 @@
+﻿---
+name: agent-architecture-audit
+description: "Diagnoses LLM/agent systems across 12 layers to find wrapper regression, memory pollution, and hidden loops."
+---
+
 # Skill: Agent Architecture Audit (에이전트 아키텍처 진단)
 
 > ID: SKILL-AGENT-AUDIT-001 | Version: 1.0 | Source: affaan-m/ECC | Last Updated: 2026-06-11
@@ -113,4 +118,4 @@ LLM/에이전트 앱의 12레이어 스택을 진단해 래퍼 회귀, 메모리
 
 ---
 
-*관련: `systematic_debugging.md` (근본 원인 디버깅 4단계), `dev/DEBUG_MENTOR.md` (전략·판단)*
+*관련: `systematic_debugging.md` (근본 원인 디버깅 4단계)*

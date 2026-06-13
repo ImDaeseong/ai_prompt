@@ -1,3 +1,8 @@
+﻿---
+name: story-bible-generator
+description: "Generates comprehensive Story Bibles managing worlds, characters, rules, and continuity for long-form projects."
+---
+
 # Skill: Story Bible Generator (스토리 바이블 생성기)
 
 > ID: SKILL-STORY-004 | Version: 1.0 | Last Updated: 2026-06-13

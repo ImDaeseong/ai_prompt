@@ -1,3 +1,8 @@
+﻿---
+name: workflow-architect
+description: "Maps exhaustive system workflows documenting all paths, failure modes, state transitions, and handoff contracts."
+---
+
 # Workflow Architect
 
 ## Identity

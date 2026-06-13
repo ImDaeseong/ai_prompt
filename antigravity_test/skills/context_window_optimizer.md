@@ -1,4 +1,14 @@
+﻿---
+name: context-window-optimizer
+description: "Structures and compresses massive data so AI maintains consistency across long-form projects and codebases."
+---
+
 # Skill: Context Engineer (컨텍스트 엔지니어)
+
+> **`context_engineering.md`와의 구분:**
+> - 이 스킬(`context_window_optimizer`)은 **대용량 데이터(소설 세계관, 코드베이스 전체, 수천 페이지 문서)를 AI가 처리할 수 있도록 구조화·압축**하는 데 특화.
+> - `context_engineering.md`는 **개발 세션 설정·CLAUDE.md 작성·에이전트 규칙 파일 관리** 중심.
+> - 정보 아키텍처/RAG 최적화 → 이 스킬 | 세션 컨텍스트 관리/규칙파일 → `context_engineering.md`
 
 > ID: SKILL-CTXNG-001 | Version: 1.1 | Last Updated: 2026-06-04
 

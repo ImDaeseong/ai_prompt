@@ -1,3 +1,8 @@
+﻿---
+name: heros-journey
+description: "Maps stories using Campbell-Vogler's 12-stage hero's journey framework across any genre."
+---
+
 # Skill: Hero's Journey (영웅 여정 스토리 설계자)
 
 > ID: SKILL-STORY-002 | Version: 1.0 | Last Updated: 2026-06-13

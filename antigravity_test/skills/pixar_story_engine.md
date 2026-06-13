@@ -1,3 +1,8 @@
+﻿---
+name: pixar-story-engine
+description: "Designs emotionally resonant stories combining Story Spine, South Park causality, and Pixar's 22 rules."
+---
+
 # Skill: Pixar Story Engine (픽사 스토리 엔진)
 
 > ID: SKILL-STORY-007 | Version: 1.0 | Last Updated: 2026-06-13

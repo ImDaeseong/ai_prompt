@@ -1,3 +1,8 @@
+﻿---
+name: multi-agent-director
+description: "Builds and manages specialist AI teams, coordinating cross-functional collaboration with defined roles and quality gates."
+---
+
 # Skill: Multi-Agent Director (멀티 에이전트 디렉터)
 
 > ID: SKILL-MADIR-001 | Version: 1.1 | Last Updated: 2026-06-04

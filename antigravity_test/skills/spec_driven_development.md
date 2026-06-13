@@ -160,7 +160,7 @@ Break the plan into discrete, implementable tasks:
 
 ### Phase 4: Implement
 
-Execute tasks one at a time following `skills/incremental-implementation/SKILL.md` (`incremental-implementation`) and `skills/test-driven-development/SKILL.md` (`test-driven-development`). Use `skills/context-engineering/SKILL.md` (`context-engineering`) to load the right spec sections and source files at each step rather than flooding the agent with the entire spec.
+Execute tasks one at a time following `incremental_implementation.md` (`incremental-implementation`) and `test_driven_development.md` (`test-driven-development`). Use `context_engineering.md` (`context-engineering`) to load the right spec sections and source files at each step rather than flooding the agent with the entire spec.
 
 ## Keeping the Spec Alive
 
@@ -180,6 +180,16 @@ The spec is a living document, not a one-time artifact:
 | "The spec will slow us down" | A 15-minute spec prevents hours of rework. Waterfall in 15 minutes beats debugging in 15 hours. |
 | "Requirements will change anyway" | That's why the spec is a living document. An outdated spec is still better than no spec. |
 | "The user knows what they want" | Even clear requests have implicit assumptions. The spec surfaces those assumptions. |
+
+## 관련 스킬 구분
+
+| 상황 | 사용 스킬 |
+|------|----------|
+| 코딩 전, 요구사항이 불분명할 때 | **이 스킬** (spec-driven) — 먼저 스펙 작성 |
+| 스펙 완료 후, 구현 중 의사결정을 검증할 때 | `doubt_driven_development.md` — 각 결정을 역방향으로 검증 |
+| 스펙은 있고 태스크 실행 방식을 결정할 때 | `subagent_driven_development.md` 또는 `incremental_implementation.md` |
+
+두 스킬은 충돌이 아니라 **순서 관계**: spec-driven → 구현 중 doubt-driven.
 
 ## Red Flags
 

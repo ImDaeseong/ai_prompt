@@ -1,3 +1,8 @@
+﻿---
+name: autonomous-loops
+description: "Designs self-running Claude Code patterns from sequential pipelines to RFC-driven DAGs with cost controls."
+---
+
 # Skill: Autonomous Loops (자율 에이전트 루프)
 
 > ID: SKILL-AUTO-LOOP-001 | Version: 1.0 | Source: affaan-m/ECC | Last Updated: 2026-06-11

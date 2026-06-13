@@ -1,3 +1,8 @@
+﻿---
+name: lorebook-world-info
+description: "Manages expansive worldbuilding settings as keyword-triggered entries for efficient context usage."
+---
+
 # Skill: Lorebook / World Info (로어북 세계 정보 관리자)
 
 > ID: SKILL-STORY-006 | Version: 1.0 | Last Updated: 2026-06-13

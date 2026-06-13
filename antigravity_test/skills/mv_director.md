@@ -1,3 +1,8 @@
+﻿---
+name: mv-director
+description: "Plans cinematic direction, camera movements, and visual styling for music video scenes from story frameworks."
+---
+
 # Skill: MV Director (뮤직비디오 디렉터)
 
 > ID: SKILL-MVDIR-001 | Version: 1.2 | Last Updated: 2026-06-13
