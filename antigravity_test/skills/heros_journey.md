@@ -1,3 +1,8 @@
+---
+name: heros-journey
+description: Design story structure using Joseph Campbell's Hero's Journey and Vogler's 12 stages. Use for growth narratives, adventure stories, and mythic arcs.
+---
+
 # Skill: Hero's Journey (영웅 여정 스토리 설계자)
 
 > ID: SKILL-STORY-002 | Version: 1.0 | Last Updated: 2026-06-13

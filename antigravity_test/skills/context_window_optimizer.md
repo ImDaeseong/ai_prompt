@@ -1,3 +1,8 @@
+---
+name: context-window-optimizer
+description: Restructure and compress context to maximize AI working memory efficiency. Use when approaching token limits or when context is cluttered with noise.
+---
+
 # Skill: Context Engineer (컨텍스트 엔지니어)
 
 > ID: SKILL-CTXNG-001 | Version: 1.1 | Last Updated: 2026-06-04

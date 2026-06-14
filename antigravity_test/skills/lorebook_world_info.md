@@ -1,3 +1,8 @@
+---
+name: lorebook-world-info
+description: Manage world-building data using SillyTavern World Info keyword-injection format. Use to maintain setting consistency across long stories or AI sessions.
+---
+
 # Skill: Lorebook / World Info (로어북 세계 정보 관리자)
 
 > ID: SKILL-STORY-006 | Version: 1.0 | Last Updated: 2026-06-13

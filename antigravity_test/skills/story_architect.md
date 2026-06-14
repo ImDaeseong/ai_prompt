@@ -1,3 +1,8 @@
+---
+name: story-architect
+description: Design complex narrative structures and control plot tension across any genre. Use for planning multi-act stories, drama series, and novel structures.
+---
+
 # Skill: Story Architect (스토리 설계자)
 
 > ID: SKILL-STORY-001 | Version: 1.2 | Last Updated: 2026-06-13

@@ -58,6 +58,29 @@
 | `systematic_debugging.md` | Systematic Debugging | 4단계 근본 원인 디버깅 — 증상 수정 금지, 원인 먼저 | `/debug`, `/root-cause` |
 | `agent_architecture_audit.md` | Agent Architecture Audit | 12레이어 LLM 앱 진단 — 래퍼 회귀·메모리 오염·도구 실패 | 심각도 기반 수정 계획 |
 | `agentic_engineering.md` | Agentic Engineering | Eval-first·15분 단위 분해·모델 라우팅 AI-first 개발 운영 | 15분 단위 분해 원칙 사용 |
+| `mcp_builder.md` | MCP Builder | MCP 서버 설계·구현 4단계 가이드 (TS/Python, 평가 포함) | 4단계 워크플로 참조 |
+| `webapp_testing.md` | Web App Testing | Playwright 로컬 웹앱 테스트 — 정찰 우선, networkidle 필수 | Python Playwright 스크립트 |
+| `web_artifacts_builder.md` | Web Artifacts Builder | React+TS+Tailwind → 단일 HTML 아티팩트 번들 | `init-artifact.sh`, `bundle.sh` |
+| `rapid_prototyper.md` | Rapid Prototyper | 3일 내 MVP — 가설 검증, Next.js+Supabase+Vercel 스택 | 4단계 워크플로우 참조 |
+| `multi_agent_architect.md` | Multi-Agent Architect | 프로덕션 멀티에이전트 파이프라인 — 실패 공학, 신뢰 모델, 관찰 가능성 | 아키텍처 검토 체크리스트 |
+
+### 🎨 디자인·창작 (Design & Creative)
+| 파일 | 스킬명 | 역할 | 핵심 명령어 |
+|------|--------|------|------------|
+| `frontend_design.md` | Frontend Design | 고유 UI 디자인 시스템 — 색상·타입·레이아웃 (AI 기본 패턴 탈피) | 2패스 프로세스 참조 |
+| `algorithmic_art.md` | Algorithmic Art | p5.js 생성 예술 — 시드 기반 인터랙티브 HTML 아티팩트 | 철학 → 코드 2단계 |
+| `frontend_checklist.md` | Frontend Checklist | 배포 전 385개 규칙 감사 — HTML/CSS/JS/성능/접근성/SEO/보안 | `/checklist [category]` |
+| `design_md_creator.md` | DESIGN.md Creator | AI 에이전트용 디자인 시스템 문서 생성 — 9섹션 Google Stitch 포맷 | 9섹션 포맷 참조 |
+
+### 📝 문서·협업 (Docs & Collaboration)
+| 파일 | 스킬명 | 역할 | 핵심 명령어 |
+|------|--------|------|------------|
+| `doc_coauthoring.md` | Doc Co-Authoring | 기술 문서·스펙·제안서 3단계 공동 작성 워크플로 | 3단계(수집→정제→검증) |
+
+### 🔒 보안 (Security)
+| 파일 | 스킬명 | 역할 | 핵심 명령어 |
+|------|--------|------|------------|
+| `security_pentest.md` | Security Pentest | 인가된 침투 테스트 5단계 — 정찰·취약점·익스플로잇·보고 (서면 승인 필수) | 5단계 프로세스 참조 |
 
 ### 🧠 사고·프롬프트 (Reasoning)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |

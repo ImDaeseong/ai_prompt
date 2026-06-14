@@ -1,3 +1,8 @@
+---
+name: mv-story-workflow
+description: Automate music video story creation from song to image prompts in 7 steps. Use when turning Suno songs into MV storyboards and scene prompts.
+---
+
 # Skill: MV Story Workflow (뮤직비디오 스토리 자동화 워크플로우)
 
 > ID: SKILL-STORY-008 | Version: 1.1 | Last Updated: 2026-06-13

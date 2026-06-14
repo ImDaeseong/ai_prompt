@@ -1,3 +1,8 @@
+---
+name: story-bible-generator
+description: Generate a comprehensive story bible for world-building, characters, and rules. Use to maintain AI memory consistency across long creative projects and drama series.
+---
+
 # Skill: Story Bible Generator (스토리 바이블 생성기)
 
 > ID: SKILL-STORY-004 | Version: 1.0 | Last Updated: 2026-06-13

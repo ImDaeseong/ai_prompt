@@ -72,7 +72,17 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | Claude Code 플러그인을 한 번에 설치하고 싶다 | [claude-plugins-setup.md](./claude-plugins-setup.md) | Claude Code 설치 완료 |
 | VS Code에서 AI 코딩 세션 무한 루프·토큰 낭비를 방지하고 싶다 | [ai-workspace/_templates/VSCODE_AI_RULES.md](../ai-workspace/_templates/VSCODE_AI_RULES.md) | VS Code + Claude Code 또는 GitHub Copilot 설치 완료 |
 | 웹 UI/컴포넌트/페이지 개발 시 디자인 품질을 높이고 싶다 | [antigravity_test/skills/frontend_design.md](./antigravity_test/skills/frontend_design.md) | 개발할 UI 목적, 기술 스택 |
+| MCP 서버를 직접 만들고 싶다 | [antigravity_test/skills/mcp_builder.md](./antigravity_test/skills/mcp_builder.md) | 연동할 서비스 API 문서 |
+| 로컬 웹앱을 Playwright로 자동 테스트하고 싶다 | [antigravity_test/skills/webapp_testing.md](./antigravity_test/skills/webapp_testing.md) | 실행 중인 로컬 서버 URL |
+| React 앱을 단일 HTML로 번들해 공유하고 싶다 | [antigravity_test/skills/web_artifacts_builder.md](./antigravity_test/skills/web_artifacts_builder.md) | 구현할 UI 목적 |
+| 기술 문서·스펙을 체계적으로 함께 작성하고 싶다 | [antigravity_test/skills/doc_coauthoring.md](./antigravity_test/skills/doc_coauthoring.md) | 문서 유형, 독자, 목적 |
+| p5.js로 생성 예술·인터랙티브 아트를 만들고 싶다 | [antigravity_test/skills/algorithmic_art.md](./antigravity_test/skills/algorithmic_art.md) | 작품 컨셉, 스타일 방향 |
 | 모바일 앱(Flutter/SwiftUI/RN) UI 품질 체크리스트가 필요하다 | [antigravity_test/skills/ui_ux_pro_max.md](./antigravity_test/skills/ui_ux_pro_max.md) | 앱 유형, 플랫폼 |
+| 웹 페이지를 HTML/CSS/JS/성능/접근성/SEO/보안 기준으로 감사하고 싶다 | [antigravity_test/skills/frontend_checklist.md](./antigravity_test/skills/frontend_checklist.md) | 점검할 페이지 URL 또는 코드 |
+| AI 에이전트가 일관된 UI를 생성하도록 DESIGN.md를 만들고 싶다 | [antigravity_test/skills/design_md_creator.md](./antigravity_test/skills/design_md_creator.md) | 브랜드 무드, 주요 색상 |
+| 프로덕션급 멀티 에이전트 파이프라인을 설계·검토하고 싶다 | [antigravity_test/skills/multi_agent_architect.md](./antigravity_test/skills/multi_agent_architect.md) | 에이전트 역할, 파이프라인 목적 |
+| 아이디어를 3일 내 작동하는 프로토타입으로 빠르게 검증하고 싶다 | [antigravity_test/skills/rapid_prototyper.md](./antigravity_test/skills/rapid_prototyper.md) | 검증할 가설, 핵심 기능 |
+| 인가된 환경에서 보안 침투 테스트를 체계적으로 진행하고 싶다 | [antigravity_test/skills/security_pentest.md](./antigravity_test/skills/security_pentest.md) | 서면 승인 문서, 테스트 범위 |
 | Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | [prompts/](./prompts/) | 작업 목적 |
 
 ## 권장 작업 흐름
@@ -205,7 +215,7 @@ Visual Studio 버전: 2022
 | 보안/설계 | 1 | project_보안_초기설계 |
 | 음악/미디어 | 1 | sunoai |
 | 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 18 | skills/ 폴더 — UI/디자인 2개 포함 (frontend_design, ui_ux_pro_max) |
+| antigravity_test 스킬 | 37 | skills/ 폴더 — 5개 신규 추가 (2026-06-14) |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
 | Hermes 워크플로우 프롬프트 | 7 | prompts/ 폴더 (ai-architect, validation, quality-gate 등) |
 
@@ -213,6 +223,10 @@ Visual Studio 버전: 2022
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-06-14 | 신규 스킬 5개 추가 (GitHub 검토): `frontend_checklist` (385규칙), `design_md_creator` (DESIGN.md 포맷), `multi_agent_architect` (프로덕션 멀티에이전트), `rapid_prototyper` (3일 MVP), `security_pentest` (인가된 모의해킹) |
+| 2026-06-14 | 신규 스킬 5개 추가 (anthropics/skills 공식): `mcp_builder`, `webapp_testing`, `web_artifacts_builder`, `doc_coauthoring`, `algorithmic_art` |
+| 2026-06-14 | `frontend_design.md` Anthropic 최신 버전으로 갱신 (기존 파일 유지, 내용 보완) |
+| 2026-06-14 | hermes-agents `CLAUDE.md`에 스킬 관리 규칙 명시 — 모든 스킬은 `ai_prompt/antigravity_test/skills/`에 저장 |
 | 2026-06-11 | imdaeseong_coding_style.md를 `ImDaeseong Vibe Coding Rules v2`로 전면 개편 — 문법 스타일 중심에서 설계·유지보수·기능 개발 중심으로 재구성 |
 | 2026-06-11 | 책임 분리, UI/비즈니스 로직 분리, DB·API·File·UI 경계, 명시적 데이터 모델, main 오케스트레이션, 오류 처리, 테스트 및 레거시 적용 원칙 추가 |
 | 2026-06-11 | 문서·규칙 변경은 로컬 검증까지만 수행하고 서버 반영은 수동으로 진행하도록 운영 원칙 명시 |
@@ -232,4 +246,4 @@ Visual Studio 버전: 2022
 
 ---
 
-Last Updated: 2026-06-11
+Last Updated: 2026-06-14

@@ -1,43 +1,140 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
-source: https://github.com/anthropics/skills/tree/main/skills/frontend-design
-license: See LICENSE.txt in source repository
+description: Create visually distinctive web interfaces grounded in subject matter rather than generic templates. Use when designing UI, building design systems, or creating frontend layouts that need to feel intentional and unique.
 ---
 
-This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+# Frontend Design
 
-The user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.
+## Core Philosophy
 
-## Design Thinking
+Design from the subject outward — not from templates inward. Every visual choice should feel specific to this product, this audience, this content.
 
-Before coding, understand the context and commit to a BOLD aesthetic direction:
-- **Purpose**: What problem does this interface solve? Who uses it?
-- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
-- **Constraints**: Technical requirements (framework, performance, accessibility).
-- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+---
 
-**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
+## Two-Pass Process
 
-Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
-- Production-grade and functional
-- Visually striking and memorable
-- Cohesive with a clear aesthetic point-of-view
-- Meticulously refined in every detail
+### Pass 1: Build the Token System
 
-## Frontend Aesthetics Guidelines
+Before writing any code, define a compact design system:
 
-Focus on:
-- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.
-- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
-- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
-- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.
-- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic. Apply creative forms like gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays.
+**Palette (4–6 named colors)**
+```
+--color-primary:   #1a1a2e   /* Deep navy — authority */
+--color-accent:    #e94560   /* Coral red — action */
+--color-surface:   #f5f5f0   /* Warm off-white — base */
+--color-muted:     #8b8b8b   /* Mid-gray — secondary text */
+--color-border:    #e0ddd8   /* Subtle separator */
+```
 
-NEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character.
+**Typography Pair**
+```css
+/* Display: personality */
+font-family: 'Playfair Display', Georgia, serif;
 
-Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.
+/* Body: legibility */
+font-family: 'Inter', system-ui, sans-serif;
+```
 
-**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
+**Layout Concept** (pick one)
+- Editorial: asymmetric grid, strong vertical rhythm
+- Dashboard: data density, consistent spacing units
+- Landing: progressive disclosure, z-axis depth
+- Tool: functional clarity, keyboard-first
 
-Remember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
+**Signature Element** — one distinctive choice:
+- Unusual grid (7 columns, not 12)
+- Exposed structure (visible grid lines)
+- Monospaced type for data
+- Strong typographic scale (8:1 ratio)
+
+### Pass 2: Review Against the Brief
+
+Before coding, verify each choice:
+- Does the palette reflect the content domain?
+- Does the typography pair communicate the right tone?
+- Does the layout serve the primary user action?
+- Is there one bold choice and everything else disciplined?
+
+---
+
+## Avoiding AI Design Defaults
+
+These combinations are overused — avoid as primary aesthetic:
+
+| Avoid | Because |
+|-------|---------|
+| Cream (#faf9f5) + serif display + terracotta | Ubiquitous in AI outputs |
+| Near-black + acid-green (#00ff88) | Developer-aesthetic cliché |
+| Full-bleed broadsheet layout | Newspaper pastiche |
+| Purple/violet gradients | Startup template default |
+| Inter font + gray-100 background + rounded-2xl | Tailwind starter default |
+
+---
+
+## Typographic Hierarchy
+
+```css
+/* Scale with intention — not uniform steps */
+.display    { font-size: 4rem;    line-height: 1.05; font-weight: 800; }
+.heading-1  { font-size: 2.25rem; line-height: 1.15; font-weight: 700; }
+.heading-2  { font-size: 1.5rem;  line-height: 1.25; font-weight: 600; }
+.body       { font-size: 1rem;    line-height: 1.65; font-weight: 400; }
+.caption    { font-size: 0.875rem;line-height: 1.5;  font-weight: 400; }
+.label      { font-size: 0.75rem; line-height: 1;    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+```
+
+---
+
+## Structure as Information
+
+Only use structural elements when they carry meaning:
+- Numbered lists: order genuinely matters
+- Borders: separation is functionally meaningful
+- Color: encodes a specific data dimension
+- Size: represents hierarchy or importance
+
+**If you can remove a structural element and lose no information, remove it.**
+
+---
+
+## Writing in Design
+
+Words appear in a design for one reason: to make it easier to understand.
+
+```
+❌ "Leverage our platform to optimize your workflow"
+✅ "Save 2 hours per week on reporting"
+
+❌ "Click here to get started"
+✅ "Create your first project"
+
+❌ "An error occurred"
+✅ "Couldn't save — check your internet connection"
+```
+
+---
+
+## Motion Principles
+
+- **Purposeful**: Motion serves navigation, not decoration
+- **Fast**: 150–250ms for micro-interactions, 300–400ms for page transitions
+- **Respect preference**: `prefers-reduced-motion: reduce` must disable all animation
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+---
+
+## Quality Fundamentals
+
+- [ ] Responsive at 320px, 768px, 1280px, 1920px
+- [ ] Keyboard navigable (Tab order logical, focus states visible)
+- [ ] Color contrast ≥ 4.5:1 for body text, ≥ 3:1 for large text
+- [ ] Motion respects `prefers-reduced-motion`
+- [ ] One bold choice — everything else disciplined

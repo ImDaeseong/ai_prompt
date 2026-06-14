@@ -1,3 +1,8 @@
+---
+name: mv-director
+description: Direct music video scenes with camera, lighting, and emotional intensity decisions. Use after mv-story-workflow to add cinematic detail to scene lists.
+---
+
 # Skill: MV Director (뮤직비디오 디렉터)
 
 > ID: SKILL-MVDIR-001 | Version: 1.2 | Last Updated: 2026-06-13

@@ -1,3 +1,8 @@
+---
+name: save-the-cat
+description: Structure scripts and MV stories using Blake Snyder's 15-beat Hollywood framework. Use for screenplays, shorts, and scene-level story beats.
+---
+
 # Skill: Save the Cat Beat Sheet (세이브 더 캣 비트 시트)
 
 > ID: SKILL-STORY-003 | Version: 1.0 | Last Updated: 2026-06-13

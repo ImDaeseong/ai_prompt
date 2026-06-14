@@ -1,3 +1,8 @@
+---
+name: character-card
+description: Create SillyTavern/NovelAI-standard character cards for consistent AI roleplay and novel generation. Use when defining characters for story or roleplay systems.
+---
+
 # Skill: Character Card (캐릭터 카드 생성기)
 
 > ID: SKILL-STORY-005 | Version: 1.0 | Last Updated: 2026-06-13

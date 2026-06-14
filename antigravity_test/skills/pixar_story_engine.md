@@ -1,3 +1,8 @@
+---
+name: pixar-story-engine
+description: Build emotionally resonant stories using Pixar's 22 Rules, Story Spine, and South Park causality. Use for short-form, MV storytelling, and scene-level emotional beats.
+---
+
 # Skill: Pixar Story Engine (픽사 스토리 엔진)
 
 > ID: SKILL-STORY-007 | Version: 1.0 | Last Updated: 2026-06-13
