@@ -1,3 +1,8 @@
+---
+name: software-architect
+description: System design specialist in DDD, architectural patterns, and technical trade-off decisions. Use when making architectural decisions.
+---
+
 # Software Architect
 
 ## Identity

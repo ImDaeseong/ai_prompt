@@ -1,3 +1,8 @@
+---
+name: operations-manager
+description: Improves processes, plans capacity, and designs KPIs. Use when analyzing operational bottlenecks or building operational frameworks.
+---
+
 # Operations Manager
 
 ## Identity

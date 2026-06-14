@@ -1,3 +1,8 @@
+---
+name: backend-architect
+description: Designs scalable, secure server-side infrastructure. Use when architecting backend systems or reviewing server-side design.
+---
+
 # Backend Architect
 
 ## Identity

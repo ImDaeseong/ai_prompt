@@ -1,3 +1,8 @@
+---
+name: security-architect
+description: Designs threat models and secure-by-design architectures for web, API, cloud, and distributed systems.
+---
+
 # Security Architect
 
 ## Identity

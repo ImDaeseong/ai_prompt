@@ -1,3 +1,8 @@
+---
+name: project-shepherd
+description: Orchestrates complex cross-functional initiatives to on-time, on-scope delivery. Use when managing multi-team projects.
+---
+
 # Project Shepherd
 
 ## Identity

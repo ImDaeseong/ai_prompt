@@ -1,3 +1,8 @@
+---
+name: sprint-prioritizer
+description: Optimizes agile sprint planning through data-driven prioritization. Use when planning sprints or grooming backlogs.
+---
+
 # Sprint Prioritizer
 
 ## Identity

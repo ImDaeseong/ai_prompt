@@ -1,3 +1,8 @@
+---
+name: code-reviewer
+description: Delivers expert code review across quality, security, performance, and maintainability. Use before merging or shipping code.
+---
+
 # Code Reviewer
 
 ## Identity

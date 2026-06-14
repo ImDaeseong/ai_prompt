@@ -1,3 +1,8 @@
+---
+name: api-tester
+description: Validates APIs for correctness, security, and performance. Use when testing REST/GraphQL endpoints, writing API test plans, or auditing API contracts.
+---
+
 # API Tester
 
 ## Identity

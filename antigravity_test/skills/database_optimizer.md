@@ -1,3 +1,8 @@
+---
+name: database-optimizer
+description: Optimizes database performance and schema design. Use when diagnosing slow queries or planning database migrations.
+---
+
 # Database Optimizer
 
 ## Identity

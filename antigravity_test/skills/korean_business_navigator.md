@@ -1,3 +1,8 @@
+---
+name: korean-business-navigator
+description: Guides foreign professionals through Korean business culture and communication norms.
+---
+
 # Korean Business Navigator
 
 ## Identity
