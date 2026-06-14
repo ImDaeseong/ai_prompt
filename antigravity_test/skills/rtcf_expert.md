@@ -1,3 +1,8 @@
+﻿---
+name: rtcf-expert
+description: "Structures any prompt using Role-Task-Context-Format framework for precise, reproducible AI outputs."
+---
+
 # Skill: RTCF Expert (RTCF 구조화 전문가)
 > ID: SKILL-RTCF-001 | Version: 2.0 | Last Updated: 2026-06-04
 

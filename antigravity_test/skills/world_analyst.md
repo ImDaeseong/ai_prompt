@@ -1,3 +1,8 @@
+﻿---
+name: world-analyst
+description: "Synthesizes market insights, career trends, and AI developments into actionable decision intelligence."
+---
+
 # Skill: World Analyst (월드 애널리스트)
 
 > ID: SKILL-WLDAL-001 | Version: 1.1 | Last Updated: 2026-06-04
@@ -20,7 +25,7 @@
 - `/world-change` : 기술 발전이 사회 구조와 일자리에 미치는 장기적 변화를 진단합니다.
 
 ## 4. 데이터 저장 구조
-분석 보고서 및 관심 종목/키워드는 `docs/analyst_reports/` 폴더에 저장됩니다.
+분석 보고서 및 관심 종목/키워드는 `docs/analyst_reports/` 폴더에 저장됩니다. (기본값 — 프로젝트 루트 기준. 다른 경로를 원하면 사용자가 지정.)
 
 ## 5. 실전 예시 (Example)
 

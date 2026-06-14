@@ -1,3 +1,8 @@
+﻿---
+name: novel-manager
+description: "Tracks character details, worldbuilding consistency, and detects continuity errors across chapters."
+---
+
 # Skill: Novel Manager (소설 매니저)
 
 > ID: SKILL-NOVEL-001 | Version: 1.1 | Last Updated: 2026-06-04
@@ -21,7 +26,7 @@
 - `/list-char` : 현재 등록된 모든 인물 목록을 확인합니다.
 
 ## 4. 데이터 저장 구조
-모든 설정 데이터는 `docs/story_bible.json` 파일에 구조화되어 저장됩니다.
+모든 설정 데이터는 `docs/story_bible.json` 파일에 구조화되어 저장됩니다. (기본값 — 프로젝트 루트 기준. 다른 경로를 원하면 사용자가 지정.)
 
 ## 5. 실전 예시 (Example)
 

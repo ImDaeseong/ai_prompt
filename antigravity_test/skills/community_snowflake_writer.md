@@ -1,3 +1,8 @@
+﻿---
+name: community-snowflake-writer
+description: "Expands a core idea progressively through 9-step process to build complete, structured novel designs."
+---
+
 # Skill: Community Snowflake Writer (스노우플레이크 작가)
 
 > ID: SKILL-SNFLK-001 | Version: 1.1 | Last Updated: 2026-06-04

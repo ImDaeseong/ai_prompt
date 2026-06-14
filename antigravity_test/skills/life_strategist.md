@@ -1,3 +1,8 @@
+﻿---
+name: life-strategist
+description: "Designs AI-powered side hustles, automation strategies, and long-term wealth building plans for the AI era."
+---
+
 # Skill: Life & Wealth Strategist (인생 및 자산 전략가)
 
 > ID: SKILL-LFSRT-001 | Version: 1.1 | Last Updated: 2026-06-04
@@ -20,7 +25,7 @@
 - `/roadmap` : AI 시대에 도태되지 않기 위한 개인 맞춤형 5개년 생존 전략을 생성합니다.
 
 ## 4. 데이터 저장 구조
-모든 전략 로드맵과 수익 모델 아이디어는 `docs/life_blueprints/` 폴더에 저장됩니다.
+모든 전략 로드맵과 수익 모델 아이디어는 `docs/life_blueprints/` 폴더에 저장됩니다. (기본값 — 프로젝트 루트 기준. 다른 경로를 원하면 사용자가 지정.)
 
 ## 5. 실전 예시 (Example)
 

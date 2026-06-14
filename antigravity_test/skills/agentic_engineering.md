@@ -1,3 +1,8 @@
+﻿---
+name: agentic-engineering
+description: "Establishes eval-first workflows where AI implements features while humans manage quality and risk."
+---
+
 # Skill: Agentic Engineering (에이전트 엔지니어링)
 
 > ID: SKILL-AGENTIC-ENG-001 | Version: 1.0 | Source: affaan-m/ECC | Last Updated: 2026-06-11

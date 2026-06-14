@@ -1,3 +1,8 @@
+﻿---
+name: sequential-thinker
+description: "Breaks down complex problems into logical steps, verifying each one before reaching conclusions."
+---
+
 # Skill: Sequential Thinker (순차적 사고 전문가)
 
 > ID: SKILL-SEQTK-001 | Version: 1.1 | Last Updated: 2026-06-04

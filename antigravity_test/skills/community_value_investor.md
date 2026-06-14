@@ -1,3 +1,8 @@
+﻿---
+name: community-value-investor
+description: "Analyzes investments with focus on economic moats, intrinsic value, safety margins, and long-term viability."
+---
+
 # Skill: Community Value Investor (가치 투자 분석가)
 
 > ID: SKILL-VLINV-001 | Version: 1.1 | Last Updated: 2026-06-04

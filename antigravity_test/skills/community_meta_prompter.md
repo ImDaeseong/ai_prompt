@@ -1,3 +1,8 @@
+﻿---
+name: community-meta-prompter
+description: "Guides AI through structured thinking steps to analyze intent, sources, logic, and potential biases."
+---
+
 # Skill: Community Meta Prompter (메타 프롬프트 전문가)
 
 > ID: SKILL-MTAPM-001 | Version: 1.1 | Last Updated: 2026-06-04

@@ -1,3 +1,8 @@
+﻿---
+name: systematic-debugging
+description: "Investigates bugs through root cause analysis, hypothesis testing, and evidence gathering instead of guessing."
+---
+
 # Skill: Systematic Debugging (체계적 디버깅)
 
 > ID: SKILL-DEBUG-001 | Version: 1.1 | Source: NousResearch/hermes-agent | Last Updated: 2026-06-10

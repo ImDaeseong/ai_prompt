@@ -1,3 +1,8 @@
+﻿---
+name: lyrics-analyzer
+description: "Analyzes rhyme, meter, mood and generates AI music prompts optimized for Suno and Udio platforms."
+---
+
 # Skill: Lyrics Analyzer (가사 분석기)
 
 > ID: SKILL-LYRIC-001 | Version: 1.1 | Last Updated: 2026-06-04
@@ -20,7 +25,7 @@
 - `/structure [유형]` : Verse-Chorus-Bridge 등 곡 구조에 따른 가사 배열을 제안합니다.
 
 ## 4. 데이터 저장 구조
-가사 및 분석 결과는 `docs/lyrics_vault.jsonl`에 저장됩니다.
+가사 및 분석 결과는 `docs/lyrics_vault.jsonl`에 저장됩니다. (기본값 — 프로젝트 루트 기준. 다른 경로를 원하면 사용자가 지정.)
 
 ## 5. 실전 예시 (Example)
 

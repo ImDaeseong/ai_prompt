@@ -1,3 +1,8 @@
+﻿---
+name: agentic-orchestrator
+description: "Decomposes complex problems into sub-tasks and directs multiple AI agents to solve them in sequence."
+---
+
 # Skill: Agentic Orchestrator (에이전트 오케스트레이터)
 
 > ID: SKILL-ORCHS-001 | Version: 1.1 | Last Updated: 2026-06-04

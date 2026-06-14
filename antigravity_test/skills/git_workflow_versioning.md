@@ -13,6 +13,10 @@ Git is your safety net. Treat commits as save points, branches as sandboxes, and
 
 Always. Every code change flows through git.
 
+## 관련 스킬 구분
+
+> **`deprecation_migration.md`와의 예외 관계:** 이 스킬은 기본적으로 1~3일 단위 단기 브랜치를 권장하지만, 대규모 마이그레이션(API 교체, DB 스키마 전환)은 수 주간 장기 브랜치가 불가피할 수 있다. 그 경우 `deprecation_migration.md`의 지침을 따르며, 브랜치 장기 유지 이유를 PR 설명에 명시한다.
+
 ## Core Principles
 
 ### Trunk-Based Development (Recommended)

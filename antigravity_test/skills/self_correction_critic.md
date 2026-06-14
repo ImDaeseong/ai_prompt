@@ -1,3 +1,8 @@
+﻿---
+name: self-correction-critic
+description: "Reviews generated answers for facts, logic, intent, tone, and clarity before finalizing output."
+---
+
 # Skill: Self-Correction Critic (자가 수정 비평가)
 
 > ID: SKILL-SLCRT-001 | Version: 1.1 | Last Updated: 2026-06-04
