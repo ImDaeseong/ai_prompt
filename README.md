@@ -229,7 +229,7 @@ Visual Studio 버전: 2022
 | 보안/설계 | 1 | project_보안_초기설계 |
 | 음악/미디어 | 1 | sunoai |
 | 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 37 | skills/ 폴더 — 5개 신규 추가 (2026-06-14) |
+| antigravity_test 스킬 | 103 | skills/ 폴더 — 실제 파일 수 기준 (2026-06-20 확인) |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
 | Hermes 워크플로우 프롬프트 | 7 | prompts/ 폴더 (ai-architect, validation, quality-gate 등) |
 
