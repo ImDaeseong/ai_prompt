@@ -97,7 +97,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 프로덕션급 멀티 에이전트 파이프라인을 설계·검토하고 싶다 | [antigravity_test/skills/multi_agent_architect.md](./antigravity_test/skills/multi_agent_architect.md) | 에이전트 역할, 파이프라인 목적 |
 | 아이디어를 3일 내 작동하는 프로토타입으로 빠르게 검증하고 싶다 | [antigravity_test/skills/rapid_prototyper.md](./antigravity_test/skills/rapid_prototyper.md) | 검증할 가설, 핵심 기능 |
 | 인가된 환경에서 보안 침투 테스트를 체계적으로 진행하고 싶다 | [antigravity_test/skills/security_pentest.md](./antigravity_test/skills/security_pentest.md) | 서면 승인 문서, 테스트 범위 |
-| Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | prompts/ (미복원 — ai-workspace에서 이전 예정) | 작업 목적 |
+| Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | antigravity_test/skills/ 참조 (prompts/ 폴더는 2026-06-16 제거 — skills/ 포맷으로 대체됨) | 작업 목적 |
 
 ## 권장 작업 흐름
 
@@ -231,7 +231,7 @@ Visual Studio 버전: 2022
 | 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
 | antigravity_test 스킬 | 103 | skills/ 폴더 — 실제 파일 수 기준 (2026-06-20 확인) |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
-| Hermes 워크플로우 프롬프트 | 0 | prompts/ 폴더 미복원 — ai-workspace에서 이전 예정 (2026-06-05 이관 기록 있음) |
+| Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
 
 ### 주요 변경 이력
 
