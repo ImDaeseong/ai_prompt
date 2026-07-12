@@ -64,6 +64,12 @@
 | `rapid_prototyper.md` | Rapid Prototyper | 3일 내 MVP — 가설 검증, Next.js+Supabase+Vercel 스택 | 4단계 워크플로우 참조 |
 | `multi_agent_architect.md` | Multi-Agent Architect | 프로덕션 멀티에이전트 파이프라인 — 실패 공학, 신뢰 모델, 관찰 가능성 | 아키텍처 검토 체크리스트 |
 
+### 🧩 스킬 저작 (Skill Authoring)
+| 파일 | 스킬명 | 역할 | 핵심 명령어 |
+|------|--------|------|------------|
+| `skill_creator.md` | Skill Creator | 신규 스킬 초안·테스트·벤치마크·반복 개선 전체 워크플로 (Anthropic 공식) | 인터뷰 → 초안 → 평가 → 반복 |
+| `skill_writing_quality.md` | Skill Writing Quality | 트리거 비용·구조·leading word·삭제 테스트 4단계 문장 다이어트 (Matt Pocock) | `skill_creator`로 만든 초안에 이어서 실행 |
+
 ### 🎨 디자인·창작 (Design & Creative)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
 |------|--------|------|------------|
