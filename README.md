@@ -229,7 +229,7 @@ Visual Studio 버전: 2022
 | 보안/설계 | 1 | project_보안_초기설계 |
 | 음악/미디어 | 1 | sunoai |
 | 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 104 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-12 확인) |
+| antigravity_test 스킬 | 105 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-17 확인) |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
 | Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
 
@@ -237,6 +237,7 @@ Visual Studio 버전: 2022
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-17 | 신규 스킬 추가: `hermes_config_audit` (FlorianBruniaux/claude-code-ultimate-guide의 8-dimension 감사 프롬프트를 hermes-agents 실제 구조에 맞게 재설계 — AGENTS.md/CLAUDE.md 일관성, permission hygiene, MCP, Codex/Cursor 참조 무결성, 3저장소 구조, freshness 6영역. 리포트만 하고 수정 전 확인 필수) |
 | 2026-07-12 | 신규 스킬 추가: `skill_writing_quality` (Matt Pocock `writing-great-skills` 체크리스트 — 트리거 비용/구조/leading word/삭제 테스트). 기존 `skill_creator`와 함께 antigravity_test/README.md에 "🧩 스킬 저작" 카테고리 신설 (이전까지 두 스킬 모두 README 미등재 상태였음) |
 | 2026-06-14 | 신규 스킬 5개 추가 (GitHub 검토): `frontend_checklist` (385규칙), `design_md_creator` (DESIGN.md 포맷), `multi_agent_architect` (프로덕션 멀티에이전트), `rapid_prototyper` (3일 MVP), `security_pentest` (인가된 모의해킹) |
 | 2026-06-14 | 신규 스킬 5개 추가 (anthropics/skills 공식): `mcp_builder`, `webapp_testing`, `web_artifacts_builder`, `doc_coauthoring`, `algorithmic_art` |

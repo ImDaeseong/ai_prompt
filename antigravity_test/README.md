@@ -57,6 +57,7 @@
 |------|--------|------|------------|
 | `systematic_debugging.md` | Systematic Debugging | 4단계 근본 원인 디버깅 — 증상 수정 금지, 원인 먼저 | `/debug`, `/root-cause` |
 | `agent_architecture_audit.md` | Agent Architecture Audit | 12레이어 LLM 앱 진단 — 래퍼 회귀·메모리 오염·도구 실패 | 심각도 기반 수정 계획 |
+| `hermes_config_audit.md` | Hermes Config Audit | hermes-agents 설정(AGENTS.md/CLAUDE.md·permission·MCP·Codex/Cursor 참조·3저장소 구조) 6영역 감사, 리포트만 하고 수정 전 확인 | 6-dimension 스코어카드 |
 | `agentic_engineering.md` | Agentic Engineering | Eval-first·15분 단위 분해·모델 라우팅 AI-first 개발 운영 | 15분 단위 분해 원칙 사용 |
 | `mcp_builder.md` | MCP Builder | MCP 서버 설계·구현 4단계 가이드 (TS/Python, 평가 포함) | 4단계 워크플로 참조 |
 | `webapp_testing.md` | Web App Testing | Playwright 로컬 웹앱 테스트 — 정찰 우선, networkidle 필수 | Python Playwright 스크립트 |
