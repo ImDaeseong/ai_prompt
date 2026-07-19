@@ -40,7 +40,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 2. 아래 표에서 현재 작업에 맞는 프롬프트 파일 1개를 고릅니다.
 3. 프롬프트 안의 `[대괄호]` 값을 실제 상황에 맞게 채운 뒤 AI에게 전달합니다.
 
-새 프로젝트를 만들기 전이라면 먼저 [project_보안_초기설계_Prompts.md](./project_보안_초기설계_Prompts.md)를 사용하세요. 기능 구현 전에 API 키, 비밀번호, 고객 정보, 공개 불가 정보가 코드나 저장소에 섞이지 않게 점검하는 용도입니다.
+새 프로젝트를 만들기 전 보안 점검이 필요하면 [antigravity_test/skills/security_and_hardening.md](./antigravity_test/skills/security_and_hardening.md)를 사용하세요. 기능 구현 전에 API 키, 비밀번호, 고객 정보, 공개 불가 정보가 코드나 저장소에 섞이지 않게 점검하는 용도입니다.
 
 ## 공통 지침
 
@@ -54,11 +54,8 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 
 | 상황 | 파일 |
 |------|------|
-| 새 프로젝트 시작 전 보안 점검 | [project_보안_초기설계_Prompts.md](./project_보안_초기설계_Prompts.md) |
-| MFC 프로젝트 구조 파악 | [mfc_프로젝트_구조_Prompts.md](./mfc_프로젝트_구조_Prompts.md) |
-| Python 자동화 스크립트 생성 | [python_프로젝트생성_Prompts.md](./python_프로젝트생성_Prompts.md) |
-| Suno 음악 프롬프트 제작 | [sunoai_Prompts.md](./sunoai_Prompts.md) |
-| 멀티 에이전트 시스템 설계 | [multi-agent-implementation-guide.md](./multi-agent-implementation-guide.md) |
+| 새 프로젝트 시작 전 보안 점검 | [antigravity_test/skills/security_and_hardening.md](./antigravity_test/skills/security_and_hardening.md) |
+| 멀티 에이전트 시스템 설계 | [antigravity_test/skills/multi_agent_architect.md](./antigravity_test/skills/multi_agent_architect.md) |
 | 최근 30일 트렌드·인물·도구 리서치 | `/last30days <topic>` (설치: `/plugin marketplace add mvanhorn/last30days-skill`) |
 | LLM 앱 에이전트 아키텍처 진단 | [antigravity_test/skills/agent_architecture_audit.md](./antigravity_test/skills/agent_architecture_audit.md) |
 | 자율 에이전트 루프 패턴 선택 | [antigravity_test/skills/autonomous_loops.md](./antigravity_test/skills/autonomous_loops.md) |
@@ -72,18 +69,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 
 | 상황 | 사용할 파일 | 먼저 준비할 것 |
 |------|-------------|----------------|
-| 새 프로젝트 개발 전에 보안·공개 불가 정보·저장소 위험을 먼저 점검하고 싶다 | [project_보안_초기설계_Prompts.md](./project_보안_초기설계_Prompts.md) | 프로젝트 유형, 기술 스택, 외부 API/DB 사용 여부 |
-| MFC 프로젝트 구조를 처음 파악하고 싶다 | [mfc_프로젝트_구조_Prompts.md](./mfc_프로젝트_구조_Prompts.md) | 프로젝트 폴더 경로 |
-| MFC 프로젝트의 코드 품질과 이슈를 상세 분석하고 싶다 | [mfc_프로젝트_정밀분석_Prompts.md](./mfc_프로젝트_정밀분석_Prompts.md) | 프로젝트 폴더 경로 |
-| 수정 후 잔존 이슈와 출시 가능 여부를 최종 점검하고 싶다 | [mfc_프로젝트_최종검수_Prompts.md](./mfc_프로젝트_최종검수_Prompts.md) | 프로젝트 폴더, 이전 분석 결과물 |
-| MFC 특정 클래스를 집중 분석하고 싶다 | [mfc_클래스_심층분석_Prompts.md](./mfc_클래스_심층분석_Prompts.md) | 클래스명, 파일명 |
-| 새 MFC 프로젝트를 처음부터 생성하고 싶다 | [mfc_프로젝트생성_Prompts.md](./mfc_프로젝트생성_Prompts.md) | 프로젝트 이름, 앱 유형, Visual Studio 버전, 플랫폼 |
-| 새 Python 프로젝트를 처음부터 생성하고 싶다 | [python_프로젝트생성_Prompts.md](./python_프로젝트생성_Prompts.md) | 프로젝트 이름, 기능 명세, 기술 스택 |
-| 코드 변경 후 아키텍처 문서를 업데이트하고 싶다 | [common_프로젝트_분석_Prompts.md](./common_프로젝트_분석_Prompts.md) | 변경 파일, 기존 분석 문서 |
-| SVN 또는 로컬 폴더를 Git으로 옮길 계획을 세우고 싶다 | [common_git_마이그레이션_Prompts.md](./common_git_마이그레이션_Prompts.md) | 이관 대상 최상위 폴더 |
-| Suno AI로 상업용 음악 제작 프롬프트를 만들고 싶다 | [sunoai_Prompts.md](./sunoai_Prompts.md) | 가사, 장르, 분위기, 제작 방향 |
-| Multi-Agent 시스템을 Python부터 단계별로 구현하고 싶다 | [multi-agent-implementation-guide.md](./multi-agent-implementation-guide.md) | Agent 역할 목록, LLM API 키 |
-| Claude Code 플러그인을 한 번에 설치하고 싶다 | [claude-plugins-setup.md](./claude-plugins-setup.md) | Claude Code 설치 완료 |
+| 새 프로젝트 개발 전에 보안·공개 불가 정보·저장소 위험을 먼저 점검하고 싶다 | [antigravity_test/skills/security_and_hardening.md](./antigravity_test/skills/security_and_hardening.md) | 프로젝트 유형, 기술 스택, 외부 API/DB 사용 여부 |
 | VS Code에서 AI 코딩 세션 무한 루프·토큰 낭비를 방지하고 싶다 | [ai-workspace/_templates/VSCODE_AI_RULES.md](../ai-workspace/_templates/VSCODE_AI_RULES.md) | VS Code + Claude Code 또는 GitHub Copilot 설치 완료 |
 | 웹 UI/컴포넌트/페이지 개발 시 디자인 품질을 높이고 싶다 | [antigravity_test/skills/frontend_design.md](./antigravity_test/skills/frontend_design.md) | 개발할 UI 목적, 기술 스택 |
 | MCP 서버를 직접 만들고 싶다 | [antigravity_test/skills/mcp_builder.md](./antigravity_test/skills/mcp_builder.md) | 연동할 서비스 API 문서 |
@@ -91,7 +77,6 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | React 앱을 단일 HTML로 번들해 공유하고 싶다 | [antigravity_test/skills/web_artifacts_builder.md](./antigravity_test/skills/web_artifacts_builder.md) | 구현할 UI 목적 |
 | 기술 문서·스펙을 체계적으로 함께 작성하고 싶다 | [antigravity_test/skills/doc_coauthoring.md](./antigravity_test/skills/doc_coauthoring.md) | 문서 유형, 독자, 목적 |
 | p5.js로 생성 예술·인터랙티브 아트를 만들고 싶다 | [antigravity_test/skills/algorithmic_art.md](./antigravity_test/skills/algorithmic_art.md) | 작품 컨셉, 스타일 방향 |
-| 모바일 앱(Flutter/SwiftUI/RN) UI 품질 체크리스트가 필요하다 | [antigravity_test/skills/ui_ux_pro_max.md](./antigravity_test/skills/ui_ux_pro_max.md) | 앱 유형, 플랫폼 |
 | 웹 페이지를 HTML/CSS/JS/성능/접근성/SEO/보안 기준으로 감사하고 싶다 | [antigravity_test/skills/frontend_checklist.md](./antigravity_test/skills/frontend_checklist.md) | 점검할 페이지 URL 또는 코드 |
 | AI 에이전트가 일관된 UI를 생성하도록 DESIGN.md를 만들고 싶다 | [antigravity_test/skills/design_md_creator.md](./antigravity_test/skills/design_md_creator.md) | 브랜드 무드, 주요 색상 |
 | 프로덕션급 멀티 에이전트 파이프라인을 설계·검토하고 싶다 | [antigravity_test/skills/multi_agent_architect.md](./antigravity_test/skills/multi_agent_architect.md) | 에이전트 역할, 파이프라인 목적 |
@@ -100,75 +85,21 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 생성한 한국어 가사·소설·문서에서 AI가 쓴 티(번역투·기계적 나열·클리셰)를 없애고 싶다 | [antigravity_test/skills/korean_ai_tell_remover.md](./antigravity_test/skills/korean_ai_tell_remover.md) | 원문 텍스트 |
 | Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | antigravity_test/skills/ 참조 (prompts/ 폴더는 2026-06-16 제거 — skills/ 포맷으로 대체됨) | 작업 목적 |
 
-## 권장 작업 흐름
-
-### 신규 프로젝트 전체 흐름
+## 신규 프로젝트 권장 흐름
 
 ```text
-1. project_보안_초기설계_Prompts.md
+1. antigravity_test/skills/security_and_hardening.md (보안 초기 점검)
         ↓
 2. [ai-workspace] PROJECT_START.md + TESTING_DONE_CRITERIA.md 작성
         ↓
-3. mfc/python 프로젝트생성 (AI 코딩 중 VSCODE_AI_RULES.md 적용)
+3. 개발 (AI 코딩 중 VSCODE_AI_RULES.md 적용)
         ↓
 4. [ai-workspace] AI_CODING_REVIEW.md (머지 전)
         ↓
-5. mfc_최종검수 또는 common_프로젝트_분석
-        ↓
-6. [ai-workspace] PRE_DEPLOY.md (배포 전)
+5. [ai-workspace] PRE_DEPLOY.md (배포 전)
 ```
 
-### 기존 MFC 프로젝트 분석
-
-```text
-mfc_프로젝트_구조_Prompts.md
-        ↓
-mfc_프로젝트_정밀분석_Prompts.md  →  결과: MFC_CONTEXT.md + docs/ISSUES.md
-        ↓
-이슈 수정
-        ↓
-mfc_프로젝트_최종검수_Prompts.md  (MFC_CONTEXT.md + docs/ISSUES.md 첨부)
-```
-
-### 특정 클래스만 깊게 볼 때
-
-```text
-mfc_클래스_심층분석_Prompts.md
-```
-
-## 주요 입력 예시
-
-### 보안 초기 설계
-
-```text
-프로젝트 유형: 웹 서비스
-주요 사용자: 불특정 다수
-사용 기술 스택: React + Node.js
-외부 API 사용 여부: 있음
-데이터 저장 여부: DB 사용
-로그인·인증 필요 여부: 있음
-```
-
-### Python 프로젝트 생성
-
-```text
-[프로젝트 이름] image_converter
-[기능 명세] PNG를 WebP로 일괄 변환, 변환 진행률 표시
-[프로젝트 구조] 표준
-[사용 기술 스택] Python 3.11, Pillow
-[특수 제약 조건] 외부 API 사용 금지
-```
-
-### MFC 프로젝트 생성
-
-```text
-프로젝트 이름: MyApp
-앱 유형: Dialog
-Visual Studio 버전: 2022
-플랫폼: x64
-문자셋: Unicode
-사용 모듈: 파일 I/O, 스레드
-```
+> MFC/Python 프로젝트 생성·분석용 특화 프롬프트(`mfc_*`, `python_프로젝트생성` 등)는 2026-06-16 커밋(`a1e23b7`)에서 제거되었다. 필요하면 `antigravity_test/skills/` 포맷으로 다시 작성해 추가할 것.
 
 ## 보안 주의
 
@@ -190,14 +121,13 @@ Visual Studio 버전: 2022
 | 카테고리 | 스킬 | 핵심 명령어 |
 |---|---|---|
 | **UI/디자인** | `frontend_design` | 웹 UI 개발 시 필수 참조 — 타이포그래피, 컬러, 모션 |
-| **UI/디자인** | `ui_ux_pro_max` | 모바일 앱 UI 규칙, Pre-Delivery 체크리스트, 접근성 |
 | **프롬프트 기반** | `rtcf_expert` | `/rtcf`, `/audit` |
 | **프롬프트 기반** | `prompt_engineer` | `/refine`, `/image`, `/music` |
 | **에이전트 조율** | `agentic_orchestrator` | `/orchestrate`, `/delegate` |
 | **에이전트 조율** | `multi_agent_director` | `/team-up`, `/review` |
 | **사고/검증** | `sequential_thinker` | `/think`, `/verify` |
 | **사고/검증** | `self_correction_critic` | `/critique`, `/perfect` |
-| **사고/검증** | `context_engineer` | `/prune`, `/structure` |
+| **사고/검증** | `context_engineering` | 세션 시작·품질 저하 시 컨텍스트 정리 (슬래시 명령 없음) |
 | **사고/검증** | `community_meta_prompter` | `/meta-think`, `/blueprint` |
 | **창작** | `story_architect` | `/plot`, `/beat`, `/twist` |
 | **창작** | `novel_manager` | `/char`, `/check`, `/suggest` |
@@ -224,20 +154,18 @@ Visual Studio 버전: 2022
 
 | 카테고리 | 파일 수 | 파일 목록 |
 |----------|---------|-----------|
-| 공통 지침 | 1 | CLAUDE.md |
-| MFC 프롬프트 | 5 | 프로젝트생성, 구조, 정밀분석, 최종검수, 클래스심층분석 |
-| Python/공통 프롬프트 | 3 | python_프로젝트생성, common_프로젝트_분석, common_git_마이그레이션 |
-| 보안/설계 | 1 | project_보안_초기설계 |
-| 음악/미디어 | 1 | sunoai |
-| 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 106 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-19 확인) |
-| antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
+| 공통 지침 | 2 | CLAUDE.md, imdaeseong_coding_style.md |
+| antigravity_test 스킬 | 108 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-19 확인) |
+| antigravity_test 문서 | 5 | docs/ 폴더 내 가이드 문서 |
+| MFC/Python/공통/보안/음악/아키텍처 특화 프롬프트 | 0 | 2026-06-16 커밋(`a1e23b7`)에서 전부 제거 — antigravity_test/skills/ 포맷으로 대체 예정, 현재 미이관 |
 | Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
 
 ### 주요 변경 이력
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-19 | 검증루프에서 발견한 깨진 링크 정리: 루트 README의 Quick Pick·상황별 선택 가이드·권장 작업 흐름·주요 입력 예시에 남아있던 2026-06-16 삭제 파일(`mfc_*`, `python_프로젝트생성`, `common_*`, `sunoai_Prompts`, `multi-agent-implementation-guide`, `claude-plugins-setup`, `project_보안_초기설계_Prompts`) 참조 전부 제거·대체. `ui_ux_pro_max.md`(2026-06-14 삭제) 참조 3곳 제거. `context_engineer.md`→`context_engineering.md` 파일명 불일치 수정 및 존재하지 않는 `/prune /structure /anchor` 명령 서술 제거. `antigravity_test/README.md`의 `mcp_setup_guide.md`/`famous_mcp_and_skills.md`/`mcp_apps_guide.md`(모두 2026-06-16 삭제) 참조 3곳 제거 |
+| 2026-07-19 | 신규 스킬 2개 추가: `story_scenario_writer`(전문가 — 사연 대본 집필), `story_scenario_workflow`(관리자 — 5단계 파이프라인). 신규 가이드 문서 `antigravity_test/docs/antigravity_usage_guide.md` 추가 — 안티그래비티 워크플로우(관리자)/스킬(전문가) 분리 패턴, 규칙/워크플로/스킬 3단 구분표, 트리거 키워드 팁, Antigravity IDE 에이전트 우선 개발 팁을 유튜브 영상 10건(라핀, Mikey Website, Code A Program, Nikhil's AI, AI Stack Engineer, The Metaverse Guy, Core2web AI, Income stream surfers, Teacher's Tech 등) 참고해 정리. 중복·제휴 마케팅 위주 영상은 본문 대신 출처 표로만 남겨 문서 비대화 방지. Graphify 등 미검증 외부 도구는 [LICENSE-UNCONFIRMED] 태그로 표시하고 기존 `codebase-memory-mcp`와 기능 중복됨을 명시 |
 | 2026-07-19 | 신규 스킬 추가: `korean_ai_tell_remover` (`epoko77-ai/im-not-ai`, 3,834★, MIT — 한국어 AI 생성 텍스트 티 제거, 10분류·70여 패턴, S1-S3 심각도 등급). `Desktop/skills` 워크스페이스의 `curator` 스킬이 이미 참조 중이던 도구를 hermes-agents 자체 한국어 콘텐츠(가사/소설/문서) 후처리용으로 이식 — 두 저장소는 형식이 달라(에이전트 실행형 vs. 프롬프트 템플릿) 직접 복사 대신 이 저장소 컨벤션에 맞게 재작성함 |
 | 2026-07-17 | 신규 스킬 추가: `hermes_config_audit` (FlorianBruniaux/claude-code-ultimate-guide의 8-dimension 감사 프롬프트를 hermes-agents 실제 구조에 맞게 재설계 — AGENTS.md/CLAUDE.md 일관성, permission hygiene, MCP, Codex/Cursor 참조 무결성, 3저장소 구조, freshness 6영역. 리포트만 하고 수정 전 확인 필수) |
 | 2026-07-12 | 신규 스킬 추가: `skill_writing_quality` (Matt Pocock `writing-great-skills` 체크리스트 — 트리거 비용/구조/leading word/삭제 테스트). 기존 `skill_creator`와 함께 antigravity_test/README.md에 "🧩 스킬 저작" 카테고리 신설 (이전까지 두 스킬 모두 README 미등재 상태였음) |

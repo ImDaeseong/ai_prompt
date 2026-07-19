@@ -5,10 +5,8 @@
 ## 📂 폴더 구조
 - **`skills/`**: AI의 페르소나와 작업 로직을 정의한 스킬 파일들.
 - **`docs/`**: 가이드 및 데이터 저장 공간.
-  - `mcp_setup_guide.md`: 외부 MCP 서버 연결 방법.
-  - `famous_mcp_and_skills.md`: 주요 MCP 서버 및 스킬 카탈로그.
   - `agent_manifest_template.md`: 에이전트 매니페스트 템플릿.
-  - `mcp_apps_guide.md`: MCP 앱 가이드.
+  - `antigravity_usage_guide.md`: 워크플로우(관리자)/스킬(전문가) 분리 전략, 트리거 키워드, Antigravity IDE 에이전트 우선 개발 팁.
 
 ## 🛠 스킬 목록
 
@@ -35,6 +33,8 @@
 | `lorebook_world_info.md` | Lorebook / World Info | SillyTavern World Info 공식 형식 — 키워드 기반 동적 설정 | `/lore-add`, `/lore-find`, `/lore-check` |
 | `pixar_story_engine.md` | Pixar Story Engine | Writers Room Story Engine (GitHub) + Pixar 22 Rules + Story Spine | `/spine`, `/btf`, `/pixar-check` |
 | `mv_story_workflow.md` | MV Story Workflow | AI Content Labs MV Workflow — 노래→MV 7단계 자동화 | `/mv-all`, `/mv-step`, `/mv-short` |
+| `story_scenario_writer.md` | Story Scenario Writer | 사연 라디오/유튜브 사연 채널 대본 집필 — 구어체·훅·반전 배치 (전문가) | `/story-write`, `/story-hook`, `/story-twist` |
+| `story_scenario_workflow.md` | Story Scenario Workflow | 사연 소재→개요→초고→감수→발행 5단계 자동화 (관리자, writer에 위임) | `/story-all`, `/story-step`, `/story-outline` |
 
 ### 📈 경제·전략 (Business)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
@@ -49,7 +49,7 @@
 |------|--------|------|------------|
 | `agentic_orchestrator.md` | Agentic Orchestrator | 목표를 받는 즉시 서브 에이전트를 판단·지휘 (즉흥형) | `/orchestrate`, `/delegate` |
 | `multi_agent_director.md` | Multi-Agent Director | 팀 구성 먼저 설계 후 협업 구조 운영 (팀 설계형) | `/team-up`, `/review`, `/execute-all` |
-| `context_engineer.md` | Context Engineer | 방대한 데이터를 AI가 효율적으로 읽도록 정보 구조 설계 | `/structure`, `/prune`, `/anchor` |
+| `context_engineering.md` | Context Engineering | 세션 시작·품질 저하·작업 전환 시 에이전트에게 줄 컨텍스트를 정리 | 슬래시 명령 없음 — description 트리거 기반 |
 | `autonomous_loops.md` | Autonomous Loops | Sequential Pipeline·Infinite·Continuous PR·DAG 5가지 자율 루프 패턴 | 패턴 선택 결정 트리 사용 |
 
 ### 🔧 개발·진단 (Dev & Diagnosis)
