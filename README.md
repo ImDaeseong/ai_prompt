@@ -83,6 +83,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 아이디어를 3일 내 작동하는 프로토타입으로 빠르게 검증하고 싶다 | [antigravity_test/skills/rapid_prototyper.md](./antigravity_test/skills/rapid_prototyper.md) | 검증할 가설, 핵심 기능 |
 | 인가된 환경에서 보안 침투 테스트를 체계적으로 진행하고 싶다 | [antigravity_test/skills/security_pentest.md](./antigravity_test/skills/security_pentest.md) | 서면 승인 문서, 테스트 범위 |
 | 생성한 한국어 가사·소설·문서에서 AI가 쓴 티(번역투·기계적 나열·클리셰)를 없애고 싶다 | [antigravity_test/skills/korean_ai_tell_remover.md](./antigravity_test/skills/korean_ai_tell_remover.md) | 원문 텍스트 |
+| 생성한 영문 에세이·블로그·문서에서 AI가 쓴 티(em dash 남용·rule of three·클리셰)를 없애고 싶다 | [antigravity_test/skills/ai_tell_remover.md](./antigravity_test/skills/ai_tell_remover.md) | 원문 텍스트 |
 | Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | antigravity_test/skills/ 참조 (prompts/ 폴더는 2026-06-16 제거 — skills/ 포맷으로 대체됨) | 작업 목적 |
 
 ## 신규 프로젝트 권장 흐름
@@ -155,7 +156,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 카테고리 | 파일 수 | 파일 목록 |
 |----------|---------|-----------|
 | 공통 지침 | 2 | CLAUDE.md, imdaeseong_coding_style.md |
-| antigravity_test 스킬 | 108 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-19 확인) |
+| antigravity_test 스킬 | 109 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-19 확인) |
 | antigravity_test 문서 | 5 | docs/ 폴더 내 가이드 문서 |
 | MFC/Python/공통/보안/음악/아키텍처 특화 프롬프트 | 0 | 2026-06-16 커밋(`a1e23b7`)에서 전부 제거 — antigravity_test/skills/ 포맷으로 대체 예정, 현재 미이관 |
 | Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
@@ -164,6 +165,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-19 | 신규 스킬 추가: `ai_tell_remover` (`blader/humanizer`, 29,812★ 2026-07-19 GitHub API 직접 확인, MIT — 영문 AI 생성 산문 티 제거, 5분류·33패턴, em/en dash 완전 금지가 핵심). `Desktop/skills` 워크스페이스(별도 MIT 저장소, 13개 스킬) 전수 조사 후 `korean_ai_tell_remover`의 영문판 짝으로 이식 — 나머지 12개 스킬은 이 저장소의 기존 스킬(`*_advisor.md` 9종, `multi_agent_architect`, `design_md_creator`, `planning_task_breakdown` 등)과 상당 부분 중복되어 이식하지 않음. `hermes-agents` 자체(bots/tools/mcp_manager/scripts)는 인프라 코드만 있어 이식 대상 없음 |
 | 2026-07-19 | 검증루프에서 발견한 깨진 링크 정리: 루트 README의 Quick Pick·상황별 선택 가이드·권장 작업 흐름·주요 입력 예시에 남아있던 2026-06-16 삭제 파일(`mfc_*`, `python_프로젝트생성`, `common_*`, `sunoai_Prompts`, `multi-agent-implementation-guide`, `claude-plugins-setup`, `project_보안_초기설계_Prompts`) 참조 전부 제거·대체. `ui_ux_pro_max.md`(2026-06-14 삭제) 참조 3곳 제거. `context_engineer.md`→`context_engineering.md` 파일명 불일치 수정 및 존재하지 않는 `/prune /structure /anchor` 명령 서술 제거. `antigravity_test/README.md`의 `mcp_setup_guide.md`/`famous_mcp_and_skills.md`/`mcp_apps_guide.md`(모두 2026-06-16 삭제) 참조 3곳 제거 |
 | 2026-07-19 | 신규 스킬 2개 추가: `story_scenario_writer`(전문가 — 사연 대본 집필), `story_scenario_workflow`(관리자 — 5단계 파이프라인). 신규 가이드 문서 `antigravity_test/docs/antigravity_usage_guide.md` 추가 — 안티그래비티 워크플로우(관리자)/스킬(전문가) 분리 패턴, 규칙/워크플로/스킬 3단 구분표, 트리거 키워드 팁, Antigravity IDE 에이전트 우선 개발 팁을 유튜브 영상 10건(라핀, Mikey Website, Code A Program, Nikhil's AI, AI Stack Engineer, The Metaverse Guy, Core2web AI, Income stream surfers, Teacher's Tech 등) 참고해 정리. 중복·제휴 마케팅 위주 영상은 본문 대신 출처 표로만 남겨 문서 비대화 방지. Graphify 등 미검증 외부 도구는 [LICENSE-UNCONFIRMED] 태그로 표시하고 기존 `codebase-memory-mcp`와 기능 중복됨을 명시 |
 | 2026-07-19 | 신규 스킬 추가: `korean_ai_tell_remover` (`epoko77-ai/im-not-ai`, 3,834★, MIT — 한국어 AI 생성 텍스트 티 제거, 10분류·70여 패턴, S1-S3 심각도 등급). `Desktop/skills` 워크스페이스의 `curator` 스킬이 이미 참조 중이던 도구를 hermes-agents 자체 한국어 콘텐츠(가사/소설/문서) 후처리용으로 이식 — 두 저장소는 형식이 달라(에이전트 실행형 vs. 프롬프트 템플릿) 직접 복사 대신 이 저장소 컨벤션에 맞게 재작성함 |
