@@ -97,6 +97,7 @@ CLAUDE.md + 지금 필요한 프롬프트 파일 1개만 사용
 | 프로덕션급 멀티 에이전트 파이프라인을 설계·검토하고 싶다 | [antigravity_test/skills/multi_agent_architect.md](./antigravity_test/skills/multi_agent_architect.md) | 에이전트 역할, 파이프라인 목적 |
 | 아이디어를 3일 내 작동하는 프로토타입으로 빠르게 검증하고 싶다 | [antigravity_test/skills/rapid_prototyper.md](./antigravity_test/skills/rapid_prototyper.md) | 검증할 가설, 핵심 기능 |
 | 인가된 환경에서 보안 침투 테스트를 체계적으로 진행하고 싶다 | [antigravity_test/skills/security_pentest.md](./antigravity_test/skills/security_pentest.md) | 서면 승인 문서, 테스트 범위 |
+| 생성한 한국어 가사·소설·문서에서 AI가 쓴 티(번역투·기계적 나열·클리셰)를 없애고 싶다 | [antigravity_test/skills/korean_ai_tell_remover.md](./antigravity_test/skills/korean_ai_tell_remover.md) | 원문 텍스트 |
 | Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | antigravity_test/skills/ 참조 (prompts/ 폴더는 2026-06-16 제거 — skills/ 포맷으로 대체됨) | 작업 목적 |
 
 ## 권장 작업 흐름
@@ -229,7 +230,7 @@ Visual Studio 버전: 2022
 | 보안/설계 | 1 | project_보안_초기설계 |
 | 음악/미디어 | 1 | sunoai |
 | 아키텍처/도구 참고 | 2 | multi-agent-implementation-guide, claude-plugins-setup |
-| antigravity_test 스킬 | 105 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-17 확인) |
+| antigravity_test 스킬 | 106 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-19 확인) |
 | antigravity_test 문서 | 4 | docs/ 폴더 내 가이드 문서 |
 | Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
 
@@ -237,6 +238,7 @@ Visual Studio 버전: 2022
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-19 | 신규 스킬 추가: `korean_ai_tell_remover` (`epoko77-ai/im-not-ai`, 3,834★, MIT — 한국어 AI 생성 텍스트 티 제거, 10분류·70여 패턴, S1-S3 심각도 등급). `Desktop/skills` 워크스페이스의 `curator` 스킬이 이미 참조 중이던 도구를 hermes-agents 자체 한국어 콘텐츠(가사/소설/문서) 후처리용으로 이식 — 두 저장소는 형식이 달라(에이전트 실행형 vs. 프롬프트 템플릿) 직접 복사 대신 이 저장소 컨벤션에 맞게 재작성함 |
 | 2026-07-17 | 신규 스킬 추가: `hermes_config_audit` (FlorianBruniaux/claude-code-ultimate-guide의 8-dimension 감사 프롬프트를 hermes-agents 실제 구조에 맞게 재설계 — AGENTS.md/CLAUDE.md 일관성, permission hygiene, MCP, Codex/Cursor 참조 무결성, 3저장소 구조, freshness 6영역. 리포트만 하고 수정 전 확인 필수) |
 | 2026-07-12 | 신규 스킬 추가: `skill_writing_quality` (Matt Pocock `writing-great-skills` 체크리스트 — 트리거 비용/구조/leading word/삭제 테스트). 기존 `skill_creator`와 함께 antigravity_test/README.md에 "🧩 스킬 저작" 카테고리 신설 (이전까지 두 스킬 모두 README 미등재 상태였음) |
 | 2026-06-14 | 신규 스킬 5개 추가 (GitHub 검토): `frontend_checklist` (385규칙), `design_md_creator` (DESIGN.md 포맷), `multi_agent_architect` (프로덕션 멀티에이전트), `rapid_prototyper` (3일 MVP), `security_pentest` (인가된 모의해킹) |

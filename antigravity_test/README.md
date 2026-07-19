@@ -83,6 +83,7 @@
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
 |------|--------|------|------------|
 | `doc_coauthoring.md` | Doc Co-Authoring | 기술 문서·스펙·제안서 3단계 공동 작성 워크플로 | 3단계(수집→정제→검증) |
+| `korean_ai_tell_remover.md` | Korean AI Tell Remover | 한국어 AI 생성 텍스트 티 제거 — 번역투·기계적 나열·클리셰 10분류 | `/humanize [텍스트]` |
 
 ### 🔒 보안 (Security)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
