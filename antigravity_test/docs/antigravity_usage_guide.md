@@ -83,7 +83,7 @@ description은 스킬이 자동으로 트리거되는 유일한 근거다. 애�
 |---|---|---|
 | JSON Hooks | `"execute custom local shell scripts at critical stages of an Antigravity agent's execution cycle"` | `hermes-agents`의 pre-commit 훅(`scripts/check_*.py`)과 같은 개념 — 도구 호출 전후·루프 종료 시점에 결정론적 검증을 끼워 넣는다는 목적이 동일 |
 | Browser 서브에이전트 (`/browser`) | Chrome DevTools MCP와 네이티브 통합, 웹엠 비디오 녹화 지원 | `browser_testing_with_devtools.md`, `webapp_testing.md` — 이미 이 저장소가 Playwright/DevTools 기반으로 다루는 영역과 동일 |
-| Scheduled Tasks | `"Set up time-based triggers to start conversations periodically"` (Gemini 3.5 Flash 사용) | 이 저장소(ai_prompt)엔 대응 스킬 파일 없음 — `/loop`은 Claude Code 플랫폼 자체가 제공하는 기능이지 이 스킬 컬렉션의 파일이 아니다(2026-07-28 확인: `antigravity_test/skills/`에 `schedule.md`/`loop.md` 없음). 공식 문서(`code.claude.com/docs/en/scheduled-tasks`) 기준 실제 도구명은 `CronCreate`/`CronList`/`CronDelete`다 — 이전 버전은 `ScheduleWakeup`이라는 이름을 썼으나 이는 공식 문서에 없는 내부 명칭이라 정정 |
+| Scheduled Tasks | `"Set up time-based triggers to start conversations periodically"` (Gemini 3.5 Flash 사용) | 이 저장소(ai_prompt)엔 대응 스킬 파일 없음 — `/loop`은 Claude Code 플랫폼 자체가 제공하는 기능이지 이 스킬 컬렉션의 파일이 아니다(2026-07-28 확인: `antigravity_test/skills/`에 `schedule.md`/`loop.md` 없음). 공식 문서(`code.claude.com/docs/en/scheduled-tasks`) 기준 역할이 둘로 나뉜다: 예약 작업 생성·조회·삭제는 `CronCreate`/`CronList`/`CronDelete`, self-paced `/loop`가 다음 실행을 스스로 예약하거나 루프를 종료할 때는 `ScheduleWakeup`을 쓴다 — 하나가 다른 하나의 옛 이름이 아니라 서로 다른 역할 |
 | Projects (Git worktree 격리) | `"Projects natively support Git worktrees, allowing agents to operate in isolated background folders."` | `using_git_worktrees.md`와 정확히 같은 패턴 — 이미 이 저장소가 별도 스킬로 문서화해둔 워크플로우가 공식 기능으로도 존재함을 확인 |
 | Voice Transcription | 마이크 버튼 또는 `Ctrl+M`으로 음성 입력, 자동 전사 정리 | 이 저장소에 대응 스킬 없음 — 입력 방식(UI) 문제라 스킬 파일로 다룰 성격이 아님 |
 
