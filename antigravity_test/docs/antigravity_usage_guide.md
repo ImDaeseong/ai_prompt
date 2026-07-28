@@ -83,7 +83,7 @@ description은 스킬이 자동으로 트리거되는 유일한 근거다. 애�
 |---|---|---|
 | JSON Hooks | `"execute custom local shell scripts at critical stages of an Antigravity agent's execution cycle"` | `hermes-agents`의 pre-commit 훅(`scripts/check_*.py`)과 같은 개념 — 도구 호출 전후·루프 종료 시점에 결정론적 검증을 끼워 넣는다는 목적이 동일 |
 | Browser 서브에이전트 (`/browser`) | Chrome DevTools MCP와 네이티브 통합, 웹엠 비디오 녹화 지원 | `browser_testing_with_devtools.md`, `webapp_testing.md` — 이미 이 저장소가 Playwright/DevTools 기반으로 다루는 영역과 동일 |
-| Scheduled Tasks | `"Set up time-based triggers to start conversations periodically"` (Gemini 3.5 Flash 사용) | 이 환경의 `/schedule`, `/loop` 스킬 및 `ScheduleWakeup` 도구와 같은 개념 |
+| Scheduled Tasks | `"Set up time-based triggers to start conversations periodically"` (Gemini 3.5 Flash 사용) | 이 저장소(ai_prompt)엔 대응 스킬 파일 없음 — `/schedule`, `/loop`, `ScheduleWakeup`은 Claude Code 플랫폼 자체가 제공하는 기능이지 이 스킬 컬렉션의 파일이 아니다(2026-07-28 확인: `antigravity_test/skills/`에 `schedule.md`/`loop.md` 없음). 같은 "시간 기반 트리거" 개념이라는 점만 유효 |
 | Projects (Git worktree 격리) | `"Projects natively support Git worktrees, allowing agents to operate in isolated background folders."` | `using_git_worktrees.md`와 정확히 같은 패턴 — 이미 이 저장소가 별도 스킬로 문서화해둔 워크플로우가 공식 기능으로도 존재함을 확인 |
 | Voice Transcription | 마이크 버튼 또는 `Ctrl+M`으로 음성 입력, 자동 전사 정리 | 이 저장소에 대응 스킬 없음 — 입력 방식(UI) 문제라 스킬 파일로 다룰 성격이 아님 |
 
@@ -98,8 +98,8 @@ description은 스킬이 자동으로 트리거되는 유일한 근거다. 애�
 | Nikhil's AI 「Antigravity + Opencode」(2026-04-17) | Antigravity(계획)+OpenCode(실행) 역할 분담 | 1번의 관리자/전문가 분리와 동일 패턴, 설명란 대부분 제휴 링크라 [LOW-EVIDENCE] |
 | AI Stack Engineer 「Antigravity + Graphify」(2026-04-28) | 코드베이스 지식 그래프로 토큰 절약 (GitHub: `safishamsi/graphify`) | 이 환경엔 이미 `codebase-memory-mcp`가 같은 역할 수행 중 — 신규 도입 불필요. [LICENSE-UNCONFIRMED] |
 | Income stream surfers 「Google AntiGravity 스킬 세트」(2026-01-20) | GitHub `nextlevelbuilder/...`의 UI/UX 스킬 소개 | 2026-06-05에 `ui_ux_pro_max.md`로 이식했었으나 2026-06-14 커밋(`b153844`)에서 삭제됨 — 두 README의 깨진 링크는 2026-07-19에 정리됐고, `shipping_launch.md`의 남은 참조도 2026-07-28에 `frontend_checklist.md`로 수정됨(`validate_skills.ps1`이 이제 이런 죽은 참조를 자동 검출) |
-| The Metaverse Guy 「Google AntiGravity 에이전트 스킬」(2026-01-17) | `.agent/skills.md` 네이티브 파일 구조 | 이 저장소의 frontmatter+마크다운 형식과 동일, 배포 시 경로만 `.agent/skills/`로 복사 |
-| Core2web AI 「IDE vs CLI vs Antigravity 2.0」(2026-07-07) | CLI·예약 작업(Scheduled Tasks) 소개 | 이 워크스페이스의 `schedule`/`loop` 스킬로 이미 대응, 비영어 자막 기반이라 [LOW-EVIDENCE] |
+| The Metaverse Guy 「Google AntiGravity 에이전트 스킬」(2026-01-17) | `.agent/skills.md` 네이티브 파일 구조 | **2026-07-28 공식 문서로 정정:** 영상 주장과 달리 실제 구조는 스킬마다 별도 폴더가 필요한 `.agents/skills/<스킬-폴더>/SKILL.md`다(`antigravity.google/docs/skills`, WebFetch 원문 확인 — `"Antigravity now defaults to .agents/skills, but still maintains backward support for .agent/skills"`). 이 저장소의 평평한 `antigravity_test/skills/이름.md` 구조는 "경로만 복사"로는 호환되지 않고, 배포하려면 스킬마다 폴더를 만들고 파일명을 `SKILL.md`로 바꿔야 한다 |
+| Core2web AI 「IDE vs CLI vs Antigravity 2.0」(2026-07-07) | CLI·예약 작업(Scheduled Tasks) 소개 | 이 워크스페이스가 대응한다고 표시했던 `schedule`/`loop`는 이 저장소(ai_prompt)의 스킬 파일이 아니라 Claude Code 플랫폼 기능이다 — 4-2번 표에서 정정, 비영어 자막 기반이라 [LOW-EVIDENCE] |
 | Teacher's Tech 「초보자 튜토리얼: 첫 앱 만들기」(2026-01-05) | 포모도로 타이머를 자연어 프롬프트로 만들고 Netlify Drop으로 배포 | 신규 UI 조작법 튜토리얼로, 스킬/워크플로우 설계 원칙과 무관 — 이 가이드의 다룰 범위 밖 |
 
 > **반복 관찰:** 위 영상 중 다수(Mikey Website, Code A Program, The Metaverse Guy)가 동일한 제휴 링크(TestSprite)를 스폰서로 언급한다. 도구 자체의 유용성과 무관하게 같은 제휴 네트워크의 반복 노출일 가능성이 있어, 이 가이드에는 도구 추천으로 반영하지 않았다.
