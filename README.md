@@ -171,6 +171,7 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-28 | `antigravity_usage_guide.md`에 공식 문서(`antigravity.google/docs`) 기반 내용 추가: Rules/Workflows 정의 교차 확인, Knowledge(학습) 시스템 ↔ 이 워크스페이스의 MEMORY.md 대응 설명, Antigravity 2.0 신규 기능(JSON Hooks/Browser 서브에이전트/Scheduled Tasks/Projects/Voice) 매핑표. `ui_ux_pro_max.md` 관련 스테일 노트도 정정 |
 | 2026-07-28 | 신규 스킬 4개: `copywriting`/`marketing_psychology`(coreyhaines31/marketingskills, 42k★ MIT 검증), `rag_implementation`/`llm_evaluation`(wshobson/agents, 38.3k★ MIT 검증) — 사용자 요청으로 마케팅 실무·AI 엔지니어링 공백 보강 |
 | 2026-07-19 | 신규 스킬 3개: `ai_tell_remover`(영문 AI 티 제거, blader/humanizer 기반), `story_scenario_writer`/`story_scenario_workflow`(사연 대본 전문가/관리자 쌍). 가이드 `antigravity_usage_guide.md` 추가. 두 README의 삭제 파일 참조(깨진 링크) 전수 정리 |
 | 2026-07-17 | `hermes_config_audit` 스킬 추가 — hermes-agents 설정 6영역 감사 |
