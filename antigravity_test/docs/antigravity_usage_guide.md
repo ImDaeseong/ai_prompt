@@ -33,7 +33,7 @@ Code A Program 「Antigravity의 맞춤 설정 기능으로 코딩 속도를 10�
 **공식 문서 교차 확인(2026-07-28, `antigravity.google/docs/rules-workflows`, WebFetch로 원문 확인):** 위 표는 영상 하나에만 의존한 [LOW-EVIDENCE] 상태였으나, 공식 문서가 Rules와 Workflows를 다음과 같이 명시적으로 정의해 재확인됐다.
 - Rules: `"Rules are manually defined constraints for the Agent to follow, at both the local and global levels."` 활성화 방식이 4가지(수동 @멘션 / Always On / 모델이 설명 보고 자동 판단 / 파일 경로 glob 패턴 매칭 시 자동 적용)로 영상 요약보다 세분화되어 있다. 저장 위치는 전역 `~/.gemini/GEMINI.md`, 워크스페이스별 `.agents/rules/`.
 - Workflows: `"Workflows enable you to define a series of steps to guide the Agent through a repetitive set of tasks."` `/workflow-name` 슬래시 명령으로만 호출되는 수동 실행이며, Rules는 "persistent, reusable context at the prompt level"로 대비된다.
-- 이 공식 문서는 "Skill"을 별도 개념으로 명시적으로 다루지 않는다 — 위 표의 Skill 행은 여전히 이 저장소의 자체 관례(Anthropic Agent Skills 포맷 기반)이지, Antigravity 공식 3단 구분의 일부로 확인된 것은 아니다.
+- **정정(2026-07-28):** `rules-workflows` 문서 자체는 "Skill"을 다루지 않지만, Antigravity는 별도의 공식 `antigravity.google/docs/skills` 문서를 갖고 있다(4-2번 작성 중 확인). 즉 Skill도 Rules/Workflows와 마찬가지로 Antigravity의 공식 3단 개념 중 하나이며, "관련 상황일 때만 로드"라는 위 표의 정의도 공식 동작과 일치한다 — `"When a conversation starts, the agent sees a list of available skills with their names and descriptions. If a skill looks relevant to your task, the agent reads the full SKILL.md content."` 이 저장소의 스킬 파일 관례(frontmatter description 기반 트리거)는 이 공식 동작 방식과 개념이 같다. 다만 배치 구조(폴더+`SKILL.md`)는 4-2번 표에서 정정했듯 이 저장소의 평평한 `*.md` 구조와 다르다.
 
 ## 2. 스킬 description에 트리거 키워드 넣기
 
@@ -83,7 +83,7 @@ description은 스킬이 자동으로 트리거되는 유일한 근거다. 애�
 |---|---|---|
 | JSON Hooks | `"execute custom local shell scripts at critical stages of an Antigravity agent's execution cycle"` | `hermes-agents`의 pre-commit 훅(`scripts/check_*.py`)과 같은 개념 — 도구 호출 전후·루프 종료 시점에 결정론적 검증을 끼워 넣는다는 목적이 동일 |
 | Browser 서브에이전트 (`/browser`) | Chrome DevTools MCP와 네이티브 통합, 웹엠 비디오 녹화 지원 | `browser_testing_with_devtools.md`, `webapp_testing.md` — 이미 이 저장소가 Playwright/DevTools 기반으로 다루는 영역과 동일 |
-| Scheduled Tasks | `"Set up time-based triggers to start conversations periodically"` (Gemini 3.5 Flash 사용) | 이 저장소(ai_prompt)엔 대응 스킬 파일 없음 — `/schedule`, `/loop`, `ScheduleWakeup`은 Claude Code 플랫폼 자체가 제공하는 기능이지 이 스킬 컬렉션의 파일이 아니다(2026-07-28 확인: `antigravity_test/skills/`에 `schedule.md`/`loop.md` 없음). 같은 "시간 기반 트리거" 개념이라는 점만 유효 |
+| Scheduled Tasks | `"Set up time-based triggers to start conversations periodically"` (Gemini 3.5 Flash 사용) | 이 저장소(ai_prompt)엔 대응 스킬 파일 없음 — `/loop`은 Claude Code 플랫폼 자체가 제공하는 기능이지 이 스킬 컬렉션의 파일이 아니다(2026-07-28 확인: `antigravity_test/skills/`에 `schedule.md`/`loop.md` 없음). 공식 문서(`code.claude.com/docs/en/scheduled-tasks`) 기준 실제 도구명은 `CronCreate`/`CronList`/`CronDelete`다 — 이전 버전은 `ScheduleWakeup`이라는 이름을 썼으나 이는 공식 문서에 없는 내부 명칭이라 정정 |
 | Projects (Git worktree 격리) | `"Projects natively support Git worktrees, allowing agents to operate in isolated background folders."` | `using_git_worktrees.md`와 정확히 같은 패턴 — 이미 이 저장소가 별도 스킬로 문서화해둔 워크플로우가 공식 기능으로도 존재함을 확인 |
 | Voice Transcription | 마이크 버튼 또는 `Ctrl+M`으로 음성 입력, 자동 전사 정리 | 이 저장소에 대응 스킬 없음 — 입력 방식(UI) 문제라 스킬 파일로 다룰 성격이 아님 |
 
