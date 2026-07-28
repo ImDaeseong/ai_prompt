@@ -6,6 +6,8 @@ description: "홈페이지, 랜딩페이지, 가격 페이지, 기능 페이지,
 # Skill: Copywriting (마케팅 카피라이팅)
 
 > ID: SKILL-MARKETING-COPY-001 | Version: 2.0.1 | Source: coreyhaines31/marketingskills (42k★, MIT, 확인일 2026-07-28) | Last Updated: 2026-07-28
+>
+> 이 파일은 원본의 상당 부분을 재사용한다. MIT 라이선스 원문(저작권 표시 포함)은 [`../../NOTICE.md`](../../NOTICE.md)에 보존되어 있다. Copyright (c) 2025 Corey Haines.
 
 전환을 이끌어내는 명확하고 설득력 있는 마케팅 카피를 작성하는 스킬. 설득보다 명확함을 우선한다.
 

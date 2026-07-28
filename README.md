@@ -98,6 +98,10 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 > MFC/Python 프로젝트 생성·분석용 특화 프롬프트(`mfc_*`, `python_프로젝트생성` 등)는 2026-06-16 커밋(`a1e23b7`)에서 제거되었다. 필요하면 `antigravity_test/skills/` 포맷으로 다시 작성해 추가할 것.
 
+## 서드파티 고지
+
+일부 스킬(`copywriting`, `marketing_psychology`, `rag_implementation`, `llm_evaluation`)은 MIT 라이선스 GitHub 저장소의 콘텐츠를 상당 부분 재사용한다. 원본 저작권·허가 고지 전문은 [`NOTICE.md`](./NOTICE.md)에 보존되어 있다.
+
 ## 보안 주의
 
 이 저장소는 프롬프트 자산 저장소입니다. 다음 정보는 저장하거나 프롬프트에 넣지 마세요.

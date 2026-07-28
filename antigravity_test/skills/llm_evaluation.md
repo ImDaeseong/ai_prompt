@@ -6,6 +6,8 @@ description: Implement comprehensive evaluation strategies for LLM applications 
 # LLM Evaluation
 
 > ID: SKILL-LLM-EVAL-001 | Source: wshobson/agents (38.3k★, MIT, 확인일 2026-07-28) | Last Updated: 2026-07-28
+>
+> 이 파일은 원본의 상당 부분을 재사용한다. MIT 라이선스 원문(저작권 표시 포함)은 [`../../NOTICE.md`](../../NOTICE.md)에 보존되어 있다. Copyright (c) 2024 Seth Hobson.
 
 Master comprehensive evaluation strategies for LLM applications, from automated metrics to human evaluation and A/B testing.
 
