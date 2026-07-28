@@ -152,7 +152,7 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 | 카테고리 | 파일 수 | 파일 목록 |
 |----------|---------|-----------|
 | 공통 지침 | 2 | CLAUDE.md, imdaeseong_coding_style.md |
-| antigravity_test 스킬 | 113 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-28 확인) |
+| antigravity_test 스킬 | 114 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-29 확인) |
 | antigravity_test 문서 | 5 | docs/ 폴더 내 가이드 문서 |
 | 옛 특화 프롬프트(MFC/Python/prompts/) | 0 | 2026-06-16 커밋(`a1e23b7`)에서 전부 제거, antigravity_test/skills/ 포맷으로 대체 |
 
@@ -162,6 +162,7 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-29 | `office_automation_html_tools` 스킬 추가 — 예산/견적/마진/부가세 계산기·기안서 등 코드 없이 HTML 도구 생성 + Claude Design 제안서 + Drive·Gmail 자동화 체인 프롬프트 (라이즈젠 유튜브 출처, Anthropic 기능 설명 WebSearch로 교차 검증) |
 | 2026-07-28 | `copywriting`/`marketing_psychology`/`rag_implementation`/`llm_evaluation` 4개 스킬 전면 재작성 — 저장소 전체 문체·구조에 맞춰 다시 씀 |
 | 2026-07-28 | `antigravity_usage_guide.md`에 공식 문서(`antigravity.google/docs`) 기반 내용 추가: Rules/Workflows 정의 교차 확인, Knowledge(학습) 시스템 ↔ 이 워크스페이스의 MEMORY.md 대응 설명, Antigravity 2.0 신규 기능(JSON Hooks/Browser 서브에이전트/Scheduled Tasks/Projects/Voice) 매핑표 |
 | 2026-07-28 | 신규 스킬 4개 추가: `copywriting`/`marketing_psychology`/`rag_implementation`/`llm_evaluation` — 마케팅 실무·AI 엔지니어링 공백 보강 |
@@ -170,4 +171,4 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 ---
 
-Last Updated: 2026-07-28
+Last Updated: 2026-07-29

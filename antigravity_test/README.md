@@ -85,6 +85,7 @@
 | `doc_coauthoring.md` | Doc Co-Authoring | 기술 문서·스펙·제안서 3단계 공동 작성 워크플로 | 3단계(수집→정제→검증) |
 | `korean_ai_tell_remover.md` | Korean AI Tell Remover | 한국어 AI 생성 텍스트 티 제거 — 번역투·기계적 나열·클리셰 10분류 | `/humanize [텍스트]` |
 | `ai_tell_remover.md` | AI Tell Remover (English) | 영문 AI 생성 산문 티 제거 — em dash·rule of three·클리셰 5분류(33패턴) | `/humanize-en [텍스트]` |
+| `office_automation_html_tools.md` | Office Automation HTML Tools | 예산/견적/마진/부가세 계산기·기안서 등 코드 없이 HTML 도구 생성 + Claude Design 제안서 + Drive·Gmail 자동화 체인 프롬프트 | 프롬프트 뼈대 7종(대괄호만 교체) |
 
 ### 🔒 보안 (Security)
 | 파일 | 스킬명 | 역할 | 핵심 명령어 |
