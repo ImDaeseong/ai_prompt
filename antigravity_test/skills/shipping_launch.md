@@ -268,7 +268,7 @@ Every deployment needs a rollback plan before it happens:
 관련 스킬 참조:
 - 보안 검토: `appsec_engineer.md` (OWASP Top 10, 위협 모델링)
 - 성능 최적화: `performance_optimization.md` (Core Web Vitals, 병목 분석)
-- 접근성: `ui_ux_pro_max.md` (WCAG 2.1 AA 체크리스트, 터치 타겟)
+- 접근성: `frontend_checklist.md` (폼·업로드·검색·페이지네이션·모달 접근성 체크리스트)
 
 ## Common Rationalizations
 

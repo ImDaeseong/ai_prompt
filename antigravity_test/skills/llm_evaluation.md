@@ -142,5 +142,5 @@ results = await suite.evaluate(model=your_model, test_cases=test_cases)
 
 ## Related Skills
 
-- `rag_implementation`: 검색 파이프라인 자체를 만들 때
-- `skill_creator`: 스킬 성능을 benchmark/variance analysis로 측정할 때
+- `rag_implementation.md`: 검색 파이프라인 자체를 만들 때
+- `skill_creator.md`: 스킬 성능을 benchmark/variance analysis로 측정할 때

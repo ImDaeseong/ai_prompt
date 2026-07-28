@@ -153,4 +153,4 @@ description: "홈페이지, 랜딩페이지, 가격 페이지, 기능 페이지,
 
 ## 관련 스킬
 
-- `marketing_psychology`: 카피에 설득 심리 원칙을 적용할 때
+- `marketing_psychology.md`: 카피에 설득 심리 원칙을 적용할 때

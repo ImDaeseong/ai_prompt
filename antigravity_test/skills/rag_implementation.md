@@ -139,4 +139,4 @@ print(result["answer"])
 
 ## Related Skills
 
-- `llm_evaluation`: RAG 파이프라인의 검색 품질(MRR, NDCG, Precision@K)을 평가할 때
+- `llm_evaluation.md`: RAG 파이프라인의 검색 품질(MRR, NDCG, Precision@K)을 평가할 때
