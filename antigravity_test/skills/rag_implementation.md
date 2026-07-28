@@ -34,12 +34,12 @@ Stores document chunks as embeddings and returns the nearest ones to a query vec
 
 Converts text into vectors so semantic similarity becomes a distance calculation.
 
-Model choice depends on which LLM provider you're already paired with and whether accuracy or cost matters more — check current pricing/availability before committing, since this table dates quickly:
+Model choice depends on which LLM provider you're already paired with and whether accuracy or cost matters more — check current pricing/availability before committing, since this table dates quickly (verified against each provider's docs on 2026-07-28):
 
 | Model | Dimensions | Fit |
 |-------|------------|----------|
-| voyage-3-large | 1024 | Paired with Claude |
-| voyage-code-3 | 1024 | Code search specifically |
+| voyage-3-large | 1024 (default; Matryoshka — 256/512/2048도 선택 가능) | Paired with Claude |
+| voyage-code-3 | 1024 (default; 위와 동일하게 256/512/2048 선택 가능) | Code search specifically |
 | text-embedding-3-large | 3072 | Paired with OpenAI models, accuracy-first |
 | text-embedding-3-small | 1536 | Paired with OpenAI models, cost-first |
 | bge-large-en-v1.5 | 1024 | Open-source, self-hosted |
