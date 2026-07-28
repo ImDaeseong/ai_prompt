@@ -15,10 +15,12 @@
 # inside a "## 관련 스킬" / "## Related Skills" heading section (not
 # "References"/prose elsewhere, which legitimately name non-skill files or
 # not-yet-written companion docs - see caio_advisor.md/vpe_advisor.md).
-# Check 3 only requires a NOTICE.md link for files NOTICE.md itself already
+# Check 4 only requires a NOTICE.md link for files NOTICE.md itself already
 # claims to cover, rather than retroactively demanding it from every older
 # skill with an unrelated "Source:" mention whose license/reuse-substantiality
-# was never verified.
+# was never verified. Check 3 covers the case NOTICE.md is deleted outright
+# (found by a follow-up audit: check 4 alone silently no-ops when NOTICE.md
+# doesn't exist, since it's gated on $noticeText).
 
 $errors = [System.Collections.Generic.List[string]]::new()
 $skillsDir = Join-Path $Root 'antigravity_test\skills'
@@ -70,7 +72,17 @@ foreach ($file in $skillFiles) {
     }
 }
 
-# --- Check 3: if NOTICE.md claims to cover a skill file, that file must link back to NOTICE.md ---
+# --- Check 3: any skill file that links to NOTICE.md requires NOTICE.md to actually exist ---
+# (driven by the skill file side, not gated on $noticeText, so deleting NOTICE.md
+# entirely is still caught instead of silently skipping this whole check)
+foreach ($file in $skillFiles) {
+    $text = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
+    if ($text -match 'NOTICE\.md' -and -not $noticeText) {
+        $errors.Add("$($file.Name): links to NOTICE.md, but NOTICE.md does not exist")
+    }
+}
+
+# --- Check 4: if NOTICE.md claims to cover a skill file, that file must link back to NOTICE.md ---
 if ($noticeText) {
     foreach ($file in $skillFiles) {
         if ($noticeText -notmatch [regex]::Escape($file.Name)) { continue }
@@ -83,6 +95,18 @@ if ($noticeText) {
         $errors.Add("NOTICE.md: exists but has no 'Copyright (c) ...' line at all")
     }
 }
+
+# NOT automated (recorded per AGENTS.md's Regression Guard Rule fallback: no reliable
+# automated check found): frontmatter `description:` fields must not route to a local
+# skill name by bare prose word (no backticks) - e.g. "...카피는 copywriting 스킬 참고"
+# without `copywriting.md`. The historical defect this guards against (commit 849c016's
+# marketing_psychology.md: "cro, 가격 전략은 pricing, 카피 표현은 copywriting 스킬 참고")
+# used one trailing "스킬" shared across a comma-separated list, and legitimate text
+# elsewhere in this same file uses parenthetical asides to name a SOURCE REPO's skills
+# that intentionally have no local equivalent ("소스 저장소 .../cro, pricing 스킬 참고").
+# A regex cannot reliably tell these apart (tested: sentence/paren-scoping both produce
+# false positives or miss the real defect) - review frontmatter descriptions by hand
+# whenever a skill's description is edited to mention another skill by name.
 
 if ($errors.Count -gt 0) {
     $errors | ForEach-Object { Write-Error $_ }
