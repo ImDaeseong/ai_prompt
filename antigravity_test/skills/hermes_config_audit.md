@@ -22,7 +22,7 @@ description: "Audits hermes-agents/ai_prompt/ai-workspace config health across 6
 ## Phase 1 — Inventory (bash, ~10초)
 
 ```bash
-cd C:/Users/cs930/Desktop/hermes-agents
+cd <hermes-agents 저장소 루트>  # 경로가 불확실하면 hermes-agents/CLAUDE.md의 "환경 자동 감지 규칙" 참고 (집 PC/회사 PC 경로가 다름)
 echo "=== 핵심 파일 존재 ===" 
 for f in AGENTS.md CLAUDE.md .mcp.json .claude/settings.json ai_prompt/CLAUDE.md ai-workspace/CLAUDE.md ai-workspace/AGENTS.md; do
   [ -f "$f" ] && echo "OK  $f" || echo "MISSING  $f"
