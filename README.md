@@ -15,10 +15,8 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 | 포함 ✅ | 제외 ❌ |
 |--------|--------|
 | 스킬 파일 (antigravity_test/skills/) | AI 행동 규칙·MCP 설정 → `../hermes-agents/` |
-| 페르소나 문서 (antigravity_test/docs/) | 운영 기록·일지·핸드오프 → `../ai-workspace/` |
-| 워크플로우 프롬프트 (prompts/) | 실제 프로젝트 소스코드 |
-| 분야별 특화 프롬프트 (MFC, Python, Git 등) | API 키·비밀값 |
-| AI 활용 가이드 문서 | |
+| 페르소나·활용 가이드 문서 (antigravity_test/docs/) | 운영 기록·일지·핸드오프 → `../ai-workspace/` |
+| 루트 공통 지침 (CLAUDE.md, imdaeseong_coding_style.md) | 실제 프로젝트 소스코드, API 키·비밀값 |
 
 > **주의:** `hermes-agents/`, `ai-workspace/` 폴더를 이 저장소 안에 두지 않는다.
 
@@ -80,23 +78,21 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 | 인가된 환경에서 보안 침투 테스트를 체계적으로 진행하고 싶다 | [antigravity_test/skills/security_pentest.md](./antigravity_test/skills/security_pentest.md) | 서면 승인 문서, 테스트 범위 |
 | 생성한 한국어 가사·소설·문서에서 AI가 쓴 티(번역투·기계적 나열·클리셰)를 없애고 싶다 | [antigravity_test/skills/korean_ai_tell_remover.md](./antigravity_test/skills/korean_ai_tell_remover.md) | 원문 텍스트 |
 | 생성한 영문 에세이·블로그·문서에서 AI가 쓴 티(em dash 남용·rule of three·클리셰)를 없애고 싶다 | [antigravity_test/skills/ai_tell_remover.md](./antigravity_test/skills/ai_tell_remover.md) | 원문 텍스트 |
-| Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | antigravity_test/skills/ 참조 (prompts/ 폴더는 2026-06-16 제거 — skills/ 포맷으로 대체됨) | 작업 목적 |
+| Hermes 판단 엔진 워크플로우·프롬프트가 필요하다 | antigravity_test/skills/ 참조 (아래 "파일 구성 현황" 참고) | 작업 목적 |
 
 ## 신규 프로젝트 권장 흐름
 
 ```text
 1. antigravity_test/skills/security_and_hardening.md (보안 초기 점검)
         ↓
-2. [ai-workspace] PROJECT_START.md + TESTING_DONE_CRITERIA.md 작성
+2. [ai-workspace] _templates/PROJECT_START.md + _templates/TESTING_DONE_CRITERIA.md 작성
         ↓
-3. 개발 (AI 코딩 중 VSCODE_AI_RULES.md 적용)
+3. 개발 (AI 코딩 중 _templates/VSCODE_AI_RULES.md 적용)
         ↓
-4. [ai-workspace] AI_CODING_REVIEW.md (머지 전)
+4. [ai-workspace] _templates/AI_CODING_REVIEW.md (머지 전)
         ↓
-5. [ai-workspace] PRE_DEPLOY.md (배포 전)
+5. [ai-workspace] _templates/PRE_DEPLOY.md (배포 전)
 ```
-
-> MFC/Python 프로젝트 생성·분석용 특화 프롬프트(`mfc_*`, `python_프로젝트생성` 등)는 2026-06-16 커밋(`a1e23b7`)에서 제거되었다. 필요하면 `antigravity_test/skills/` 포맷으로 다시 작성해 추가할 것.
 
 ## 서드파티 고지
 
@@ -162,24 +158,20 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 | 공통 지침 | 2 | CLAUDE.md, imdaeseong_coding_style.md |
 | antigravity_test 스킬 | 113 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-28 확인) |
 | antigravity_test 문서 | 5 | docs/ 폴더 내 가이드 문서 |
-| MFC/Python/공통/보안/음악/아키텍처 특화 프롬프트 | 0 | 2026-06-16 커밋(`a1e23b7`)에서 전부 제거 — antigravity_test/skills/ 포맷으로 대체 예정, 현재 미이관 |
-| Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
+| 옛 특화 프롬프트(MFC/Python/prompts/) | 0 | 2026-06-16 커밋(`a1e23b7`)에서 전부 제거, antigravity_test/skills/ 포맷으로 대체 |
 
 ### 최근 변경 이력
 
-상세 변경 내용과 전체 이력은 `git log`를 참고하세요. 요약만 남깁니다.
+최근 5건만 남깁니다. 전체 이력은 `git log`를 참고하세요.
 
 | 날짜 | 변경 내용 |
 |------|-----------|
-| 2026-07-28 | `antigravity_usage_guide.md`에 공식 문서(`antigravity.google/docs`) 기반 내용 추가: Rules/Workflows 정의 교차 확인, Knowledge(학습) 시스템 ↔ 이 워크스페이스의 MEMORY.md 대응 설명, Antigravity 2.0 신규 기능(JSON Hooks/Browser 서브에이전트/Scheduled Tasks/Projects/Voice) 매핑표. `ui_ux_pro_max.md` 관련 스테일 노트도 정정 |
-| 2026-07-28 | 신규 스킬 4개: `copywriting`/`marketing_psychology`(coreyhaines31/marketingskills, 42k★ MIT 검증), `rag_implementation`/`llm_evaluation`(wshobson/agents, 38.3k★ MIT 검증) — 사용자 요청으로 마케팅 실무·AI 엔지니어링 공백 보강 |
-| 2026-07-19 | 신규 스킬 3개: `ai_tell_remover`(영문 AI 티 제거, blader/humanizer 기반), `story_scenario_writer`/`story_scenario_workflow`(사연 대본 전문가/관리자 쌍). 가이드 `antigravity_usage_guide.md` 추가. 두 README의 삭제 파일 참조(깨진 링크) 전수 정리 |
+| 2026-07-28 | `antigravity_usage_guide.md`에 공식 문서(`antigravity.google/docs`) 기반 내용 추가: Rules/Workflows 정의 교차 확인, Knowledge(학습) 시스템 ↔ 이 워크스페이스의 MEMORY.md 대응 설명, Antigravity 2.0 신규 기능(JSON Hooks/Browser 서브에이전트/Scheduled Tasks/Projects/Voice) 매핑표 |
+| 2026-07-28 | 신규 스킬 4개: `copywriting`/`marketing_psychology`(coreyhaines31/marketingskills, 42k★ MIT 검증), `rag_implementation`/`llm_evaluation`(wshobson/agents, 38.3k★ MIT 검증) |
+| 2026-07-19 | 신규 스킬 3개: `ai_tell_remover`, `story_scenario_writer`/`story_scenario_workflow`. 가이드 `antigravity_usage_guide.md` 추가 |
 | 2026-07-17 | `hermes_config_audit` 스킬 추가 — hermes-agents 설정 6영역 감사 |
 | 2026-07-12 | `skill_writing_quality` 스킬 추가 — 트리거 문장 품질 체크리스트 |
-| 2026-06-14 | 신규 스킬 10개 (GitHub 검토 5개 + anthropics/skills 공식 5개), 스킬 저장 규칙을 hermes-agents `CLAUDE.md`에 명시 |
-| 2026-06-05 | `frontend_design.md` 추가, GLOBAL_RULES.md/VSCODE_AI_RULES.md 정리·통합 |
-| 2026-05-30 | README 최초 정비 |
 
 ---
 
-Last Updated: 2026-07-19
+Last Updated: 2026-07-28
