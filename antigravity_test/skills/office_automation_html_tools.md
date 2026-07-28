@@ -67,3 +67,7 @@ description: Generate single-file HTML office tools (budget allocator, quote/inv
 
 - 코드를 직접 짜지 않고 Claude Code/Claude Design에게 완성된 산출물을 요청하는 "프롬프트 뼈대" 모음이다 — 각 항목의 대괄호를 실제 값으로 바꿔 쓰는 것이 핵심이고, 그대로 복사해도 되고 필요에 맞게 문구를 조정해도 된다.
 - Gmail/Drive 커넥터 연결, Cowork 자동화 체인, Scheduled Tasks 설정 자체는 Claude 데스크탑 앱의 UI 조작이 필요하며 이 스킬 밖의 영역이다.
+
+## 관련 스킬
+
+- `doc_coauthoring.md` — 제안서(Claude Design 프롬프트) 본문을 먼저 다듬어야 할 때, 이 스킬로 초안을 공동 작성한 뒤 위 Claude Design 프롬프트로 넘긴다

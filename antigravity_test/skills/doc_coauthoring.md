@@ -114,3 +114,7 @@ The workflow adapts to what the document actually needs — not every doc needs 
 | Skipping reader testing | At minimum, do the "predict reader questions" exercise |
 | Using internal jargon without definition | Define every term the audience may not know |
 | Optimizing for author satisfaction | Optimize for reader comprehension |
+
+## 관련 스킬
+
+- `office_automation_html_tools.md` — 제안서/기안서 등 완성된 문서를 Claude Design으로 포맷팅하거나 Drive·Gmail 자동화 체인으로 넘길 때, 이 스킬로 초안 내용을 먼저 공동 작성한 뒤 이어서 사용
