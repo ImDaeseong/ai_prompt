@@ -50,7 +50,7 @@ Use a stronger model to score a weaker model's output. Cheaper than human eval, 
 - Reference-based: compare against a known-good answer
 - Reference-free: judge quality without ground truth
 
-**The catch**: a single judge call has real variance. For anything high-stakes, run it multiple times at different temperatures and aggregate, and where possible use a judge from a different provider/model than the one being evaluated — a model reviewing its own output tends to share its own blind spots.
+**The catch**: a single judge call has real variance. For anything high-stakes, run it multiple times at different temperatures and aggregate, and where possible use a judge from a different provider/model than the one being evaluated — a model scoring its own generated output tends to rate it higher than an independent judge would (self-preference bias), so self-review alone isn't a reliable signal.
 
 ## A Minimal Evaluation Harness
 
