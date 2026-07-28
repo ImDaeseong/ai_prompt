@@ -5,142 +5,111 @@ description: Implement comprehensive evaluation strategies for LLM applications 
 
 # LLM Evaluation
 
-> ID: SKILL-LLM-EVAL-001 | Source: wshobson/agents (38.3k★, MIT, 확인일 2026-07-28) | Last Updated: 2026-07-28
->
-> 이 파일은 원본의 상당 부분을 재사용한다. MIT 라이선스 원문(저작권 표시 포함)은 [`../../NOTICE.md`](../../NOTICE.md)에 보존되어 있다. Copyright (c) 2024 Seth Hobson.
+Build a way to know whether an LLM application actually got better or worse — before shipping a prompt/model change, not after users notice.
 
-Master comprehensive evaluation strategies for LLM applications, from automated metrics to human evaluation and A/B testing.
+## When to Reach for This
 
-## When to Use This Skill
+- You changed a prompt or swapped models and need to know if quality moved
+- You want a regression check before deploying, not a vibe check
+- You're comparing two candidate approaches and need a number, not an impression
+- Production behavior looks off and you need to isolate where
 
-- Measuring LLM application performance systematically
-- Comparing different models or prompts
-- Detecting performance regressions before deployment
-- Validating improvements from prompt changes
-- Building confidence in production systems
-- Establishing baselines and tracking progress over time
-- Debugging unexpected model behavior
+## Three Layers of Evaluation
 
-## Core Evaluation Types
+### 1. Automated Metrics — fast, cheap, repeatable
 
-### 1. Automated Metrics
+Good for catching regressions at scale; bad at judging whether an answer is actually *helpful*.
 
-Fast, repeatable, scalable evaluation using computed scores.
+**Text generation**
+- BLEU — n-gram overlap, built for translation, weak signal for open-ended generation
+- ROUGE — recall-oriented, common for summarization
+- METEOR — closer to semantic similarity than raw n-gram matching
+- BERTScore — embedding-based similarity, catches paraphrases BLEU/ROUGE miss
+- Perplexity — measures model confidence, not correctness
 
-**Text Generation:**
+**Classification tasks**
+- Accuracy, Precision/Recall/F1, confusion matrix, AUC-ROC — standard ML metrics, nothing LLM-specific here
 
-- **BLEU**: N-gram overlap (translation)
-- **ROUGE**: Recall-oriented (summarization)
-- **METEOR**: Semantic similarity
-- **BERTScore**: Embedding-based similarity
-- **Perplexity**: Language model confidence
+**Retrieval quality** (relevant when evaluating a RAG pipeline — see `rag_implementation.md`)
+- MRR — how high up the first correct result lands, averaged
+- NDCG — rewards correct results near the top more than further down
+- Precision@K / Recall@K — of the top K results, how many are relevant / how much of the relevant set got covered
 
-**Classification:**
+### 2. Human Evaluation — slow, expensive, catches what automation can't
 
-- **Accuracy**: Percentage correct
-- **Precision/Recall/F1**: Class-specific performance
-- **Confusion Matrix**: Error patterns
-- **AUC-ROC**: Ranking quality
+Necessary when the failure mode is subjective: tone, safety, whether an answer actually *helps* rather than merely matching a reference string.
 
-**Retrieval (RAG)** — see also `rag_implementation`:
+Dimensions worth rating separately rather than one blended score: factual accuracy, logical coherence, relevance to the actual question, fluency, safety (no harmful content), and real-world helpfulness. Blending these into one number hides which dimension is actually failing.
 
-- **MRR**: Mean Reciprocal Rank
-- **NDCG**: Normalized Discounted Cumulative Gain
-- **Precision@K**: Relevant in top K
-- **Recall@K**: Coverage in top K
+### 3. LLM-as-Judge — a middle ground
 
-### 2. Human Evaluation
+Use a stronger model to score a weaker model's output. Cheaper than human eval, more nuanced than automated metrics, but has its own failure modes.
 
-Manual assessment for quality aspects difficult to automate.
+- Pointwise: score one response in isolation
+- Pairwise: compare two responses head-to-head (generally more reliable than pointwise for close calls)
+- Reference-based: compare against a known-good answer
+- Reference-free: judge quality without ground truth
 
-**Dimensions:** Accuracy(사실 정확성) · Coherence(논리적 흐름) · Relevance(질문에 답하는가) · Fluency(자연스러움) · Safety(유해 콘텐츠 없음) · Helpfulness(실사용자에게 유용한가)
+**The catch**: a single judge call has real variance. For anything high-stakes, run it multiple times at different temperatures and aggregate, and where possible use a judge from a different provider/model than the one being evaluated — a model reviewing its own output tends to share its own blind spots.
 
-### 3. LLM-as-Judge
-
-Use stronger LLMs to evaluate weaker model outputs.
-
-- **Pointwise**: Score individual responses
-- **Pairwise**: Compare two responses
-- **Reference-based**: Compare to gold standard
-- **Reference-free**: Judge without ground truth
-
-노이즈 주의: 단일 judge 호출은 편차가 크다 — 고위험 판단일수록 temperature를 바꿔가며 여러 번 돌려 집계하고, 가능하면 평가 대상과 다른 provider/모델을 judge로 쓴다(같은 모델의 self-review는 같은 맹점을 공유하는 경향이 있다).
-
-## Quick Start
+## A Minimal Evaluation Harness
 
 ```python
-from dataclasses import dataclass
-from typing import Callable
-import numpy as np
+from dataclasses import dataclass, field
+from typing import Callable, Awaitable
+import statistics
 
 @dataclass
 class Metric:
     name: str
-    fn: Callable
+    score: Callable[..., float]
 
-    @staticmethod
-    def accuracy():
-        return Metric("accuracy", calculate_accuracy)
+@dataclass
+class EvalResult:
+    scores: dict[str, list[float]] = field(default_factory=dict)
 
-    @staticmethod
-    def bleu():
-        return Metric("bleu", calculate_bleu)
+    def summary(self) -> dict[str, float]:
+        return {name: statistics.mean(vals) for name, vals in self.scores.items()}
 
-    @staticmethod
-    def bertscore():
-        return Metric("bertscore", calculate_bertscore)
+async def run_eval(
+    model: Callable[[str], Awaitable[str]],
+    test_cases: list[dict],
+    metrics: list[Metric],
+) -> EvalResult:
+    result = EvalResult(scores={m.name: [] for m in metrics})
 
-    @staticmethod
-    def custom(name: str, fn: Callable):
-        return Metric(name, fn)
+    for case in test_cases:
+        prediction = await model(case["input"])
+        for metric in metrics:
+            score = metric.score(
+                prediction=prediction,
+                reference=case.get("expected"),
+                context=case.get("context"),
+            )
+            result.scores[metric.name].append(score)
 
-class EvaluationSuite:
-    def __init__(self, metrics: list[Metric]):
-        self.metrics = metrics
+    return result
 
-    async def evaluate(self, model, test_cases: list[dict]) -> dict:
-        results = {m.name: [] for m in self.metrics}
-
-        for test in test_cases:
-            prediction = await model.predict(test["input"])
-
-            for metric in self.metrics:
-                score = metric.fn(
-                    prediction=prediction,
-                    reference=test.get("expected"),
-                    context=test.get("context")
-                )
-                results[metric.name].append(score)
-
-        return {
-            "metrics": {k: np.mean(v) for k, v in results.items()},
-            "raw_scores": results
-        }
-
-# Usage
-suite = EvaluationSuite([
-    Metric.accuracy(),
-    Metric.bleu(),
-    Metric.bertscore(),
-    Metric.custom("groundedness", check_groundedness)
-])
-
+# 사용 예
 test_cases = [
-    {
-        "input": "What is the capital of France?",
-        "expected": "Paris",
-        "context": "France is a country in Europe. Paris is its capital."
-    },
+    {"input": "프랑스의 수도는?", "expected": "파리",
+     "context": "프랑스는 유럽에 있는 나라이며 수도는 파리다."},
 ]
-
-results = await suite.evaluate(model=your_model, test_cases=test_cases)
+metrics = [Metric("accuracy", accuracy_fn), Metric("groundedness", groundedness_fn)]
+result = await run_eval(model=your_model, test_cases=test_cases, metrics=metrics)
+print(result.summary())
 ```
 
-## Going Deeper
+## Building a Real Evaluation Set
 
-이 파일은 소스 저장소의 상위 요약본이다. 더 깊은 워크드 예제가 필요하면 `wshobson/agents`의 `plugins/llm-application-dev/skills/llm-evaluation/references/details.md`를 직접 참고한다(이 워크스페이스엔 벤더링하지 않음 — `ai_prompt`는 개별 skill.md 단일 파일 규칙을 따르므로 하위 references/ 폴더를 두지 않는다).
+숫자 하나로는 아무것도 증명하지 못한다 — 다음이 갖춰져야 실제로 쓸모 있다.
+
+- **베이스라인 고정**: 변경 전 점수를 먼저 기록해두지 않으면 "좋아졌다"를 주장할 근거가 없다.
+- **엣지 케이스 포함**: 잘 되는 사례만 넣은 테스트셋은 회귀를 못 잡는다 — 과거에 실패했던 입력을 의도적으로 포함시킨다.
+- **한 지표에 의존하지 않기**: 자동 지표가 오르면서 실사용 만족도는 떨어지는 경우가 흔하다 — 자동 지표는 사람 평가를 대체하지 않고 사람 평가 빈도를 줄여준다.
+- **재현성**: temperature, 시드, 프롬프트 버전을 기록해두지 않으면 다음 사람이 같은 결과를 재현할 수 없다.
 
 ## Related Skills
 
-- `rag_implementation.md`: 검색 파이프라인 자체를 만들 때
+- `rag_implementation.md`: RAG 파이프라인 자체를 만들 때
 - `skill_creator.md`: 스킬 성능을 benchmark/variance analysis로 측정할 때

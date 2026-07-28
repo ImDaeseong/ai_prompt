@@ -25,6 +25,13 @@
 # was never verified. Check 3 covers the case NOTICE.md is deleted outright
 # (found by a follow-up audit: check 4 alone silently no-ops when NOTICE.md
 # doesn't exist, since it's gated on $noticeText).
+#
+# 2026-07-28 update: the 4 skills that originally required NOTICE.md
+# (copywriting/marketing_psychology/rag_implementation/llm_evaluation) were
+# rewritten from scratch in this repo's own voice/structure and no longer
+# reuse third-party text, so NOTICE.md was removed. Checks 3/4 are now
+# no-ops (nothing links to NOTICE.md, NOTICE.md doesn't exist) but stay in
+# place as a dormant guard in case a future skill reuses licensed content again.
 
 $errors = [System.Collections.Generic.List[string]]::new()
 $skillsDir = Join-Path $Root 'antigravity_test\skills'

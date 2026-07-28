@@ -94,10 +94,6 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 5. [ai-workspace] _templates/PRE_DEPLOY.md (배포 전)
 ```
 
-## 서드파티 고지
-
-일부 스킬(`copywriting`, `marketing_psychology`, `rag_implementation`, `llm_evaluation`)은 MIT 라이선스 GitHub 저장소의 콘텐츠를 상당 부분 재사용한다. 원본 저작권·허가 고지 전문은 [`NOTICE.md`](./NOTICE.md)에 보존되어 있다.
-
 ## 보안 주의
 
 이 저장소는 프롬프트 자산 저장소입니다. 다음 정보는 저장하거나 프롬프트에 넣지 마세요.
@@ -166,11 +162,11 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-28 | `copywriting`/`marketing_psychology`/`rag_implementation`/`llm_evaluation` 4개 스킬 전면 재작성 — 저장소 전체 문체·구조에 맞춰 다시 씀 |
 | 2026-07-28 | `antigravity_usage_guide.md`에 공식 문서(`antigravity.google/docs`) 기반 내용 추가: Rules/Workflows 정의 교차 확인, Knowledge(학습) 시스템 ↔ 이 워크스페이스의 MEMORY.md 대응 설명, Antigravity 2.0 신규 기능(JSON Hooks/Browser 서브에이전트/Scheduled Tasks/Projects/Voice) 매핑표 |
-| 2026-07-28 | 신규 스킬 4개: `copywriting`/`marketing_psychology`(coreyhaines31/marketingskills, 42k★ MIT 검증), `rag_implementation`/`llm_evaluation`(wshobson/agents, 38.3k★ MIT 검증) |
+| 2026-07-28 | 신규 스킬 4개 추가: `copywriting`/`marketing_psychology`/`rag_implementation`/`llm_evaluation` — 마케팅 실무·AI 엔지니어링 공백 보강 |
 | 2026-07-19 | 신규 스킬 3개: `ai_tell_remover`, `story_scenario_writer`/`story_scenario_workflow`. 가이드 `antigravity_usage_guide.md` 추가 |
 | 2026-07-17 | `hermes_config_audit` 스킬 추가 — hermes-agents 설정 6영역 감사 |
-| 2026-07-12 | `skill_writing_quality` 스킬 추가 — 트리거 문장 품질 체크리스트 |
 
 ---
 

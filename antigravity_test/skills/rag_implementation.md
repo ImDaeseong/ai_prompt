@@ -5,137 +5,104 @@ description: Build Retrieval-Augmented Generation (RAG) systems for LLM applicat
 
 # RAG Implementation
 
-> ID: SKILL-RAG-001 | Source: wshobson/agents (38.3k★, MIT, 확인일 2026-07-28) | Last Updated: 2026-07-28
->
-> 이 파일은 원본의 상당 부분을 재사용한다. MIT 라이선스 원문(저작권 표시 포함)은 [`../../NOTICE.md`](../../NOTICE.md)에 보존되어 있다. Copyright (c) 2024 Seth Hobson.
+Design and build a Retrieval-Augmented Generation pipeline that grounds LLM answers in an external knowledge source instead of relying on the model's parametric memory alone.
 
-Master Retrieval-Augmented Generation (RAG) to build LLM applications that provide accurate, grounded responses using external knowledge sources.
+## When to Reach for This
 
-## When to Use This Skill
+- The answer must come from documents you control, not from what the model happened to memorize
+- Users need current information the model's training cutoff can't have
+- Hallucination on factual questions is unacceptable
+- You need natural-language search over a knowledge base, not keyword search
+- Answers should cite where they came from
 
-- Building Q&A systems over proprietary documents
-- Creating chatbots with current, factual information
-- Implementing semantic search with natural language queries
-- Reducing hallucinations with grounded responses
-- Enabling LLMs to access domain-specific knowledge
-- Building documentation assistants
-- Creating research tools with source citation
+## The Four Building Blocks
 
-## Core Components
+### 1. Storage — Vector Database
 
-### 1. Vector Databases
+Stores document chunks as embeddings and returns the nearest ones to a query vector.
 
-**Purpose**: Store and retrieve document embeddings efficiently
+| Option | Pick it when |
+|-------|----------|
+| Pinecone | You want managed infra and don't want to run anything yourself |
+| Weaviate | You need hybrid (keyword + vector) search out of the box |
+| Milvus | Scale and self-hosting matter more than setup convenience |
+| Chroma | You're prototyping locally and want zero infra |
+| Qdrant | Filtered search performance matters, Rust-based |
+| pgvector | You already run Postgres and don't want a separate system |
 
-**Options:**
+### 2. Encoding — Embeddings
 
-- **Pinecone**: Managed, scalable, serverless
-- **Weaviate**: Open-source, hybrid search, GraphQL
-- **Milvus**: High performance, on-premise
-- **Chroma**: Lightweight, easy to use, local development
-- **Qdrant**: Fast, filtered search, Rust-based
-- **pgvector**: PostgreSQL extension, SQL integration
+Converts text into vectors so semantic similarity becomes a distance calculation.
 
-### 2. Embeddings
+Model choice depends on which LLM provider you're already paired with and whether accuracy or cost matters more — check current pricing/availability before committing, since this table dates quickly:
 
-**Purpose**: Convert text to numerical vectors for similarity search
-
-**Models (as of source's 2026 snapshot — verify current availability/pricing before relying on this table):**
-
-| Model | Dimensions | Best For |
+| Model | Dimensions | Fit |
 |-------|------------|----------|
-| **voyage-3-large** | 1024 | Claude apps (Anthropic recommended) |
-| **voyage-code-3** | 1024 | Code search |
-| **text-embedding-3-large** | 3072 | OpenAI apps, high accuracy |
-| **text-embedding-3-small** | 1536 | OpenAI apps, cost-effective |
-| **bge-large-en-v1.5** | 1024 | Open source, local deployment |
-| **multilingual-e5-large** | 1024 | Multi-language support |
+| voyage-3-large | 1024 | Paired with Claude |
+| voyage-code-3 | 1024 | Code search specifically |
+| text-embedding-3-large | 3072 | Paired with OpenAI models, accuracy-first |
+| text-embedding-3-small | 1536 | Paired with OpenAI models, cost-first |
+| bge-large-en-v1.5 | 1024 | Open-source, self-hosted |
+| multilingual-e5-large | 1024 | Multi-language corpora |
 
-### 3. Retrieval Strategies
+### 3. Finding candidates — Retrieval strategy
 
-- **Dense Retrieval**: Semantic similarity via embeddings
-- **Sparse Retrieval**: Keyword matching (BM25, TF-IDF)
-- **Hybrid Search**: Combine dense + sparse with weighted fusion
-- **Multi-Query**: Generate multiple query variations
-- **HyDE**: Generate hypothetical documents for better retrieval
+- **Dense**: embedding similarity — good for meaning, weak on exact terms/codes
+- **Sparse (BM25/TF-IDF)**: keyword matching — good for exact terms, weak on paraphrase
+- **Hybrid**: fuse dense + sparse scores — covers both weaknesses, more to tune
+- **Multi-query**: generate several phrasings of the same question, retrieve for each, merge
+- **HyDE**: have the LLM write a hypothetical answer first, embed that instead of the raw question — the hypothetical answer often sits closer to the real answer in vector space than the question does
 
-### 4. Reranking
+### 4. Filtering candidates — Reranking
 
-**Purpose**: Improve retrieval quality by reordering results
+Retrieval optimizes for recall over a large candidate set; reranking narrows that set down to what actually gets passed to the LLM.
 
-- **Cross-Encoders**: BERT-based reranking (ms-marco-MiniLM)
-- **Cohere Rerank**: API-based reranking
-- **Maximal Marginal Relevance (MMR)**: Diversity + relevance
-- **LLM-based**: Use LLM to score relevance
+- Cross-encoder models (e.g. ms-marco-MiniLM) — score query+document pairs jointly, more accurate than embedding similarity alone
+- Hosted rerank APIs (e.g. Cohere) — same idea without running your own model
+- MMR — trades off relevance against diversity so results aren't near-duplicates of each other
+- LLM-as-reranker — ask the LLM itself to score relevance, most expensive, most flexible
 
-## Quick Start with LangGraph
+## A Minimal Working Pipeline
+
+The shape below is deliberately framework-agnostic — swap in whatever vector store/embedding client you picked above.
 
 ```python
-from langgraph.graph import StateGraph, START, END
-from langchain_anthropic import ChatAnthropic
-from langchain_voyageai import VoyageAIEmbeddings
-from langchain_pinecone import PineconeVectorStore
-from langchain_core.documents import Document
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from typing import TypedDict, Annotated
+from dataclasses import dataclass
+from typing import Protocol
 
-class RAGState(TypedDict):
-    question: str
-    context: list[Document]
-    answer: str
+class Retriever(Protocol):
+    def search(self, query: str, k: int) -> list[str]: ...
 
-# Initialize components
-llm = ChatAnthropic(model="claude-sonnet-5")
-embeddings = VoyageAIEmbeddings(model="voyage-3-large")
-vectorstore = PineconeVectorStore(index_name="docs", embedding=embeddings)
-retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+class LLM(Protocol):
+    def complete(self, prompt: str) -> str: ...
 
-# RAG prompt
-rag_prompt = ChatPromptTemplate.from_template(
-    """Answer based on the context below. If you cannot answer, say so.
+@dataclass
+class RAGPipeline:
+    retriever: Retriever
+    llm: LLM
+    top_k: int = 4
 
-    Context:
-    {context}
+    def answer(self, question: str) -> dict:
+        docs = self.retriever.search(question, k=self.top_k)
+        if not docs:
+            return {"answer": "관련 문서를 찾지 못했습니다.", "sources": []}
 
-    Question: {question}
-
-    Answer:"""
-)
-
-async def retrieve(state: RAGState) -> RAGState:
-    """Retrieve relevant documents."""
-    docs = await retriever.ainvoke(state["question"])
-    return {"context": docs}
-
-async def generate(state: RAGState) -> RAGState:
-    """Generate answer from context."""
-    context_text = "\n\n".join(doc.page_content for doc in state["context"])
-    messages = rag_prompt.format_messages(
-        context=context_text,
-        question=state["question"]
-    )
-    response = await llm.ainvoke(messages)
-    return {"answer": response.content}
-
-# Build RAG graph
-builder = StateGraph(RAGState)
-builder.add_node("retrieve", retrieve)
-builder.add_node("generate", generate)
-builder.add_edge(START, "retrieve")
-builder.add_edge("retrieve", "generate")
-builder.add_edge("generate", END)
-
-rag_chain = builder.compile()
-
-# Use
-result = await rag_chain.ainvoke({"question": "What are the main features?"})
-print(result["answer"])
+        context = "\n\n".join(docs)
+        prompt = (
+            "아래 컨텍스트만 근거로 답하라. 컨텍스트에 답이 없으면 "
+            "모른다고 말하라.\n\n"
+            f"컨텍스트:\n{context}\n\n질문: {question}\n답변:"
+        )
+        return {"answer": self.llm.complete(prompt), "sources": docs}
 ```
 
-## Going Deeper
+핵심은 "컨텍스트에 없으면 모른다고 말하라"는 지시를 프롬프트에서 빼먹지 않는 것 — 이 한 줄이 빠지면 검색이 실패했을 때 모델이 답을 지어낸다.
 
-이 파일은 소스 저장소의 상위 요약본이다. 청킹 전략, 인덱스 튜닝, 하이브리드 검색 구현 세부사항 등 더 깊은 워크드 예제가 필요하면 `wshobson/agents`의 `plugins/llm-application-dev/skills/rag-implementation/references/details.md`를 직접 참고한다(이 워크스페이스엔 벤더링하지 않음 — `ai_prompt`는 개별 skill.md 단일 파일 규칙을 따르므로 하위 references/ 폴더를 두지 않는다).
+## Where This Breaks in Practice
+
+- **청킹 크기**: 너무 잘게 자르면 문맥이 끊기고, 너무 크게 자르면 관련 없는 내용이 섞여 노이즈가 된다. 문서 구조(제목/문단)를 따라 자르는 게 고정 길이 자르기보다 대체로 낫다.
+- **임베딩-질문 불일치**: 질문 문장과 문서 문장의 스타일이 다르면(짧은 질문 vs 긴 설명문) 임베딩 거리가 실제 관련성을 제대로 반영하지 못한다 — HyDE가 이 문제를 완화하는 이유다.
+- **검색 품질을 눈으로만 판단하지 않기**: "그럴듯해 보이는 답"과 "실제로 맞는 답"은 다르다 — `llm_evaluation.md`의 MRR/NDCG/Precision@K로 정량 측정한다.
 
 ## Related Skills
 
