@@ -1,6 +1,6 @@
 ---
 name: marketing-psychology
-description: "심리 원칙·멘탈모델·행동과학을 마케팅에 적용할 때 사용. '왜 사람들이 사는가', '설득', '인지 편향', 'anchoring', 'social proof', 'scarcity', 'loss aversion', 'framing', 'nudge' 같은 요청에 반응한다. 카피 표현에 적용할 때는 copywriting 스킬 참고(전환율 최적화·가격 전략 자체는 이 컬렉션에 별도 스킬 없음 — 소스 저장소 coreyhaines31/marketingskills의 cro/pricing 스킬 참고)."
+description: "심리 원칙·멘탈모델·행동과학을 마케팅에 적용할 때 사용. '왜 사람들이 사는가', '설득', '인지 편향', 'anchoring', 'social proof', 'scarcity', 'loss aversion', 'framing', 'nudge' 같은 요청에 반응한다. 카피 표현에 적용할 때는 `copywriting.md` 참고(전환율 최적화·가격 전략 자체는 이 컬렉션에 별도 스킬 없음 — 소스 저장소 coreyhaines31/marketingskills의 `cro`/`pricing` 참고)."
 ---
 
 # Skill: Marketing Psychology & Mental Models (마케팅 심리학과 멘탈모델)

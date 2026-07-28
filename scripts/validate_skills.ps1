@@ -2,7 +2,7 @@
     [string]$Root = (Split-Path -Parent $PSScriptRoot)
 )
 
-# Regression guard for two defect classes found by manual review on 2026-07-28:
+# Regression guard for defect classes found by manual review on 2026-07-28:
 # 1. A skill file that reuses substantial third-party content had no link to
 #    NOTICE.md (MIT's "include the copyright/permission notice" requirement).
 # 2. marketing_psychology.md's "관련 스킬"/"Related Skills" section pointed at
@@ -10,6 +10,10 @@
 #    shipping_launch.md's same section pointed at a ui_ux_pro_max.md that was
 #    never created (found while building this guard - an older typo, not
 #    from that session's own work).
+# 3. marketing_psychology.md's frontmatter `description:` routed to nonexistent
+#    local `cro`/`pricing` skills by bare prose word - found by a follow-up
+#    audit that showed check 2 alone (Related Skills section only) missed
+#    this, since the defect was in the frontmatter, not that section.
 #
 # Scope is deliberately narrow to avoid false positives: check 2 only scans
 # inside a "## 관련 스킬" / "## Related Skills" heading section (not
@@ -96,17 +100,24 @@ if ($noticeText) {
     }
 }
 
-# NOT automated (recorded per AGENTS.md's Regression Guard Rule fallback: no reliable
-# automated check found): frontmatter `description:` fields must not route to a local
-# skill name by bare prose word (no backticks) - e.g. "...카피는 copywriting 스킬 참고"
-# without `copywriting.md`. The historical defect this guards against (commit 849c016's
-# marketing_psychology.md: "cro, 가격 전략은 pricing, 카피 표현은 copywriting 스킬 참고")
-# used one trailing "스킬" shared across a comma-separated list, and legitimate text
-# elsewhere in this same file uses parenthetical asides to name a SOURCE REPO's skills
-# that intentionally have no local equivalent ("소스 저장소 .../cro, pricing 스킬 참고").
-# A regex cannot reliably tell these apart (tested: sentence/paren-scoping both produce
-# false positives or miss the real defect) - review frontmatter descriptions by hand
-# whenever a skill's description is edited to mention another skill by name.
+# --- Check 5: frontmatter `description:` must not mention "<bare-word> 스킬" outside
+# backticks - e.g. "...카피는 copywriting 스킬 참고" instead of "`copywriting.md` 참고"
+# or "`cro` 참고" (external, no local file, still checkable-as-intentional via backticks).
+# Backtick-quoted spans are stripped before matching, so `copywriting.md` 참고 and `cro`
+# 참고 are both fine; only a truly bare ASCII word immediately before 스킬 is flagged.
+# Confirmed zero false positives across all 113 current skills' description fields
+# before adding this check (grep for the bare pattern found only marketing_psychology.md).
+foreach ($file in $skillFiles) {
+    $text = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
+    if ($text -notmatch '(?s)^---\r?\n(.*?)\r?\n---') { continue }
+    $fm = $Matches[1]
+    $fmNoBackticks = [regex]::Replace($fm, '`[^`]*`', '')
+    $bareMatches = [regex]::Matches($fmNoBackticks, '([a-zA-Z][a-zA-Z0-9_-]{1,40})\s*스킬')
+    foreach ($bm in $bareMatches) {
+        $word = $bm.Groups[1].Value
+        $errors.Add("$($file.Name): frontmatter mentions '$word 스킬' without backticks - use ``$word.md`` (local) or ``$word`` (external/non-local)")
+    }
+}
 
 if ($errors.Count -gt 0) {
     $errors | ForEach-Object { Write-Error $_ }
