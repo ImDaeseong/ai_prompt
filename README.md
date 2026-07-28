@@ -134,6 +134,10 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 | **분석/전략** | `world_analyst` | `/ai-trend`, `/stock`, `/job` |
 | **분석/전략** | `life_strategist` | `/money`, `/automate`, `/roadmap` |
 | **분석/전략** | `community_value_investor` | `/analyze`, `/moat`, `/risk-audit` |
+| **실무 마케팅** | `copywriting` | 헤드라인/CTA/랜딩페이지 카피 작성 |
+| **실무 마케팅** | `marketing_psychology` | 설득 심리·멘탈모델 60개+ 참조 |
+| **AI 엔지니어링** | `rag_implementation` | 벡터DB/임베딩/리랭킹 기반 RAG 구축 |
+| **AI 엔지니어링** | `llm_evaluation` | 자동 메트릭·LLM-as-judge 평가 체계 |
 
 > **rtcf_expert는 기반 스킬입니다.** 다른 스킬에 내릴 지시를 먼저 RTCF로 구조화하면 결과 품질이 높아집니다.
 
@@ -152,7 +156,7 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 | 카테고리 | 파일 수 | 파일 목록 |
 |----------|---------|-----------|
 | 공통 지침 | 2 | CLAUDE.md, imdaeseong_coding_style.md |
-| antigravity_test 스킬 | 109 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-19 확인) |
+| antigravity_test 스킬 | 113 | skills/ 폴더 — 실제 파일 수 기준 (2026-07-28 확인) |
 | antigravity_test 문서 | 5 | docs/ 폴더 내 가이드 문서 |
 | MFC/Python/공통/보안/음악/아키텍처 특화 프롬프트 | 0 | 2026-06-16 커밋(`a1e23b7`)에서 전부 제거 — antigravity_test/skills/ 포맷으로 대체 예정, 현재 미이관 |
 | Hermes 워크플로우 프롬프트 | — | prompts/ 폴더 2026-06-16 제거 — antigravity_test/skills/ 포맷으로 대체 완료 |
@@ -163,6 +167,7 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-28 | 신규 스킬 4개: `copywriting`/`marketing_psychology`(coreyhaines31/marketingskills, 42k★ MIT 검증), `rag_implementation`/`llm_evaluation`(wshobson/agents, 38.3k★ MIT 검증) — 사용자 요청으로 마케팅 실무·AI 엔지니어링 공백 보강 |
 | 2026-07-19 | 신규 스킬 3개: `ai_tell_remover`(영문 AI 티 제거, blader/humanizer 기반), `story_scenario_writer`/`story_scenario_workflow`(사연 대본 전문가/관리자 쌍). 가이드 `antigravity_usage_guide.md` 추가. 두 README의 삭제 파일 참조(깨진 링크) 전수 정리 |
 | 2026-07-17 | `hermes_config_audit` 스킬 추가 — hermes-agents 설정 6영역 감사 |
 | 2026-07-12 | `skill_writing_quality` 스킬 추가 — 트리거 문장 품질 체크리스트 |
