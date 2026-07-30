@@ -26,6 +26,13 @@
    ```
 3. README 2곳 동시 업데이트: `antigravity_test/README.md` + `ai_prompt/README.md`
 
+## 검증
+
+`scripts/validate_skills.ps1`이 스킬 frontmatter·고유 이름·관련 스킬 참조·NOTICE.md 역참조를
+검사한다. `scripts/install-git-hooks.ps1`로 pre-commit 훅을 한 번 설치하면 커밋 전 자동 실행된다
+(2026-07-30 추가 — 그 전까지는 훅이 없어 수동 실행에 의존했음). 수동 실행:
+`powershell.exe -NoProfile -File scripts/validate_skills.ps1`
+
 ## 관련 저장소
 
 - `hermes-agents/` — MCP 설정, Claude Code 행동 규칙, 환경 설정, 봇 코드
