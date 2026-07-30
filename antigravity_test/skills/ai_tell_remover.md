@@ -5,7 +5,7 @@ description: Detect and remove English AI-writing "tells" (em dash overuse, infl
 
 # AI Tell Remover — English (영문 AI 티 제거)
 
-출처: [blader/humanizer](https://github.com/blader/humanizer) (29,812★, 2026-07-19 GitHub API 직접 확인, MIT) — 영어 AI 생성 산문의 "티"를 5개 대분류·33개 세부 패턴으로 카탈로그화한 도구. Wikipedia WikiProject AI Cleanup의 "Signs of AI writing" 가이드에 근거를 둔다. `korean_ai_tell_remover.md`의 영문판 짝으로, 영어로 된 산문(에세이·블로그·보고서·문서)에 이어서 실행한다.
+출처: [blader/humanizer](https://github.com/blader/humanizer) (2026-07-19 GitHub API 직접 확인, MIT) — 영어 AI 생성 산문의 "티"를 5개 대분류·33개 세부 패턴으로 카탈로그화한 도구. Wikipedia WikiProject AI Cleanup의 "Signs of AI writing" 가이드에 근거를 둔다. `korean_ai_tell_remover.md`의 영문판 짝으로, 영어로 된 산문(에세이·블로그·보고서·문서)에 이어서 실행한다.
 
 > `korean_ai_tell_remover`는 번역투·조사 남용 등 한국어 특유 패턴을 다루므로 영어 텍스트에는 적용되지 않는다 — 이 스킬은 영어 전용이다.
 

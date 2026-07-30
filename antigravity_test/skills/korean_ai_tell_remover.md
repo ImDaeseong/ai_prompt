@@ -5,7 +5,7 @@ description: Detect and remove Korean AI-writing "tells" (translationese, 첫째
 
 # Korean AI Tell Remover (한국어 AI 티 제거)
 
-출처: [im-not-ai](https://github.com/epoko77-ai/im-not-ai) (3,834★, 2026-07-19 확인, MIT) — 한국어 AI 생성 텍스트의 "티"를 10개 대분류·70개 이상의 세부 패턴으로 카탈로그화한 도구. `lyrics_analyzer`, `novel_manager`, `story_architect`, `doc_coauthoring` 등으로 생성한 한국어 결과물에 이어서 실행한다.
+출처: [im-not-ai](https://github.com/epoko77-ai/im-not-ai) (2026-07-19 확인, MIT) — 한국어 AI 생성 텍스트의 "티"를 10개 대분류·70개 이상의 세부 패턴으로 카탈로그화한 도구. `lyrics_analyzer`, `novel_manager`, `story_architect`, `doc_coauthoring` 등으로 생성한 한국어 결과물에 이어서 실행한다.
 
 > 영어권 AI-tell 도구(예: stop-slop)는 번역투·조사 남용 등 한국어 특유 패턴을 잡지 못한다 — 이 스킬은 한국어 전용이다.
 
