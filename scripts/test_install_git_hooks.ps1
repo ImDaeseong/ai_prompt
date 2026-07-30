@@ -1,9 +1,10 @@
-# Regression test for install-git-hooks.ps1's two independently-found defects
-# (2026-07-30): it used to overwrite an existing pre-commit hook unconditionally, and
-# hardcoded ".git/hooks/pre-commit" instead of resolving the real hook path, which
-# breaks under a linked worktree (whose .git is a file, not a directory) or a repo with
-# core.hooksPath set. Runs entirely inside a throwaway temp git repo -- never touches
-# this repo's own real .git/hooks.
+# Regression test for install-git-hooks.ps1's independently-found defects (2026-07-30):
+# it used to overwrite an existing pre-commit hook unconditionally; it hardcoded
+# ".git/hooks/pre-commit" instead of resolving the real hook path, which breaks under a
+# linked worktree (whose .git is a file, not a directory); and it failed with
+# DirectoryNotFoundException when core.hooksPath pointed at a directory that doesn't
+# exist yet. Runs entirely inside a throwaway temp git repo -- never touches this repo's
+# own real .git/hooks.
 
 $ErrorActionPreference = "Stop"
 $failures = [System.Collections.Generic.List[string]]::new()
@@ -84,6 +85,23 @@ try {
     }
     git worktree remove $worktreePath --force | Out-Null
 
+    # Test 5: core.hooksPath pointing at a directory that doesn't exist yet -- nothing
+    # creates it automatically, so the installer must create it rather than fail with
+    # DirectoryNotFoundException.
+    git config core.hooksPath ".custom-hooks"
+    $customHookPath = ".custom-hooks/pre-commit"
+    if (Test-Path -LiteralPath ".custom-hooks") {
+        Remove-Item -Recurse -Force ".custom-hooks"
+    }
+    powershell.exe -NoProfile -File "scripts/install-git-hooks.ps1" | Out-Null
+    $exitAfterHooksPath = $LASTEXITCODE
+    if ($exitAfterHooksPath -ne 0) {
+        $failures.Add("Test 5 (core.hooksPath): installer exited non-zero when core.hooksPath pointed at a not-yet-existing directory.")
+    } elseif (-not (Test-Path -LiteralPath $customHookPath)) {
+        $failures.Add("Test 5 (core.hooksPath): hook was not created at the custom hooksPath location '$customHookPath'.")
+    }
+    git config --unset core.hooksPath
+
     Pop-Location
 } finally {
     if ((Get-Location).Path -eq $fakeRepo) { Pop-Location }
@@ -95,4 +113,4 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Output "PASS: install-git-hooks.ps1 handles fresh install, idempotent reinstall, foreign-hook protection, and linked-worktree path resolution correctly."
+Write-Output "PASS: install-git-hooks.ps1 handles fresh install, idempotent reinstall, foreign-hook protection, linked-worktree path resolution, and a not-yet-existing core.hooksPath directory correctly."
