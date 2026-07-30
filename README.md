@@ -162,6 +162,7 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 | 날짜 | 변경 내용 |
 |------|-----------|
+| 2026-07-30 | pre-commit 훅 신규 추가 — `scripts/validate_skills.ps1`(스킬 frontmatter·고유 이름·관련 스킬 참조 검사)을 커밋 전 자동 실행하도록 `install-git-hooks.ps1` 연결. 그 전까지는 훅이 없어 수동 실행에만 의존했음 |
 | 2026-07-29 | `office_automation_html_tools` 스킬 추가 — 예산/견적/마진/부가세 계산기·기안서 등 코드 없이 HTML 도구 생성 + Claude Design 제안서 + Drive·Gmail 자동화 체인 프롬프트 (라이즈젠 유튜브 출처, Anthropic 기능 설명 WebSearch로 교차 검증) |
 | 2026-07-28 | `copywriting`/`marketing_psychology`/`rag_implementation`/`llm_evaluation` 4개 스킬 전면 재작성 — 저장소 전체 문체·구조에 맞춰 다시 씀 |
 | 2026-07-28 | `antigravity_usage_guide.md`에 공식 문서(`antigravity.google/docs`) 기반 내용 추가: Rules/Workflows 정의 교차 확인, Knowledge(학습) 시스템 ↔ 이 워크스페이스의 MEMORY.md 대응 설명, Antigravity 2.0 신규 기능(JSON Hooks/Browser 서브에이전트/Scheduled Tasks/Projects/Voice) 매핑표 |
@@ -171,4 +172,4 @@ AI 코딩 어시스턴트에게 개발, 분석, 마이그레이션, 보안 점�
 
 ---
 
-Last Updated: 2026-07-29
+Last Updated: 2026-07-30
