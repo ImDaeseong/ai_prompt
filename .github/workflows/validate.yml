@@ -1,0 +1,34 @@
+name: Validate ai_prompt
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Run repository validation
+        shell: powershell
+        run: ./scripts/verify_repo.ps1
+      - name: Regression test invocation outside repository cwd
+        shell: powershell
+        run: |
+          $validator = (Resolve-Path ./scripts/verify_repo.ps1).Path
+          Push-Location $env:RUNNER_TEMP
+          try {
+            & $validator
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          } finally {
+            Pop-Location
+          }
+      - name: Regression test verification side-effect guard
+        shell: powershell
+        run: ./scripts/verify_repo.ps1 -SideEffectSelfTest

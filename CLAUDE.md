@@ -33,6 +33,11 @@
 (2026-07-30 추가 — 그 전까지는 훅이 없어 수동 실행에 의존했음). 수동 실행:
 `powershell.exe -NoProfile -File scripts/validate_skills.ps1`
 
+전체 로컬 검증은 `powershell.exe -NoProfile -File scripts/verify_repo.ps1`로 실행한다. 이
+진입점은 스킬 검증·훅 설치기 회귀 테스트를 실행하고 검증 전후 Git-visible 작업 트리 상태가
+달라지면 실패한다. `.github/workflows/validate.yml`도 같은 진입점과 부작용 가드 회귀 테스트를
+push·pull request마다 실행한다.
+
 ## 관련 저장소
 
 - `hermes-agents/` — MCP 설정, Claude Code 행동 규칙, 환경 설정, 봇 코드
