@@ -1,0 +1,63 @@
+$ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $PSScriptRoot
+$errors = [System.Collections.Generic.List[string]]::new()
+
+# Exclude gitignored top-level dirs, same pattern as skills/scripts/validate_links.ps1.
+$gitignorePath = Join-Path $root '.gitignore'
+$ignoredTopLevelDirs = @()
+if (Test-Path -LiteralPath $gitignorePath) {
+    $ignoredTopLevelDirs = Get-Content -LiteralPath $gitignorePath |
+        Where-Object { $_ -match '^\S+/$' } |
+        ForEach-Object { $_.TrimEnd('/') }
+}
+
+function Get-ScopedFiles {
+    param([string]$Root, [string[]]$IgnoredTopLevelDirs, [string]$Filter)
+    $results = [System.Collections.Generic.List[System.IO.FileInfo]]::new()
+    foreach ($item in Get-ChildItem -LiteralPath $Root -Force) {
+        if ($item.PSIsContainer) {
+            if ($item.Name -in $IgnoredTopLevelDirs -or $item.Name -eq '.git') { continue }
+            Get-ChildItem -LiteralPath $item.FullName -Recurse -File -Filter $Filter |
+                ForEach-Object { $results.Add($_) }
+        } elseif ($item.Name -like $Filter) {
+            $results.Add($item)
+        }
+    }
+    return $results
+}
+
+Get-ScopedFiles -Root $root -IgnoredTopLevelDirs $ignoredTopLevelDirs -Filter '*.md' | ForEach-Object {
+    $base = $_.DirectoryName
+    # -Encoding utf8: PowerShell 5.1's Get-Content default encoding for a
+    # BOM-less file falls back to the system locale codepage (cp949 on
+    # Korean Windows), which garbles non-ASCII (Korean) filenames extracted
+    # from link text so they no longer match the real Unicode path on disk.
+    $text = Get-Content -LiteralPath $_.FullName -Raw -Encoding utf8
+    # [^)\n]+ (not [^)]+): a target must not span a newline. Without this, a
+    # literal "](" appearing inside a fenced code block (e.g. a shell command
+    # that greps for markdown link syntax) makes the capture run away across
+    # unrelated paragraphs hunting for the next ")", producing a multi-line
+    # garbage "path" that crashes Test-Path with "illegal characters in path".
+    foreach ($match in [regex]::Matches($text, '\[[^\]]+\]\(([^)\n]+)\)')) {
+        $target = $match.Groups[1].Value
+        if ($target -match '^https?://') { continue }
+        $targetPath = $target -replace '#.*$', ''
+        if ($targetPath -eq '') { continue }
+        try {
+            $exists = Test-Path -LiteralPath (Join-Path $base $targetPath)
+        } catch {
+            $errors.Add("unresolvable link target (invalid path characters): $($_.FullName) -> $target")
+            continue
+        }
+        if (-not $exists) {
+            $errors.Add("broken local link: $($_.FullName) -> $target")
+        }
+    }
+}
+
+if ($errors.Count -gt 0) {
+    $errors | ForEach-Object { Write-Error $_ }
+    exit 1
+}
+
+Write-Output 'PASS: local Markdown links are valid.'

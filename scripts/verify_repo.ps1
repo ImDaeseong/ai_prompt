@@ -41,6 +41,9 @@ try {
     Invoke-Checked "validate_skills.ps1" {
         & powershell.exe -NoProfile -File (Join-Path $repoRoot "scripts\validate_skills.ps1")
     }
+    Invoke-Checked "validate_links.ps1" {
+        & powershell.exe -NoProfile -File (Join-Path $repoRoot "scripts\validate_links.ps1")
+    }
     Invoke-Checked "test_install_git_hooks.ps1" {
         & powershell.exe -NoProfile -File (Join-Path $repoRoot "scripts\test_install_git_hooks.ps1")
     }
