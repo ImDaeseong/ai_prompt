@@ -98,7 +98,7 @@
 | `sequential_thinker.md` | Sequential Thinker | 5단계 논리 사고로 오류를 수정하며 최선의 해답 도달 | `/think`, `/verify`, `/step-by-step` |
 | `self_correction_critic.md` | Self-Correction Critic | 답변 출력 전 5가지 체크리스트로 자가 교정 | `/critique`, `/perfect`, `/hallucination-check` |
 | `prompt_engineer.md` | Prompt Engineer | 단순 명령을 모델별 최적화 고정밀 프롬프트로 변환 | `/refine`, `/image`, `/video`, `/music` |
-| `community_meta_prompter.md` | Community Meta Prompter | 문제를 분해하고 근거를 점검하는 5단계 메타 프롬프팅 | `/meta-think`, `/blueprint`, `/optimize` |
+| `community_meta_prompter.md` | Community Meta Prompter | 문제를 분해하고 근거를 점검하는 5단계 메타 프롬프팅 | `/meta-think`, `/blueprint`, `/optimize`, `/clarify` |
 | `community_snowflake_writer.md` | Snowflake Writer | 한 문장에서 소설 전체를 9단계로 확장하는 구조적 작법 | `/step`, `/expand`, `/check-structure` |
 
 ---
