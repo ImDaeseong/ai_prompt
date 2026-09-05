@@ -37,7 +37,15 @@ $errors = [System.Collections.Generic.List[string]]::new()
 $skillsDir = Join-Path $Root 'antigravity_test\skills'
 $noticePath = Join-Path $Root 'NOTICE.md'
 
+if (-not (Test-Path -LiteralPath $skillsDir -PathType Container)) {
+    Write-Error "skills directory not found: $skillsDir"
+    exit 1
+}
 $skillFiles = Get-ChildItem -LiteralPath $skillsDir -File -Filter '*.md'
+if ($skillFiles.Count -eq 0) {
+    Write-Error "no skill files found under: $skillsDir"
+    exit 1
+}
 $skillNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 foreach ($f in $skillFiles) { [void]$skillNames.Add($f.Name) }
 
@@ -52,8 +60,8 @@ foreach ($file in $skillFiles) {
         continue
     }
     $fm = $Matches[1]
-    if ($fm -notmatch '(?m)^name:') { $errors.Add("$($file.Name): frontmatter missing name:") }
-    if ($fm -notmatch '(?m)^description:') { $errors.Add("$($file.Name): frontmatter missing description:") }
+    if ($fm -notmatch '(?m)^name:[ \t]*\S') { $errors.Add("$($file.Name): frontmatter missing or empty name:") }
+    if ($fm -notmatch '(?m)^description:[ \t]*\S') { $errors.Add("$($file.Name): frontmatter missing or empty description:") }
     $nameMatch = [regex]::Match($fm, '(?m)^name:\s*"?([a-z0-9-]+)"?')
     if ($nameMatch.Success) {
         $n = $nameMatch.Groups[1].Value
