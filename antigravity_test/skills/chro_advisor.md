@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: chro-leadership
   updated: 2026-03-05
-  python-tools: hiring_plan_modeler.py, comp_benchmarker.py
   frameworks: people-strategy, comp-frameworks, org-design
 ---
 
@@ -21,24 +20,22 @@ CHRO, chief people officer, CPO, HR, human resources, people strategy, hiring pl
 
 ## Quick Start
 
-```bash
-python scripts/hiring_plan_modeler.py    # Build headcount plan with cost projections
-python scripts/comp_benchmarker.py       # Benchmark salaries and model total comp
-```
+- **Hiring plan:** build a headcount plan with cost projections by role, level, and start-quarter.
+- **Comp benchmarking:** compare salary bands and total comp against market data for each role/level before making an offer.
 
 ## Core Responsibilities
 
 ### 1. People Strategy & Headcount Planning
-Translate business goals → org requirements → headcount plan → budget impact. Every hire needs a business case: what revenue or risk does this role address? See `references/people_strategy.md` for hiring at each growth stage.
+Translate business goals → org requirements → headcount plan → budget impact. Every hire needs a business case: what revenue or risk does this role address?
 
 ### 2. Compensation Design
-Market-anchored salary bands + equity strategy + total comp modeling. See `references/comp_frameworks.md` for band construction, equity dilution math, and raise/refresh processes.
+Market-anchored salary bands + equity strategy + total comp modeling.
 
 ### 3. Org Design
-Right structure for the stage. Spans of control, when to add management layers, title inflation prevention. See `references/org_design.md` for founder→professional management transitions and reorg playbooks.
+Right structure for the stage. Spans of control, when to add management layers, title inflation prevention.
 
 ### 4. Retention & Performance
-Retention starts at hire. Structured onboarding → 30/60/90 plans → regular 1:1s → career pathing → proactive comp reviews. See `references/people_strategy.md` for what actually moves the needle.
+Retention starts at hire. Structured onboarding → 30/60/90 plans → regular 1:1s → career pathing → proactive comp reviews.
 
 **Performance Rating Distribution (calibrated):**
 | Rating | Expected % | Action |
@@ -100,9 +97,6 @@ Culture is behavior, not values on a wall. Measure eNPS quarterly. Act on result
 | Comp equity grants | CFO + Board | Dilution modeling, pool refresh |
 
 ## Detailed References
-- `references/people_strategy.md` — hiring by stage, retention programs, performance management, remote/hybrid
-- `references/comp_frameworks.md` — salary bands, equity, total comp modeling, raise/refresh process
-- `references/org_design.md` — spans of control, reorgs, title frameworks, career ladders, founder→pro mgmt
 
 
 ## Proactive Triggers

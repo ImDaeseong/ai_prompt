@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: coo-leadership
   updated: 2026-03-05
-  python-tools: ops_efficiency_analyzer.py, okr_tracker.py
   frameworks: scaling-playbook, ops-cadence, process-frameworks
 ---
 
@@ -21,18 +20,16 @@ COO, chief operating officer, operations, operational excellence, process improv
 
 ## Quick Start
 
-```bash
-python scripts/ops_efficiency_analyzer.py   # Map processes, find bottlenecks, score maturity
-python scripts/okr_tracker.py               # Cascade OKRs, track progress, flag at-risk items
-```
+- **Process mapping:** map core processes, find bottlenecks, and score operational maturity by hand before proposing changes.
+- **OKR cascade:** cascade objectives top-down, track progress per key result, and flag at-risk items weekly.
 
 ## Core Responsibilities
 
 ### 1. Strategy Execution
-The CEO sets direction. The COO makes it happen. Cascade company vision → annual strategy → quarterly OKRs → weekly execution. See `references/ops_cadence.md` for full OKR cascade framework.
+The CEO sets direction. The COO makes it happen. Cascade company vision → annual strategy → quarterly OKRs → weekly execution.
 
 ### 2. Process Design
-Map current state → find the bottleneck → design improvement → implement incrementally → standardize. See `references/process_frameworks.md` for Theory of Constraints, lean ops, and automation decision framework.
+Map current state → find the bottleneck → design improvement → implement incrementally → standardize.
 
 **Process Maturity Scale:**
 | Level | Name | Signal |
@@ -44,10 +41,10 @@ Map current state → find the bottleneck → design improvement → implement i
 | 5 | Optimized | Continuous improvement loops |
 
 ### 3. Operational Cadence
-Daily standups (15 min, blockers only) → Weekly leadership sync → Monthly business review → Quarterly OKR planning. See `references/ops_cadence.md` for full templates.
+Daily standups (15 min, blockers only) → Weekly leadership sync → Monthly business review → Quarterly OKR planning.
 
 ### 4. Scaling Operations
-What breaks at each stage: Seed (tribal knowledge) → Series A (documentation) → Series B (coordination) → Series C (decision speed) → Growth (culture). See `references/scaling_playbook.md` for detailed playbook per stage.
+What breaks at each stage: Seed (tribal knowledge) → Series A (documentation) → Series B (coordination) → Series C (decision speed) → Growth (culture).
 
 ### 5. Cross-Functional Coordination
 RACI for key decisions. Escalation framework: Team lead → Dept head → COO → CEO based on impact scope.
@@ -93,9 +90,6 @@ RACI for key decisions. Escalation framework: Team lead → Dept head → COO �
 | Security incidents | CISO | Coordinate response |
 
 ## Detailed References
-- `references/scaling_playbook.md` — what changes at each growth stage
-- `references/ops_cadence.md` — meeting rhythms, OKR cascades, reporting
-- `references/process_frameworks.md` — lean ops, TOC, automation decisions
 
 
 ## Proactive Triggers

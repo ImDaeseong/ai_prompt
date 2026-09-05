@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: cto-leadership
   updated: 2026-03-05
-  python-tools: tech_debt_analyzer.py, team_scaling_calculator.py
   frameworks: architecture-decisions, engineering-metrics, technology-evaluation
 ---
 
@@ -21,10 +20,8 @@ CTO, chief technology officer, tech debt, technical debt, architecture, engineer
 
 ## Quick Start
 
-```bash
-python scripts/tech_debt_analyzer.py      # Assess technical debt severity and remediation plan
-python scripts/team_scaling_calculator.py  # Model engineering team growth and cost
-```
+- **Tech debt:** inventory debt items, score each by severity and remediation cost, and sequence by `(Severity × Blast Radius) / Cost-to-fix`.
+- **Team scaling:** model engineering headcount growth and its cost impact against the roadmap before committing to a hiring plan.
 
 ## Core Responsibilities
 
@@ -37,8 +34,6 @@ Align technology investments with business priorities.
 - Innovation budget (10-20% of engineering capacity for experimentation)
 - Build vs buy decisions (default: buy unless it's your core IP)
 - Technical debt strategy (management, not elimination)
-
-See `references/technology_evaluation_framework.md` for the full evaluation framework.
 
 ### 2. Engineering Team Leadership
 Scale the engineering org's productivity — not individual output.
@@ -55,8 +50,6 @@ Scale the engineering org's productivity — not individual output.
 - Code review as mentoring, not gatekeeping
 - On-call that's sustainable (not heroic)
 
-See `references/engineering_metrics.md` for DORA metrics and the engineering health dashboard.
-
 ### 3. Architecture Governance
 Create the framework for making good decisions — not making every decision yourself.
 
@@ -64,8 +57,6 @@ Create the framework for making good decisions — not making every decision you
 - Every significant decision gets documented: context, options, decision, consequences
 - Decisions are discoverable (not buried in Slack)
 - Decisions can be superseded (not permanent)
-
-See `references/architecture_decision_records.md` for ADR templates and the decision review process.
 
 ### 4. Vendor & Platform Management
 Every vendor is a dependency. Every dependency is a risk.
@@ -81,13 +72,11 @@ Incident response, security breaches, major outages, data loss.
 
 ### Tech Debt Assessment Workflow
 
-**Step 1 — Run the analyzer**
-```bash
-python scripts/tech_debt_analyzer.py --output report.json
-```
+**Step 1 — Build the inventory**
+List every known debt item across the codebase (from postmortems, code review comments, on-call pain points, and team surveys).
 
-**Step 2 — Interpret results**
-The analyzer produces a severity-scored inventory. Review each item against:
+**Step 2 — Score each item**
+Score each item against:
 - Severity (P0–P3): how much is it blocking velocity or creating risk?
 - Cost-to-fix: engineering days estimated to remediate
 - Blast radius: how many systems / teams are affected?
@@ -119,7 +108,7 @@ Legacy deploy scripts | P3       | 5 days      | 1 service    | LOW
 Trigger an ADR when: the decision affects more than one team, is hard to reverse, or has cost/risk implications > 1 sprint of effort.
 
 **Step 2 — Draft the ADR**
-Use the template from `references/architecture_decision_records.md`:
+Use the template below:
 ```
 Title: [Short noun phrase]
 Status: Proposed | Accepted | Superseded
@@ -252,6 +241,3 @@ All output passes the Internal Quality Loop before reaching the founder (see `..
 - **Invocation:** You can request input from other roles: `[INVOKE:role|question]`
 
 ## Resources
-- `references/technology_evaluation_framework.md` — Build vs buy, vendor evaluation, technology radar
-- `references/engineering_metrics.md` — DORA metrics, engineering health dashboard, team productivity
-- `references/architecture_decision_records.md` — ADR templates, decision governance, review process

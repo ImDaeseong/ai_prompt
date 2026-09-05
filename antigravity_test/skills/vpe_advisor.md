@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: vp-engineering-leadership
   updated: 2026-05-13
-  python-tools: delivery_throughput_analyzer.py, eng_hiring_funnel_calculator.py, eng_team_structure_designer.py
   frameworks: delivery-throughput, hiring-funnel, team-structure, production-discipline
 ---
 
@@ -31,19 +30,9 @@ VPE, VP of Engineering, VP Engineering, engineering operations, delivery through
 
 ## Quick Start
 
-```bash
-# Decision A: DORA 4 metrics + bottleneck identification
-python scripts/delivery_throughput_analyzer.py                          # embedded sprint sample
-python scripts/delivery_throughput_analyzer.py path/to/sprint_metrics.json
-
-# Decision B: Hiring funnel health + pipeline gap
-python scripts/eng_hiring_funnel_calculator.py                          # embedded 3-quarter sample
-python scripts/eng_hiring_funnel_calculator.py path/to/funnel.json
-
-# Decision C: Team structure recommendation + manager-trigger
-python scripts/eng_team_structure_designer.py                           # embedded 25-engineer sample
-python scripts/eng_team_structure_designer.py path/to/team.json
-```
+- **Decision A — Delivery throughput:** compute the DORA 4 metrics from sprint data and identify the top bottleneck (see the framework below).
+- **Decision B — Hiring funnel:** compute conversion per stage and pipeline gap from funnel data (see the funnel table below).
+- **Decision C — Team structure:** apply the squad/tribe/chapter thresholds to current headcount to get a structure recommendation and manager-trigger (see the table below).
 
 ## Key Questions (ask these first)
 
@@ -77,9 +66,7 @@ Common bottlenecks:
 - **Deploy gates** (manual approval, change-control board) — fix: progressive delivery + feature flags
 - **Database migrations** (locking, scheduled windows) — fix: zero-downtime migration patterns
 
-**Run** `delivery_throughput_analyzer.py` with sprint data to get DORA verdict + top bottleneck.
-
-See `references/delivery_throughput.md` for the full DORA framework, anti-patterns, and what to fix first.
+Apply the DORA table above to sprint data to get a verdict per metric, then use the cycle-time breakdown to find the top bottleneck.
 
 ### 2. Engineering Hiring Funnel
 
@@ -103,9 +90,7 @@ The reality: the funnel has 4-6 stages, each with a conversion rate. Find which 
 
 Example: 4 hires needed × 100 candidates per stage (assuming 30% × 60% × 70% × 75% × 40% × 35% × 80% = ~0.7% end-to-end) = ~570 candidates at top of funnel.
 
-**Run** `eng_hiring_funnel_calculator.py` with funnel data to compute conversion per stage, time-to-fill, and pipeline gap.
-
-See `references/engineering_hiring_funnel.md` for the full funnel framework, common leakage points, and sourcing channel diversification.
+Apply the funnel table above to actual stage-by-stage data to compute conversion per stage, time-to-fill, and pipeline gap against the hiring target.
 
 ### 3. Engineering Team Structure
 
@@ -132,9 +117,7 @@ See `references/engineering_hiring_funnel.md` for the full funnel framework, com
 - 3+ EMs without a director = director hire
 - 8+ teams in one tribe = split the tribe
 
-**Run** `eng_team_structure_designer.py` with team profile for structure recommendation + manager-trigger.
-
-See `references/eng_team_structure.md` for the full framework, Conway's Law implications, and EM-vs-tech-lead split.
+Apply the evolution table and manager-trigger thresholds above to the current headcount/work-stream profile for a structure recommendation.
 
 ### 4. Production Discipline
 
@@ -145,47 +128,35 @@ Production discipline is the operating model that lets the team sleep. Four pill
 - **Deployment cadence:** continuous deployment OR scheduled releases; both work; surprise releases don't
 - **SLO discipline:** every customer-facing service has documented SLOs + error budgets (pair with `engineering/slo-architect/`)
 
-See `references/production_discipline.md` for the full operating model.
-
 ## Workflows
 
 ### Workflow 1: Quarterly Delivery Health Review (4 hours)
 **Goal:** Diagnose throughput + identify top bottleneck.
 
-```bash
-# 1. Pull sprint metrics: deployment frequency, lead time, MTTR, change failure rate
-python ../../skills/vpe-advisor/scripts/delivery_throughput_analyzer.py sprint_metrics.json
-# 2. Review DORA verdict per metric
-# 3. Identify top bottleneck (longest wait stage)
-# 4. Cross-check with cs-cto-advisor on architectural causes
-# 5. Output: 90-day fix plan with one bottleneck owned by one engineer
-# 6. Log via /cs:decide
-```
+1. Pull sprint metrics: deployment frequency, lead time, MTTR, change failure rate
+2. Score each against the DORA table above and get a verdict per metric
+3. Identify the top bottleneck (longest wait stage in the cycle-time breakdown)
+4. Cross-check with the CTO advisor on architectural causes
+5. Output: 90-day fix plan with one bottleneck owned by one engineer
 
 ### Workflow 2: Hiring Funnel Diagnosis (1 day)
 **Goal:** Identify funnel leakage + compute pipeline gap for hiring target.
 
-```bash
-# 1. Pull funnel data from ATS for last 90 days
-python ../../skills/vpe-advisor/scripts/eng_hiring_funnel_calculator.py funnel.json
-# 2. Identify weakest conversion stage
-# 3. Compute pipeline volume needed for next quarter's hiring target
-# 4. Cross-check with cs-chro-advisor on comp/leveling competitiveness
-# 5. Cross-check with cs-cfo-advisor on cost-per-hire envelope
-# 6. Output: top-3 fixes + sourcing channel diversification plan
-```
+1. Pull funnel data from the ATS for the last 90 days
+2. Score each stage against the funnel table above and identify the weakest conversion stage
+3. Compute pipeline volume needed for next quarter's hiring target
+4. Cross-check with the CHRO advisor on comp/leveling competitiveness
+5. Cross-check with the CFO advisor on cost-per-hire envelope
+6. Output: top-3 fixes + sourcing channel diversification plan
 
 ### Workflow 3: Team Structure Audit (1 day)
 **Goal:** Confirm team structure matches headcount + work streams.
 
-```bash
-# 1. Build team.json: headcount, work streams, manager count, IC distribution
-python ../../skills/vpe-advisor/scripts/eng_team_structure_designer.py team.json
-# 2. Check manager-trigger thresholds (5-7 IC rule)
-# 3. Identify squad sizes outside 5-9 range
-# 4. Cross-check with cs-cto-advisor on Conway's Law alignment
-# 5. Output: structure recommendations + manager hire plan
-```
+1. Inventory current headcount, work streams, manager count, and IC distribution
+2. Check manager-trigger thresholds (5-7 IC rule) against the current profile
+3. Identify squad sizes outside the 5-9 healthy range
+4. Cross-check with the CTO advisor on Conway's Law alignment
+5. Output: structure recommendations + manager hire plan
 
 ### Workflow 4: Production Discipline Audit (1 week)
 **Goal:** Confirm operating model can scale through current growth.

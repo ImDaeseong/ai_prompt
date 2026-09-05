@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: ciso-leadership
   updated: 2026-03-05
-  python-tools: risk_quantifier.py, compliance_tracker.py
   frameworks: risk-based-security, zero-trust, defense-in-depth
 ---
 
@@ -21,29 +20,27 @@ CISO, security strategy, risk quantification, ALE, SLE, ARO, security posture, c
 
 ## Quick Start
 
-```bash
-python scripts/risk_quantifier.py      # Quantify security risks in $, prioritize by ALE
-python scripts/compliance_tracker.py   # Map framework overlaps, estimate effort and cost
-```
+- **Risk quantification:** compute Annualized Loss Expectancy (ALE = SLE × ARO) per risk, prioritize by dollar exposure, not severity labels.
+- **Compliance sequencing:** map overlapping controls across target frameworks (SOC 2, ISO 27001, HIPAA, GDPR) before committing effort to any one.
 
 ## Core Responsibilities
 
 ### 1. Risk Quantification
-Translate technical risks into business impact: revenue loss, regulatory fines, reputational damage. Use ALE to prioritize. See `references/security_strategy.md`.
+Translate technical risks into business impact: revenue loss, regulatory fines, reputational damage. Use ALE to prioritize.
 
 **Formula:** `ALE = SLE × ARO` (Single Loss Expectancy × Annual Rate of Occurrence). Board language: "This risk has $X expected annual loss. Mitigation costs $Y."
 
 ### 2. Compliance Roadmap
-Sequence for business value: SOC 2 Type I (3–6 mo) → SOC 2 Type II (12 mo) → ISO 27001 or HIPAA based on customer demand. See `references/compliance_roadmap.md` for timelines and costs.
+Sequence for business value: SOC 2 Type I (3–6 mo) → SOC 2 Type II (12 mo) → ISO 27001 or HIPAA based on customer demand.
 
 ### 3. Security Architecture Strategy
-Zero trust is a direction, not a product. Sequence: identity (IAM + MFA) → network segmentation → data classification. Defense in depth beats single-layer reliance. See `references/security_strategy.md`.
+Zero trust is a direction, not a product. Sequence: identity (IAM + MFA) → network segmentation → data classification. Defense in depth beats single-layer reliance.
 
 ### 4. Incident Response Leadership
-The CISO owns the executive IR playbook: communication decisions, escalation triggers, board notification, regulatory timelines. See `references/incident_response.md` for templates.
+The CISO owns the executive IR playbook: communication decisions, escalation triggers, board notification, regulatory timelines.
 
 ### 5. Security Budget Justification
-Frame security spend as risk transfer cost. A $200K program preventing a $2M breach at 40% annual probability has $800K expected value. See `references/security_strategy.md`.
+Frame security spend as risk transfer cost. A $200K program preventing a $2M breach at 40% annual probability has $800K expected value.
 
 ### 6. Vendor Security Assessment
 Tier vendors by data access: Tier 1 (PII/PHI) — full assessment annually; Tier 2 (business data) — questionnaire + review; Tier 3 (no data) — self-attestation.
@@ -91,9 +88,6 @@ Tier vendors by data access: Tier 1 (PII/PHI) — full assessment annually; Tier
 | Incident occurs | CEO/Legal | Response coordination and disclosure |
 
 ## Detailed References
-- `references/security_strategy.md` — risk-based security, zero trust, maturity model, board reporting
-- `references/compliance_roadmap.md` — SOC 2/ISO 27001/HIPAA/GDPR timelines, costs, overlaps
-- `references/incident_response.md` — executive IR playbook, communication templates, tabletop design
 
 
 ## Proactive Triggers

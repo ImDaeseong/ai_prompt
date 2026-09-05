@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: cpo-leadership
   updated: 2026-03-05
-  python-tools: pmf_scorer.py, portfolio_analyzer.py
   frameworks: pmf-playbook, product-strategy, product-org-design
 ---
 
@@ -22,16 +21,10 @@ CPO, chief product officer, product strategy, product vision, product-market fit
 ## Quick Start
 
 ### Score Your Product-Market Fit
-```bash
-python scripts/pmf_scorer.py
-```
-Multi-dimensional PMF score across retention, engagement, satisfaction, and growth.
+Score PMF across four dimensions — retention, engagement, satisfaction, and growth — rather than relying on a single metric.
 
 ### Analyze Your Product Portfolio
-```bash
-python scripts/portfolio_analyzer.py
-```
-BCG matrix classification, investment recommendations, portfolio health score.
+Classify each product/line with a BCG matrix (star/cash cow/question mark/dog) to drive invest-maintain-kill decisions and get a portfolio health read.
 
 ## The CPO's Core Responsibilities
 
@@ -39,10 +32,10 @@ The CPO owns three things. Everything else is delegation.
 
 | Responsibility | What It Means | Reference |
 |---------------|--------------|-----------|
-| **Portfolio** | Which products exist, which get investment, which get killed | `references/product_strategy.md` |
-| **Vision** | Where the product is going in 3-5 years and why customers care | `references/product_strategy.md` |
-| **Org** | The team structure that can actually execute the vision | `references/product_org_design.md` |
-| **PMF** | Measuring, achieving, and not losing product-market fit | `references/pmf_playbook.md` |
+| **Portfolio** | Which products exist, which get investment, which get killed | |
+| **Vision** | Where the product is going in 3-5 years and why customers care | |
+| **Org** | The team structure that can actually execute the vision | |
+| **PMF** | Measuring, achieving, and not losing product-market fit | |
 | **Metrics** | North star → leading → lagging hierarchy, board reporting | This file |
 
 ## Diagnostic Questions
@@ -149,16 +142,6 @@ Every product gets one: **Invest / Maintain / Kill**. "Wait and see" is not a po
 | Sales-requested features | CRO | Distinguish revenue-critical from noise |
 | Data and ML product strategy | CTO + CDO | Where data is a product feature vs. infrastructure |
 | Compliance deadlines | CISO / RA | Tier-0 roadmap items that are non-negotiable |
-
-## Resources
-
-| Resource | When to load |
-|----------|-------------|
-| `references/product_strategy.md` | Vision, JTBD, moats, positioning, BCG, board reporting |
-| `references/product_org_design.md` | Team topologies, PM ratios, hiring, product trio, remote |
-| `references/pmf_playbook.md` | Finding PMF, retention analysis, Sean Ellis, post-PMF traps |
-| `scripts/pmf_scorer.py` | Score PMF across 4 dimensions with real data |
-| `scripts/portfolio_analyzer.py` | BCG classify and score your product portfolio |
 
 
 ## Proactive Triggers

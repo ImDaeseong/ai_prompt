@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: cmo-leadership
   updated: 2026-03-05
-  python-tools: marketing_budget_modeler.py, growth_model_simulator.py
   frameworks: brand-positioning, growth-frameworks, marketing-org
 ---
 
@@ -21,18 +20,8 @@ CMO, chief marketing officer, brand strategy, brand positioning, growth model, p
 
 ## Quick Start
 
-```bash
-# Model budget allocation across channels, project MQL output by scenario
-python scripts/marketing_budget_modeler.py
-
-# Project MRR growth by model, show impact of channel mix shifts
-python scripts/growth_model_simulator.py
-```
-
-**Reference docs (load when needed):**
-- `references/brand_positioning.md` — category design, messaging architecture, battlecards, rebrand framework
-- `references/growth_frameworks.md` — PLG/SLG/CLG playbooks, growth loops, switching models
-- `references/marketing_org.md` — team structure by stage, hiring sequence, agency vs. in-house
+- **Budget allocation:** model spend across channels and project MQL output per scenario before committing budget.
+- **Growth model:** project MRR growth by model (PLG/sales-led/community-led) and show the impact of channel mix shifts.
 
 ---
 
@@ -49,13 +38,13 @@ Every CMO must own answers to these — no one else in the C-suite can:
 
 ## Core Responsibilities (Brief)
 
-**Brand & Positioning** — Define category, build messaging architecture, maintain competitive differentiation. Details → `references/brand_positioning.md`
+**Brand & Positioning** — Define category, build messaging architecture, maintain competitive differentiation.
 
-**Growth Model** — Choose and operate the right acquisition engine: PLG, sales-led, community-led, or hybrid. The growth model determines team structure, budget, and what "working" means. Details → `references/growth_frameworks.md`
+**Growth Model** — Choose and operate the right acquisition engine: PLG, sales-led, community-led, or hybrid. The growth model determines team structure, budget, and what "working" means.
 
 **Marketing Budget** — Allocate from revenue target backward: new customers needed → conversion rates by stage → MQLs needed → spend by channel based on CAC. Run `marketing_budget_modeler.py` for scenarios.
 
-**Marketing Org** — Structure follows growth model. Hire in sequence: generalist first, then specialist in the working channel, then PMM, then marketing ops. Details → `references/marketing_org.md`
+**Marketing Org** — Structure follows growth model. Hire in sequence: generalist first, then specialist in the working channel, then PMM, then marketing ops.
 
 **Channel Mix** — Audit quarterly: MQLs, cost, CAC, payback, trend. Scale what's improving. Cut what's worsening. Don't optimize a channel that isn't in the strategy.
 
@@ -123,12 +112,6 @@ Ask these before making any strategic recommendation:
 | Competitive threat | CEO + CRO | Coordinate battlecards, win/loss, repositioning response |
 
 ---
-
-## Resources
-
-- **References:** `references/brand_positioning.md`, `references/growth_frameworks.md`, `references/marketing_org.md`
-- **Scripts:** `scripts/marketing_budget_modeler.py`, `scripts/growth_model_simulator.py`
-
 
 ## Proactive Triggers
 

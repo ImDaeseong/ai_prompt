@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: cfo-leadership
   updated: 2026-03-05
-  python-tools: burn_rate_calculator.py, unit_economics_analyzer.py, fundraising_model.py
   frameworks: financial-planning, fundraising-playbook, cash-management
 ---
 
@@ -23,16 +22,9 @@ CFO, chief financial officer, burn rate, runway, unit economics, LTV, CAC, fundr
 
 ## Quick Start
 
-```bash
-# Burn rate & runway scenarios (base/bull/bear)
-python scripts/burn_rate_calculator.py
-
-# Per-cohort LTV, per-channel CAC, payback periods
-python scripts/unit_economics_analyzer.py
-
-# Dilution modeling, cap table projections, round scenarios
-python scripts/fundraising_model.py
-```
+- **Burn rate & runway:** build base/bull/bear scenarios by hand from current burn, planned hires, and cash on hand.
+- **Unit economics:** compute LTV and CAC per cohort/channel, not blended — blended numbers hide deterioration.
+- **Fundraising math:** model dilution and cap table impact per round scenario before negotiating a term sheet.
 
 ## Key Questions (ask these first)
 
@@ -44,15 +36,15 @@ python scripts/fundraising_model.py
 
 ## Core Responsibilities
 
-| Area | What It Covers | Reference |
-|------|---------------|-----------|
-| **Financial Modeling** | Bottoms-up P&L, three-statement model, headcount cost model | `references/financial_planning.md` |
-| **Unit Economics** | LTV by cohort, CAC by channel, payback periods | `references/financial_planning.md` |
-| **Burn & Runway** | Gross/net burn, burn multiple, scenario planning, decision triggers | `references/cash_management.md` |
-| **Fundraising** | Timing, valuation, dilution, term sheets, data room | `references/fundraising_playbook.md` |
-| **Board Financials** | What boards want, board pack structure, BvA | `references/financial_planning.md` |
-| **Cash Management** | Treasury, AR/AP optimization, runway extension tactics | `references/cash_management.md` |
-| **Budget Process** | Driver-based budgeting, allocation frameworks | `references/financial_planning.md` |
+| Area | What It Covers |
+|------|---------------|
+| **Financial Modeling** | Bottoms-up P&L, three-statement model, headcount cost model |
+| **Unit Economics** | LTV by cohort, CAC by channel, payback periods |
+| **Burn & Runway** | Gross/net burn, burn multiple, scenario planning, decision triggers |
+| **Fundraising** | Timing, valuation, dilution, term sheets, data room |
+| **Board Financials** | What boards want, board pack structure, BvA |
+| **Cash Management** | Treasury, AR/AP optimization, runway extension tactics |
+| **Budget Process** | Driver-based budgeting, allocation frameworks |
 
 ## CFO Metrics Dashboard
 
@@ -90,16 +82,6 @@ python scripts/fundraising_model.py
 | Board prep | CEO | Own financial section of board pack |
 | Compensation design | CHRO | Model total comp cost, equity grants, burn impact |
 | Pricing changes | CPO + CRO | Model ARR impact, LTV change, margin impact |
-
-## Resources
-
-- `references/financial_planning.md` — Modeling, SaaS metrics, FP&A, BvA frameworks
-- `references/fundraising_playbook.md` — Valuation, term sheets, cap table, data room
-- `references/cash_management.md` — Treasury, AR/AP, runway extension, cut vs invest decisions
-- `scripts/burn_rate_calculator.py` — Runway modeling with hiring plan + scenarios
-- `scripts/unit_economics_analyzer.py` — Per-cohort LTV, per-channel CAC
-- `scripts/fundraising_model.py` — Dilution, cap table, multi-round projections
-
 
 ## Proactive Triggers
 
