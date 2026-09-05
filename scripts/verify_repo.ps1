@@ -17,11 +17,19 @@ function Get-RepoState([string]$Root) {
     if ($LASTEXITCODE -ne 0) { throw "git diff failed for $Root" }
     $diffCached = & git -C $Root diff --no-color --cached
     if ($LASTEXITCODE -ne 0) { throw "git diff --cached failed for $Root" }
-    $untrackedHashes = foreach ($line in $state) {
-        if ($line -match '^\?\?\s(.+)$') {
-            $full = Join-Path $Root $Matches[1]
+    # Porcelain v1's normal (newline) output quotes/escapes a filename that
+    # has a space or non-ASCII byte (e.g. "space name.txt", "\355\225\234.txt"),
+    # which Join-Path/Test-Path then choke on as a literal path. -z output is
+    # NUL-separated and never quotes filenames, so use it just for path
+    # extraction.
+    $untrackedRaw = & git -C $Root status --porcelain=v1 -z --untracked-files=all | Out-String
+    if ($LASTEXITCODE -ne 0) { throw "git status -z failed for $Root" }
+    $untrackedHashes = foreach ($entry in ($untrackedRaw -split "`0")) {
+        if ($entry -match '^\?\?\s(.+)$') {
+            $rel = $Matches[1]
+            $full = Join-Path $Root $rel
             if (Test-Path -LiteralPath $full -PathType Leaf) {
-                (Get-FileHash -LiteralPath $full -Algorithm SHA256).Hash + " " + $Matches[1]
+                (Get-FileHash -LiteralPath $full -Algorithm SHA256).Hash + " " + $rel
             }
         }
     }
@@ -54,6 +62,20 @@ if ($SideEffectSelfTest) {
         Set-Content -LiteralPath (Join-Path $tempRoot "tracked.txt") -Value "second edit" -Encoding ascii
         $afterReEdit = Get-RepoState $tempRoot
         if ($beforeReEdit -eq $afterReEdit) { throw "side-effect guard did not detect a content-only re-edit of an already-modified tracked file" }
+
+        # Regression case: an untracked file whose name needs porcelain
+        # quoting (a space, or a non-ASCII byte under core.quotePath) must
+        # not make Get-RepoState throw, and a content-only re-edit of it
+        # must still be detected.
+        & git -C $tempRoot config core.quotePath true
+        $nonAsciiName = [string][char]0xD55C + ".txt" # avoid a literal non-ASCII char in this source file
+        Set-Content -LiteralPath (Join-Path $tempRoot "space name.txt") -Value "v1" -Encoding UTF8
+        Set-Content -LiteralPath (Join-Path $tempRoot $nonAsciiName) -Value "v1" -Encoding UTF8
+        $beforeUnicode = Get-RepoState $tempRoot
+        Set-Content -LiteralPath (Join-Path $tempRoot "space name.txt") -Value "v2" -Encoding UTF8
+        Set-Content -LiteralPath (Join-Path $tempRoot $nonAsciiName) -Value "v2" -Encoding UTF8
+        $afterUnicode = Get-RepoState $tempRoot
+        if ($beforeUnicode -eq $afterUnicode) { throw "side-effect guard did not detect a content-only re-edit of a space/non-ASCII-named untracked file" }
         Write-Output "PASS: verification side-effect guard detects repository state changes."
     } finally {
         Remove-Item -LiteralPath $tempRoot -Recurse -Force -ErrorAction SilentlyContinue

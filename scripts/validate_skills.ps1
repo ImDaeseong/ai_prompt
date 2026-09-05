@@ -51,6 +51,35 @@ foreach ($f in $skillFiles) { [void]$skillNames.Add($f.Name) }
 
 $noticeText = if (Test-Path -LiteralPath $noticePath) { Get-Content -LiteralPath $noticePath -Raw -Encoding UTF8 } else { $null }
 
+# Returns $true if frontmatter key `$key` is missing or has an empty value.
+# A same-line non-whitespace check alone isn't enough: `name: ""` and
+# `description: |-` (an empty block scalar) both have a non-whitespace
+# character on the key's line while carrying no actual value.
+function Test-FrontmatterKeyEmpty([string]$fm, [string]$key) {
+    $fmLines = $fm -split "`r?`n"
+    $keyLineIndex = -1
+    $rawValue = $null
+    for ($i = 0; $i -lt $fmLines.Count; $i++) {
+        if ($fmLines[$i] -match "^${key}:(.*)`$") {
+            $keyLineIndex = $i
+            $rawValue = $Matches[1].Trim()
+            break
+        }
+    }
+    if ($keyLineIndex -lt 0) { return $true }
+    if ($rawValue -match '^"([^"]*)"$') { return ($Matches[1].Trim() -eq '') }
+    if ($rawValue -match "^'([^']*)'$") { return ($Matches[1].Trim() -eq '') }
+    if ($rawValue -match '^[|>][+\-]?\d*$') {
+        for ($j = $keyLineIndex + 1; $j -lt $fmLines.Count; $j++) {
+            $line = $fmLines[$j]
+            if ($line -match '^\S') { break }
+            if ($line.Trim() -ne '') { return $false }
+        }
+        return $true
+    }
+    return ($rawValue -eq '')
+}
+
 # --- Check 1: frontmatter + unique `name:` field ---
 $frontmatterNames = @{}
 foreach ($file in $skillFiles) {
@@ -60,8 +89,8 @@ foreach ($file in $skillFiles) {
         continue
     }
     $fm = $Matches[1]
-    if ($fm -notmatch '(?m)^name:[ \t]*\S') { $errors.Add("$($file.Name): frontmatter missing or empty name:") }
-    if ($fm -notmatch '(?m)^description:[ \t]*\S') { $errors.Add("$($file.Name): frontmatter missing or empty description:") }
+    if (Test-FrontmatterKeyEmpty $fm 'name') { $errors.Add("$($file.Name): frontmatter missing or empty name:") }
+    if (Test-FrontmatterKeyEmpty $fm 'description') { $errors.Add("$($file.Name): frontmatter missing or empty description:") }
     $nameMatch = [regex]::Match($fm, '(?m)^name:\s*"?([a-z0-9-]+)"?')
     if ($nameMatch.Success) {
         $n = $nameMatch.Groups[1].Value
