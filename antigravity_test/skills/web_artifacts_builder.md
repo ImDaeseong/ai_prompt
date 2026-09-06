@@ -19,6 +19,8 @@ Create multi-component React applications and bundle them into a single self-con
 
 ### Step 1: Initialize Project
 
+This prompt repository does not include `scripts/init-artifact.sh` or `scripts/bundle.sh`. Before using the commands below, locate and review both scripts in the intended project or a verified upstream package, including its reuse terms. If either is missing, stop this scripted workflow and report the missing dependency. Offer a plain HTML implementation or a separately scoped bundling setup; do not claim these commands ran or invent replacement scripts.
+
 ```bash
 bash scripts/init-artifact.sh <project-name>
 cd <project-name>

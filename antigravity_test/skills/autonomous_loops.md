@@ -35,7 +35,7 @@ set -e
 # Step 1: 구현
 claude -p "specs/auth-spec.md를 읽고 src/auth/에 OAuth2 로그인을 TDD로 구현하라."
 # Step 2: 정리 (De-sloppify)
-claude -p "이전 커밋에서 변경된 파일을 검토하고 불필요한 타입 테스트, 과방어 체크를 제거하라."
+claude -p "git status --short, git diff, git diff --cached로 이번 구현의 미커밋 변경을 확인하라. 새 파일도 확인하고, 기존 사용자 변경은 보존하면서 이번 구현에 추가된 불필요한 타입 테스트와 과방어 체크만 정리하라."
 # Step 3: 검증
 claude -p "전체 빌드·린트·타입체크·테스트를 실행하고 실패를 수정하라."
 # Step 4: 커밋

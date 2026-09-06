@@ -24,7 +24,7 @@
    # 스킬 제목
    ...
    ```
-3. README 2곳 동시 업데이트: `antigravity_test/README.md` + `ai_prompt/README.md`
+3. 스킬 색인은 `antigravity_test/README.md`에서 관리한다. 루트 `README.md`는 저장소 소개·사용법이 달라질 때만 갱신한다.
 
 ## 검증
 

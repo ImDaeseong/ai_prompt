@@ -13,21 +13,21 @@ Test local web applications using Playwright automation. Supports single or mult
 
 Always follow **reconnaissance-then-action**:
 
-1. Navigate to the app and wait for full load
+1. Navigate to the app and wait for the UI condition needed by the test
 2. Take a screenshot or inspect the DOM
 3. Identify selectors from what's actually rendered
 4. Execute interactions based on discovered elements
 
-**CRITICAL**: Wait for `networkidle` before inspecting dynamic apps — JS must finish executing before elements exist.
+**Readiness:** wait for a relevant visible element or application state with Playwright assertions. Network silence is not a reliable readiness signal for polling or streaming apps. See the [Playwright load-state guidance](https://playwright.dev/docs/api/class-page#page-wait-for-load-state).
 
 ```python
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
     page = browser.new_page()
     page.goto("http://localhost:3000")
-    page.wait_for_load_state("networkidle")  # ← Always wait
+    expect(page.get_by_role("button", name="Submit")).to_be_visible()
 
     # Take screenshot for visual verification
     page.screenshot(path="screenshot.png")
@@ -73,7 +73,7 @@ page.wait_for_url("**/dashboard")
 logs = []
 page.on("console", lambda msg: logs.append(msg.text))
 page.goto("http://localhost:3000")
-page.wait_for_load_state("networkidle")
+expect(page.get_by_role("heading", name="Dashboard")).to_be_visible()  # Match the actual app
 print(logs)
 ```
 
@@ -103,7 +103,7 @@ frontend.terminate()
 ## Verification Checklist
 
 - [ ] Page loads without JS errors in console
-- [ ] Critical UI elements are visible after networkidle
+- [ ] Assertions confirm the required UI elements or application state are ready
 - [ ] User interactions produce expected DOM changes
 - [ ] Form submissions reach the correct endpoint
 - [ ] Error states display correctly
@@ -113,7 +113,7 @@ frontend.terminate()
 
 | Anti-Pattern | Fix |
 |---|---|
-| Inspect DOM before networkidle | Always `wait_for_load_state("networkidle")` first |
+| Treat network silence as UI readiness | Assert the element or state needed by the test |
 | Hard-coded CSS selectors | Prefer role/label/text selectors |
 | No screenshot baseline | Take screenshots at each key step |
 | Ignore console errors | Monitor and assert no unexpected errors |

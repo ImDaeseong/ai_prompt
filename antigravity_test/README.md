@@ -1,151 +1,40 @@
-# Creative Writing AI System (Novels, Lyrics, Stories)
+# 스킬·프롬프트 색인
 
-이 저장소는 AI를 활용한 창의적 글쓰기(소설, 가사, 스토리)를 극대화하기 위해 설계된 MCP 연동 및 Skill 시스템입니다.
+개발·분석·문서·창작용 개인 프롬프트 모음입니다. 아래는 주요 선택 가이드이며, 전체 파일은 [skills 폴더](skills/)에서 찾습니다.
 
-## 📂 폴더 구조
-- **`skills/`**: AI의 페르소나와 작업 로직을 정의한 스킬 파일들.
-- **`docs/`**: 가이드 및 데이터 저장 공간.
-  - `agent_manifest_template.md`: 에이전트 매니페스트 템플릿.
-  - `antigravity_usage_guide.md`: 워크플로우(관리자)/스킬(전문가) 분리 전략, 트리거 키워드, Antigravity IDE 에이전트 우선 개발 팁.
+## 사용 방법
 
-## 🛠 스킬 목록
+주 스킬 파일을 대화에 첨부하거나 AI가 읽을 수 있는 경로로 지정하고, 작업 목적과 입력을 함께 전달합니다. 스킬이 요구하는 보조 자료도 확인하세요. 본문의 `/명령어`는 요청 예시일 수 있으며, 파일 첨부만으로 도구나 명령이 설치되지는 않습니다.
 
-> 모든 스킬은 표준 헤더(ID/Version/Date), 핵심 기능, 사용 명령어, **실전 예시(Before→After)** 를 포함합니다.
-> `rtcf_expert`는 기반 스킬로, 다른 스킬에 내릴 지시를 먼저 RTCF 구조로 정제할 때 사용합니다.
+| 작업 | 파일 (`skills/` 아래) |
+|---|---|
+| 보안 설계·점검 | `security_and_hardening.md`, `security_pentest.md` |
+| 디버깅·웹 테스트 | `systematic_debugging.md`, `webapp_testing.md`, `frontend_checklist.md` |
+| UI·디자인 문서 | `frontend_design.md`, `design_md_creator.md`, `algorithmic_art.md` |
+| MCP·HTML 도구·프로토타입 | `mcp_builder.md`, `web_artifacts_builder.md`, `rapid_prototyper.md` |
+| 에이전트 설계·진단 | `multi_agent_architect.md`, `agent_architecture_audit.md`, `hermes_config_audit.md`, `agentic_engineering.md` |
+| 에이전트 조율·컨텍스트 | `agentic_orchestrator.md`, `multi_agent_director.md`, `context_engineering.md`, `autonomous_loops.md` |
+| 스킬 작성·개선 | `skill_creator.md`, `skill_writing_quality.md` |
+| 프롬프트·사고·검토 | `rtcf_expert.md`, `prompt_engineer.md`, `image_prompt_engineer.md`, `community_meta_prompter.md`, `sequential_thinker.md`, `self_correction_critic.md` |
+| 문서·글 다듬기 | `doc_coauthoring.md`, `korean_ai_tell_remover.md`, `ai_tell_remover.md`, `office_automation_html_tools.md` |
+| 플롯·서사 구조 | `story_architect.md`, `heros_journey.md`, `save_the_cat.md`, `pixar_story_engine.md`, `community_snowflake_writer.md` |
+| 인물·세계관 관리 | `character_card.md`, `story_bible_generator.md`, `novel_manager.md`, `lorebook_world_info.md` |
+| 사연 대본 | `story_scenario_workflow.md`, `story_scenario_writer.md` |
+| 가사·뮤직비디오 기획 | `lyrics_analyzer.md`, `mv_story_workflow.md`, `mv_director.md` |
+| 경제·전략 | `community_value_investor.md`, `world_analyst.md`, `life_strategist.md` |
+| 마케팅·LLM 앱 | `copywriting.md`, `marketing_psychology.md`, `rag_implementation.md`, `llm_evaluation.md` |
 
-### ✍️ 창작 — 기존 (Creative)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `novel_manager.md` | Novel Manager | 소설 세계관·등장인물 설정 일관성 관리 | `/char`, `/check`, `/suggest` |
-| `lyrics_analyzer.md` | Lyrics Analyzer | 가사 운율·음절 분석 및 Suno 프롬프트 생성 | `/lyric`, `/rhyme`, `/music-gen` |
-| `story_architect.md` | Story Architect | 플롯 설계 및 서사 구조화 | `/plot`, `/beat`, `/twist` |
-| `mv_director.md` | MV Director | 뮤직비디오 연출 기획 및 영상 AI 프롬프트 생성 | `/storyboard`, `/scene`, `/style` |
+## 연결해서 쓸 때
 
-### 📖 스토리 생성 프레임워크 — 업계 표준 (Story Generation)
-> 실제 AI 플랫폼·GitHub 프로젝트에서 널리 사용되는 유명 프레임워크를 스킬화
+- 팀 구성은 `multi_agent_director`, 목표별 작업 조율은 `agentic_orchestrator`로 구분합니다.
+- MV는 `mv_story_workflow`로 장면 구성을 정한 뒤 `mv_director`로 연출을 구체화합니다.
+- 사연 대본은 `story_scenario_workflow`가 진행 순서를, `story_scenario_writer`가 집필을 담당합니다.
 
-| 파일 | 스킬명 | 출처 | 핵심 명령어 |
-|------|--------|------|------------|
-| `heros_journey.md` | Hero's Journey | Joseph Campbell + Vogler "The Writer's Journey" | `/journey`, `/stage`, `/shadow` |
-| `save_the_cat.md` | Save the Cat | Blake Snyder 15 Beats — 할리우드 표준 시나리오 구조 | `/beats`, `/beat`, `/short` |
-| `story_bible_generator.md` | Story Bible Generator | Sudowrite / ProseWeave AI 표준 — AI 기억 일관성 해결 | `/bible`, `/bible-check`, `/bible-export` |
-| `character_card.md` | Character Card | SillyTavern + NovelAI 캐릭터 카드 표준 | `/card`, `/card-voice`, `/card-react` |
-| `lorebook_world_info.md` | Lorebook / World Info | SillyTavern World Info 공식 형식 — 키워드 기반 동적 설정 | `/lore-add`, `/lore-find`, `/lore-check` |
-| `pixar_story_engine.md` | Pixar Story Engine | Writers Room Story Engine (GitHub) + Pixar 22 Rules + Story Spine | `/spine`, `/btf`, `/pixar-check` |
-| `mv_story_workflow.md` | MV Story Workflow | AI Content Labs MV Workflow — 노래→MV 7단계 자동화 | `/mv-all`, `/mv-step`, `/mv-short` |
-| `story_scenario_writer.md` | Story Scenario Writer | 사연 라디오/유튜브 사연 채널 대본 집필 — 구어체·훅·반전 배치 (전문가) | `/story-write`, `/story-hook`, `/story-twist` |
-| `story_scenario_workflow.md` | Story Scenario Workflow | 사연 소재→개요→초고→감수→발행 5단계 자동화 (관리자, writer에 위임) | `/story-all`, `/story-step`, `/story-outline` |
+## 참고 문서
 
-### 📈 경제·전략 (Business)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `community_value_investor.md` | Value Investor | 워런 버핏 스타일 기업 내재 가치 분석 | `/analyze`, `/moat`, `/risk-audit` |
-| `world_analyst.md` | World Analyst | 주식·취업·AI 동향 통합 분석 | `/ai-trend`, `/stock`, `/job` |
-| `life_strategist.md` | Life Strategist | AI 활용 수익 창출 및 생산성 최적화 로드맵 | `/money`, `/automate`, `/roadmap` |
-| `rtcf_expert.md` | RTCF Expert ⭐ | 모든 지시를 Role·Task·Context·Format 구조로 최적화 | `/rtcf`, `/audit`, `/format` |
+- [Antigravity 활용 가이드](docs/antigravity_usage_guide.md): 파일 첨부와 네이티브 스킬 배치의 차이
+- [에이전트 설계 템플릿](docs/agent_manifest_template.md): 역할·도구·권한·출력 정의
 
-### 🤖 에이전트·오케스트레이션 (Agentic)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `agentic_orchestrator.md` | Agentic Orchestrator | 목표를 받는 즉시 서브 에이전트를 판단·지휘 (즉흥형) | `/orchestrate`, `/delegate` |
-| `multi_agent_director.md` | Multi-Agent Director | 팀 구성 먼저 설계 후 협업 구조 운영 (팀 설계형) | `/team-up`, `/review`, `/execute-all` |
-| `context_engineering.md` | Context Engineering | 세션 시작·품질 저하·작업 전환 시 에이전트에게 줄 컨텍스트를 정리 | 슬래시 명령 없음 — description 트리거 기반 |
-| `autonomous_loops.md` | Autonomous Loops | Sequential Pipeline·Infinite·Continuous PR·DAG 5가지 자율 루프 패턴 | 패턴 선택 결정 트리 사용 |
+외부 출처와 재사용 조건은 각 스킬 및 `skills/NOTICE.md`에서 확인합니다. 외부 스크립트가 필요한 스킬은 파일 존재와 실행 환경부터 점검하세요. 예를 들어 `web_artifacts_builder`의 `init-artifact.sh`와 `bundle.sh`는 이 저장소에 포함되어 있지 않습니다.
 
-### 🔧 개발·진단 (Dev & Diagnosis)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `systematic_debugging.md` | Systematic Debugging | 4단계 근본 원인 디버깅 — 증상 수정 금지, 원인 먼저 | `/debug`, `/root-cause` |
-| `agent_architecture_audit.md` | Agent Architecture Audit | 12레이어 LLM 앱 진단 — 래퍼 회귀·메모리 오염·도구 실패 | 심각도 기반 수정 계획 |
-| `hermes_config_audit.md` | Hermes Config Audit | hermes-agents 설정(AGENTS.md/CLAUDE.md·permission·MCP·Codex/Cursor 참조·3저장소 구조) 6영역 감사, 리포트만 하고 수정 전 확인 | 6-dimension 스코어카드 |
-| `agentic_engineering.md` | Agentic Engineering | Eval-first·15분 단위 분해·모델 라우팅 AI-first 개발 운영 | 15분 단위 분해 원칙 사용 |
-| `mcp_builder.md` | MCP Builder | MCP 서버 설계·구현 4단계 가이드 (TS/Python, 평가 포함) | 4단계 워크플로 참조 |
-| `webapp_testing.md` | Web App Testing | Playwright 로컬 웹앱 테스트 — 정찰 우선, networkidle 필수 | Python Playwright 스크립트 |
-| `web_artifacts_builder.md` | Web Artifacts Builder | React+TS+Tailwind → 단일 HTML 아티팩트 번들 | `init-artifact.sh`, `bundle.sh` |
-| `rapid_prototyper.md` | Rapid Prototyper | 3일 내 MVP — 가설 검증, Next.js+Supabase+Vercel 스택 | 4단계 워크플로우 참조 |
-| `multi_agent_architect.md` | Multi-Agent Architect | 프로덕션 멀티에이전트 파이프라인 — 실패 공학, 신뢰 모델, 관찰 가능성 | 아키텍처 검토 체크리스트 |
-
-### 🧩 스킬 저작 (Skill Authoring)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `skill_creator.md` | Skill Creator | 신규 스킬 초안·테스트·벤치마크·반복 개선 전체 워크플로 (Anthropic 공식) | 인터뷰 → 초안 → 평가 → 반복 |
-| `skill_writing_quality.md` | Skill Writing Quality | 트리거 비용·구조·leading word·삭제 테스트 4단계 문장 다이어트 (Matt Pocock) | `skill_creator`로 만든 초안에 이어서 실행 |
-
-### 🎨 디자인·창작 (Design & Creative)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `frontend_design.md` | Frontend Design | 고유 UI 디자인 시스템 — 색상·타입·레이아웃 (AI 기본 패턴 탈피) | 2패스 프로세스 참조 |
-| `algorithmic_art.md` | Algorithmic Art | p5.js 생성 예술 — 시드 기반 인터랙티브 HTML 아티팩트 | 철학 → 코드 2단계 |
-| `frontend_checklist.md` | Frontend Checklist | 배포 전 385개 규칙 감사 — HTML/CSS/JS/성능/접근성/SEO/보안 | `/checklist [category]` |
-| `design_md_creator.md` | DESIGN.md Creator | AI 에이전트용 디자인 시스템 문서 생성 — 9섹션 Google Stitch 포맷 | 9섹션 포맷 참조 |
-
-### 📝 문서·협업 (Docs & Collaboration)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `doc_coauthoring.md` | Doc Co-Authoring | 기술 문서·스펙·제안서 3단계 공동 작성 워크플로 | 3단계(수집→정제→검증) |
-| `korean_ai_tell_remover.md` | Korean AI Tell Remover | 한국어 AI 생성 텍스트 티 제거 — 번역투·기계적 나열·클리셰 10분류 | `/humanize [텍스트]` |
-| `ai_tell_remover.md` | AI Tell Remover (English) | 영문 AI 생성 산문 티 제거 — em dash·rule of three·클리셰 5분류(33패턴) | `/humanize-en [텍스트]` |
-| `office_automation_html_tools.md` | Office Automation HTML Tools | 예산/견적/마진/부가세 계산기·기안서 등 코드 없이 HTML 도구 생성 + Claude Design 제안서 + Drive·Gmail 자동화 체인 프롬프트 | 프롬프트 뼈대 7종(대괄호만 교체) |
-
-### 🔒 보안 (Security)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `security_pentest.md` | Security Pentest | 인가된 침투 테스트 5단계 — 정찰·취약점·익스플로잇·보고 (서면 승인 필수) | 5단계 프로세스 참조 |
-
-### 🧠 사고·프롬프트 (Reasoning)
-| 파일 | 스킬명 | 역할 | 핵심 명령어 |
-|------|--------|------|------------|
-| `sequential_thinker.md` | Sequential Thinker | 5단계 논리 사고로 오류를 수정하며 최선의 해답 도달 | `/think`, `/verify`, `/step-by-step` |
-| `self_correction_critic.md` | Self-Correction Critic | 답변 출력 전 5가지 체크리스트로 자가 교정 | `/critique`, `/perfect`, `/hallucination-check` |
-| `prompt_engineer.md` | Prompt Engineer | 단순 명령을 모델별 최적화 고정밀 프롬프트로 변환 | `/refine`, `/image`, `/video`, `/music` |
-| `community_meta_prompter.md` | Community Meta Prompter | 문제를 분해하고 근거를 점검하는 5단계 메타 프롬프팅 | `/meta-think`, `/blueprint`, `/optimize`, `/clarify` |
-| `community_snowflake_writer.md` | Snowflake Writer | 한 문장에서 소설 전체를 9단계로 확장하는 구조적 작법 | `/step`, `/expand`, `/check-structure` |
-
----
-
-## 🗺 스킬 선택 가이드
-
-### 스토리 설계 — 어느 스킬을 쓸까?
-
-| 상황 | 추천 스킬 |
-|------|---------|
-| 장르·구조 무관, 범용 플롯 설계 | `story_architect` — `/plot`, `/beat-scene`, `/twist` |
-| 성장·모험 서사, 신화적 구조 필요 | `heros_journey` — `/journey`, `/stage` |
-| 시나리오·쇼츠·MV 15개 비트로 쪼개기 | `save_the_cat` — `/beats`, `/beat [번호]`, `/short` |
-| 단편·MV, Pixar식 Story Spine + 인과관계 | `pixar_story_engine` — `/spine`, `/btf`, `/pixar-check` |
-
-### 설정 관리 — 계층 순서대로 사용
-
-```
-STEP 1  character_card       → 인물 한 명씩 정의 (/card)
-STEP 2  story_bible_generator→ 전체 세계관·규칙 통합 문서화 (/bible)
-STEP 3  novel_manager        → 집필 중 설정 충돌 실시간 감지 (/check)
-STEP 4  lorebook_world_info  → 키워드 기반 동적 설정 주입, 토큰 절약 (/lore-add)
-```
-
-### MV 제작 — 순서대로 두 스킬 연계
-
-```
-STEP 1  mv_story_workflow  → 노래 분석 → 세계관/캐릭터/장면 목록/이미지 프롬프트 생성 ("무엇을")
-STEP 2  mv_director        → 생성된 장면 목록 → 카메라·조명·컷 타이밍 결정 ("어떻게")
-```
-
-### 프롬프트 최적화 — 목적별 구분
-
-| 목적 | 추천 스킬 |
-|------|---------|
-| 텍스트 프롬프트 구조 개선 (모달리티 무관) | `prompt_engineer` — `/refine` |
-| 문제 분해 → 근거 점검 → 5단계 메타 최적화 | `community_meta_prompter` — `/meta-think` |
-| 이미지 생성 전용 프롬프트 | `image_prompt_engineer` |
-
----
-
-## 🚀 시작하기
-1. **Skill 활용:** 원하는 스킬 파일을 대화창에 첨부하거나 "@파일명"으로 참조하여 적용하세요 (예: "novel_manager 스킬을 적용해서 이 챕터를 검토해줘").
-2. **MCP 연결:** MCP 서버 설정은 이 저장소가 아니라 `hermes-agents/MCP_SERVERS.md` 소관입니다.
-3. **데이터 축적:** 집필이 진행됨에 따라 `docs/` 폴더 내에 설정집과 플롯 블루프린트가 업데이트됩니다.
-
-각 스킬의 핵심 명령어는 위 카테고리 표를 참고하세요 (중복 나열 생략).
-
----
-**Antigravity AI** - 엘리트 아키텍트와 함께하는 창작의 여정
+검증 명령과 저장소 역할은 [루트 안내](../README.md)를 참고하세요.

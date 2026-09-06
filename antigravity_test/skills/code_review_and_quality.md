@@ -312,9 +312,6 @@ Part of code review is dependency review:
 ```
 ## See Also
 
-- For detailed security review guidance, see `references/security-checklist.md`
-- For performance review checks, see `references/performance-checklist.md`
-
 ## Common Rationalizations
 
 | Rationalization | Reality |

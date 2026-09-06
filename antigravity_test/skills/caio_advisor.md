@@ -8,7 +8,6 @@ metadata:
   category: c-level
   domain: chief-ai-officer-leadership
   updated: 2026-05-12
-  python-tools: model_buildvsbuy_calculator.py, ai_risk_classifier.py, ai_cost_economics.py
   frameworks: model-buildvsbuy, ai-risk-governance, ai-economics, ai-team-org
 ---
 
@@ -26,22 +25,6 @@ This skill does **not** cover tactical AI/ML engineering. For RAG implementation
 ## Keywords
 
 CAIO, chief AI officer, AI strategy, model selection, foundation model, fine-tuning, RLHF, DPO, LoRA, QLoRA, build vs buy, AI build-vs-buy, model risk tier, EU AI Act, AI Act Article 6, Article 9, Article 10, Annex III, prohibited AI, high-risk AI, NIST AI RMF, AI risk management framework, NYC Local Law 144, Colorado SB 21-169, Illinois HB 53, model card, eval set, eval harness, hallucination rate, jailbreak risk, prompt injection, AI red team, AI safety, alignment, model lifecycle, model registry, API-to-self-hosted breakeven, GPU economics, A100, H100, inference cost, fine-tuning cost, AI team, AI engineer, ML engineer, research scientist, MLOps, AI platform
-
-## Quick Start
-
-```bash
-# Decision A: API vs fine-tune vs build
-python scripts/model_buildvsbuy_calculator.py                          # embedded customer-support sample
-python scripts/model_buildvsbuy_calculator.py path/to/use_case.json
-
-# Decision B: Risk classification under EU AI Act + US state laws
-python scripts/ai_risk_classifier.py                                   # embedded hiring-AI sample
-python scripts/ai_risk_classifier.py path/to/use_case.json
-
-# Decision C: API vs self-hosted economics
-python scripts/ai_cost_economics.py                                    # embedded 5M tokens/day sample
-python scripts/ai_cost_economics.py path/to/workload.json
-```
 
 ## Key Questions (ask these first)
 
@@ -71,8 +54,6 @@ The decision is not "use AI or not" — it's **API vs fine-tune vs in-house** fo
 **Build from scratch / pre-train**
 - Use when: almost never. You're a foundation-model company, OR you have a unique data corpus, $50M+ funding, and 18+ month patience.
 - Failure mode: by the time you ship, frontier models have caught up and your sunk cost is unrecoverable
-
-**Run** `model_buildvsbuy_calculator.py` for a use-case-specific recommendation with 3-year TCO. See `references/model_buildvsbuy_strategy.md` for full decision tree.
 
 ### 2. AI Risk Classification & Governance
 
@@ -104,8 +85,6 @@ The 2026 question every founder is facing: **does this AI use case trigger high-
 - Financial: NYDFS Reg 23, FTC Section 5, ECOA for credit decisions
 - Insurance: NAIC model bulletin, state insurance commissioner rules
 
-See `references/ai_risk_governance.md` for the full regulatory landscape + governance program checklist.
-
 ### 3. AI Cost Economics
 
 **The breakeven question:** at what monthly token volume does self-hosted inference beat API costs?
@@ -120,8 +99,6 @@ See `references/ai_risk_governance.md` for the full regulatory landscape + gover
 **Typical breakeven (frontier-quality):** 100M–500M tokens/month, depending on model size and acceptable quality tradeoff. Below this, API wins. Above this, run the calculator.
 
 **Run** `ai_cost_economics.py` with workload characteristics for a breakeven point + sensitivity to GPU rates and model size.
-
-See `references/ai_cost_economics.md` for the full economics model and operational considerations.
 
 ### 4. AI Team Org Evolution
 
@@ -147,53 +124,43 @@ Stage-to-role map:
 
 **Centralize-vs-embed for AI:** AI starts centralized (one team) and stays there longer than data team, because the surface area is smaller. Embed only when AI is being deployed in 4+ product surfaces.
 
-See `references/ai_team_org_evolution.md`.
-
 ## Workflows
 
 ### Workflow 1: Model Selection Decision (1 hour)
 **Goal:** Decide whether a specific use case should use API, fine-tune, or build.
 
-```bash
-# 1. Define use_case.json (volume, latency, accuracy, team size, budget)
-python scripts/model_buildvsbuy_calculator.py use_case.json
-# 2. Review 3-year TCO + breakeven
-# 3. Cross-check with cs-cfo-advisor on budget commitment
-# 4. Cross-check with cs-cto-advisor on engineering capacity (esp. for fine-tune)
-# 5. Log via /cs:decide; consider /cs:freeze 60 on multi-year vendor commitment
-```
+1. Define use_case.json (volume, latency, accuracy, team size, budget)
+2. Work through 3-year TCO + breakeven for API vs fine-tune vs build
+3. Cross-check with cs-cfo-advisor on budget commitment
+4. Cross-check with cs-cto-advisor on engineering capacity (esp. for fine-tune)
+5. Log via /cs:decide; consider /cs:freeze 60 on multi-year vendor commitment
 
 ### Workflow 2: AI Risk Classification (2-4 hours)
 **Goal:** Classify a use case under EU AI Act + US state laws, identify required controls.
 
-```bash
-# 1. Define use_case.json (decisions affected, users, geography, sector)
-python scripts/ai_risk_classifier.py use_case.json
-# 2. For HIGH-RISK: budget conformity assessment + registration
-# 3. For LIMITED-RISK: implement transparency requirements
-# 4. Cross-check with cs-general-counsel-advisor on contractual implications
-# 5. Cross-check with cs-ciso-advisor on technical safeguards
-# 6. Log via /cs:decide
-```
+1. Define use_case.json (decisions affected, users, geography, sector)
+2. Classify against the tier table above (Prohibited / High-risk / Limited-risk / Minimal-risk)
+3. For HIGH-RISK: budget conformity assessment + registration
+4. For LIMITED-RISK: implement transparency requirements
+5. Cross-check with cs-general-counsel-advisor on contractual implications
+6. Cross-check with cs-ciso-advisor on technical safeguards
+7. Log via /cs:decide
 
 ### Workflow 3: API-to-Self-Hosted Breakeven (1 day)
 **Goal:** Decide when (and whether) to migrate from API to self-hosted inference.
 
-```bash
-# 1. Build workload.json (tokens/day, model size, latency, quality tolerance)
-python scripts/ai_cost_economics.py workload.json
-# 2. Run sensitivity scenarios (low/mid/high GPU rates)
-# 3. Estimate migration cost (engineering time + risk)
-# 4. Cross-check with cs-cfo-advisor on capex commitment
-# 5. Cross-check with cs-cto-advisor on platform readiness
-# 6. Log via /cs:decide; pair with /cs:freeze if signing GPU commitment
-```
+1. Build workload.json (tokens/day, model size, latency, quality tolerance)
+2. Work out the breakeven point + sensitivity scenarios (low/mid/high GPU rates)
+3. Estimate migration cost (engineering time + risk)
+4. Cross-check with cs-cfo-advisor on capex commitment
+5. Cross-check with cs-cto-advisor on platform readiness
+6. Log via /cs:decide; pair with /cs:freeze if signing GPU commitment
 
 ### Workflow 4: AI Team Roadmap (1 week)
 **Goal:** Sequence next 18 months of AI hires aligned to capabilities to ship.
 
 1. List top 5 AI capabilities the product needs in 12 months
-2. Map each capability to the role that ships it (see `ai_team_org_evolution.md`)
+2. Map each capability to the role that ships it
 3. Sequence hires (one role at a time, ramp before next)
 4. Cross-check with cs-chro-advisor on comp + leveling
 5. Identify the centralize-vs-embed trigger
