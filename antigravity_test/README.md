@@ -8,21 +8,21 @@
 
 | 작업 | 파일 (`skills/` 아래) |
 |---|---|
-| 보안 설계·점검 | `security_and_hardening.md`, `security_pentest.md` |
-| 디버깅·웹 테스트 | `systematic_debugging.md`, `webapp_testing.md`, `frontend_checklist.md` |
-| UI·디자인 문서 | `frontend_design.md`, `design_md_creator.md`, `algorithmic_art.md` |
-| MCP·HTML 도구·프로토타입 | `mcp_builder.md`, `web_artifacts_builder.md`, `rapid_prototyper.md` |
-| 에이전트 설계·진단 | `multi_agent_architect.md`, `agent_architecture_audit.md`, `hermes_config_audit.md`, `agentic_engineering.md` |
-| 에이전트 조율·컨텍스트 | `agentic_orchestrator.md`, `multi_agent_director.md`, `context_engineering.md`, `autonomous_loops.md` |
-| 스킬 작성·개선 | `skill_creator.md`, `skill_writing_quality.md` |
-| 프롬프트·사고·검토 | `rtcf_expert.md`, `prompt_engineer.md`, `image_prompt_engineer.md`, `community_meta_prompter.md`, `sequential_thinker.md`, `self_correction_critic.md` |
-| 문서·글 다듬기 | `doc_coauthoring.md`, `korean_ai_tell_remover.md`, `ai_tell_remover.md`, `office_automation_html_tools.md` |
-| 플롯·서사 구조 | `story_architect.md`, `heros_journey.md`, `save_the_cat.md`, `pixar_story_engine.md`, `community_snowflake_writer.md` |
-| 인물·세계관 관리 | `character_card.md`, `story_bible_generator.md`, `novel_manager.md`, `lorebook_world_info.md` |
-| 사연 대본 | `story_scenario_workflow.md`, `story_scenario_writer.md` |
-| 가사·뮤직비디오 기획 | `lyrics_analyzer.md`, `mv_story_workflow.md`, `mv_director.md` |
-| 경제·전략 | `community_value_investor.md`, `world_analyst.md`, `life_strategist.md` |
-| 마케팅·LLM 앱 | `copywriting.md`, `marketing_psychology.md`, `rag_implementation.md`, `llm_evaluation.md` |
+| 보안 설계·점검 | [`security_and_hardening.md`](skills/security_and_hardening.md), [`security_pentest.md`](skills/security_pentest.md) |
+| 디버깅·웹 테스트 | [`systematic_debugging.md`](skills/systematic_debugging.md), [`webapp_testing.md`](skills/webapp_testing.md), [`frontend_checklist.md`](skills/frontend_checklist.md) |
+| UI·디자인 문서 | [`frontend_design.md`](skills/frontend_design.md), [`design_md_creator.md`](skills/design_md_creator.md), [`algorithmic_art.md`](skills/algorithmic_art.md) |
+| MCP·HTML 도구·프로토타입 | [`mcp_builder.md`](skills/mcp_builder.md), [`web_artifacts_builder.md`](skills/web_artifacts_builder.md), [`rapid_prototyper.md`](skills/rapid_prototyper.md) |
+| 에이전트 설계·진단 | [`multi_agent_architect.md`](skills/multi_agent_architect.md), [`agent_architecture_audit.md`](skills/agent_architecture_audit.md), [`hermes_config_audit.md`](skills/hermes_config_audit.md), [`agentic_engineering.md`](skills/agentic_engineering.md) |
+| 에이전트 조율·컨텍스트 | [`agentic_orchestrator.md`](skills/agentic_orchestrator.md), [`multi_agent_director.md`](skills/multi_agent_director.md), [`context_engineering.md`](skills/context_engineering.md), [`autonomous_loops.md`](skills/autonomous_loops.md) |
+| 스킬 작성·개선 | [`skill_creator.md`](skills/skill_creator.md), [`skill_writing_quality.md`](skills/skill_writing_quality.md) |
+| 프롬프트·사고·검토 | [`rtcf_expert.md`](skills/rtcf_expert.md), [`prompt_engineer.md`](skills/prompt_engineer.md), [`image_prompt_engineer.md`](skills/image_prompt_engineer.md), [`community_meta_prompter.md`](skills/community_meta_prompter.md), [`sequential_thinker.md`](skills/sequential_thinker.md), [`self_correction_critic.md`](skills/self_correction_critic.md) |
+| 문서·글 다듬기 | [`doc_coauthoring.md`](skills/doc_coauthoring.md), [`korean_ai_tell_remover.md`](skills/korean_ai_tell_remover.md), [`ai_tell_remover.md`](skills/ai_tell_remover.md), [`office_automation_html_tools.md`](skills/office_automation_html_tools.md) |
+| 플롯·서사 구조 | [`story_architect.md`](skills/story_architect.md), [`heros_journey.md`](skills/heros_journey.md), [`save_the_cat.md`](skills/save_the_cat.md), [`pixar_story_engine.md`](skills/pixar_story_engine.md), [`community_snowflake_writer.md`](skills/community_snowflake_writer.md) |
+| 인물·세계관 관리 | [`character_card.md`](skills/character_card.md), [`story_bible_generator.md`](skills/story_bible_generator.md), [`novel_manager.md`](skills/novel_manager.md), [`lorebook_world_info.md`](skills/lorebook_world_info.md) |
+| 사연 대본 | [`story_scenario_workflow.md`](skills/story_scenario_workflow.md), [`story_scenario_writer.md`](skills/story_scenario_writer.md) |
+| 가사·뮤직비디오 기획 | [`lyrics_analyzer.md`](skills/lyrics_analyzer.md), [`mv_story_workflow.md`](skills/mv_story_workflow.md), [`mv_director.md`](skills/mv_director.md) |
+| 경제·전략 | [`community_value_investor.md`](skills/community_value_investor.md), [`world_analyst.md`](skills/world_analyst.md), [`life_strategist.md`](skills/life_strategist.md) |
+| 마케팅·LLM 앱 | [`copywriting.md`](skills/copywriting.md), [`marketing_psychology.md`](skills/marketing_psychology.md), [`rag_implementation.md`](skills/rag_implementation.md), [`llm_evaluation.md`](skills/llm_evaluation.md) |
 
 ## 연결해서 쓸 때
 
@@ -35,6 +35,6 @@
 - [Antigravity 활용 가이드](docs/antigravity_usage_guide.md): 파일 첨부와 네이티브 스킬 배치의 차이
 - [에이전트 설계 템플릿](docs/agent_manifest_template.md): 역할·도구·권한·출력 정의
 
-외부 출처와 재사용 조건은 각 스킬 및 `skills/NOTICE.md`에서 확인합니다. 외부 스크립트가 필요한 스킬은 파일 존재와 실행 환경부터 점검하세요. 예를 들어 `web_artifacts_builder`의 `init-artifact.sh`와 `bundle.sh`는 이 저장소에 포함되어 있지 않습니다.
+외부 출처와 재사용 조건은 각 스킬 파일 자체의 frontmatter(`license`, `author` 등)에서 확인합니다. 외부 스크립트가 필요한 스킬은 파일 존재와 실행 환경부터 점검하세요. 예를 들어 `web_artifacts_builder`의 `init-artifact.sh`와 `bundle.sh`는 이 저장소에 포함되어 있지 않습니다.
 
 검증 명령과 저장소 역할은 [루트 안내](../README.md)를 참고하세요.
