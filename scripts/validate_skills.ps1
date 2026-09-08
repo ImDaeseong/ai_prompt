@@ -149,7 +149,7 @@ if ($noticeText) {
 # or "`cro` 참고" (external, no local file, still checkable-as-intentional via backticks).
 # Backtick-quoted spans are stripped before matching, so `copywriting.md` 참고 and `cro`
 # 참고 are both fine; only a truly bare ASCII word immediately before 스킬 is flagged.
-# Confirmed zero false positives across all 113 current skills' description fields
+# Confirmed zero false positives across the current skill collection's description fields
 # before adding this check (grep for the bare pattern found only marketing_psychology.md).
 foreach ($file in $skillFiles) {
     $text = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
