@@ -87,6 +87,12 @@ $before = Get-RepoState $repoRoot
 $failure = $null
 Push-Location $repoRoot
 try {
+    Invoke-Checked "check_no_example_secrets.ps1" {
+        & powershell.exe -NoProfile -File (Join-Path $repoRoot "scripts\check_no_example_secrets.ps1")
+    }
+    Invoke-Checked "test_check_no_example_secrets.ps1" {
+        & powershell.exe -NoProfile -File (Join-Path $repoRoot "scripts\test_check_no_example_secrets.ps1")
+    }
     Invoke-Checked "validate_skills.ps1" {
         & powershell.exe -NoProfile -File (Join-Path $repoRoot "scripts\validate_skills.ps1")
     }
