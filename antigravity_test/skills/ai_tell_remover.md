@@ -63,3 +63,4 @@ description: Detect and remove English AI-writing "tells" (em dash overuse, infl
 - `korean_ai_tell_remover.md` — 같은 목적의 한국어 전용 버전, 서로 대체 불가(언어별 패턴이 다름)
 - `doc_coauthoring.md`, `internal_comms.md` 등으로 작성한 영문 산문에 이어서 실행 권장
 - 시각 문서(덱·리포트) 포맷팅은 이 스킬의 범위 밖 — 산문 자체를 다듬은 뒤 별도 포맷팅 단계로 넘긴다
+- 같은 출처(blader/humanizer, im-not-ai)를 참조하는 `skills` 저장소(`C:\Users\cs930\Desktop\skills\writing`)와 내용이 겹친다 — Antigravity 전용 이식성 때문에 의도적으로 별도 유지 중이며, Claude Code 세션에서는 `writing` 스킬이 우선 적용된다(2026-09-15 감사)

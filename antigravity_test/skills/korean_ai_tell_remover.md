@@ -50,3 +50,8 @@ description: Detect and remove Korean AI-writing "tells" (translationese, 첫째
 또는 `/humanize [텍스트]` 형태로 요청한다.
 
 **보존 원칙**: 사실관계·숫자·고유명사·직접 인용은 그대로 두고, 위 10개 분류에 해당하는 부분만 표면적으로 수정한다. 의미가 바뀔 정도로 재작성하지 않는다 — 변경 비율이 전체 30%를 넘으면 경고, 50%를 넘으면 중단하고 원문 구조를 다시 검토한다.
+
+## 다른 스킬과의 관계
+
+- `ai_tell_remover.md` — 같은 목적의 영문 전용 버전, 서로 대체 불가(언어별 패턴이 다름)
+- 같은 출처(im-not-ai)를 참조하는 `skills` 저장소(`C:\Users\cs930\Desktop\skills\writing`)와 내용이 겹친다 — Antigravity 전용 이식성 때문에 의도적으로 별도 유지 중이며, Claude Code 세션에서는 `writing` 스킬이 우선 적용된다(2026-09-15 감사)
