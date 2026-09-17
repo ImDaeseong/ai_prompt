@@ -34,7 +34,12 @@ foreach ($relPath in (Get-TrackedFiles -Root $root)) {
     if ($imageExtensions -contains $ext) { continue }
     $fullPath = Join-Path $root $relPath
     try {
-        $lines = Get-Content -LiteralPath $fullPath -Encoding utf8 -ErrorAction Stop
+        # @(...) forces an array even for a single-line file -- Get-Content
+        # otherwise returns a bare String, and indexing a String returns a
+        # single character, not the whole line, which silently made every
+        # single-line file's scan a no-op (found live 2026-09-18: a
+        # single-line file with a real secret passed this guard clean).
+        $lines = @(Get-Content -LiteralPath $fullPath -Encoding utf8 -ErrorAction Stop)
     } catch {
         continue
     }
