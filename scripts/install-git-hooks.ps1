@@ -44,6 +44,14 @@ if [ `$? -ne 0 ]; then
     echo "pre-commit: skill validation failed (see above). Fix the flagged entries before committing."
     exit 1
 fi
+# Security guard: block commits with an unacknowledged OWASP/CWE-mapped
+# security or network hotspot (see scripts/check_security_hotspots.ps1).
+powershell.exe -NoProfile -File scripts/check_security_hotspots.ps1
+if [ `$? -ne 0 ]; then
+    echo ""
+    echo "pre-commit: security/network hotspot found (see above). Fix it or add a same-line qa:allow with a reason."
+    exit 1
+fi
 "@
 
 # A custom core.hooksPath can point at a directory that doesn't exist yet (nothing
@@ -82,3 +90,4 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Installed pre-commit hook at $hookPath"
 Write-Host "Verify: powershell.exe -NoProfile -File scripts/check_no_example_secrets.ps1"
 Write-Host "Verify: powershell.exe -NoProfile -File scripts/validate_skills.ps1"
+Write-Host "Verify: powershell.exe -NoProfile -File scripts/check_security_hotspots.ps1"

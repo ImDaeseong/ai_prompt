@@ -18,10 +18,11 @@ New-Item -ItemType Directory -Path $tempRoot | Out-Null
 
 try {
     # A minimal fake repo the installer can run against, with its own copy of the
-    # installer and stub check_no_example_secrets.ps1/validate_skills.ps1 (the
-    # installer's own self-verification run -- `git hook run pre-commit` --
-    # executes both, so both need a stub or the fresh-install test fails on a
-    # missing script rather than on what this test actually checks).
+    # installer and stub check_no_example_secrets.ps1/validate_skills.ps1/
+    # check_security_hotspots.ps1 (the installer's own self-verification run --
+    # `git hook run pre-commit` -- executes all three, so each needs a stub or
+    # the fresh-install test fails on a missing script rather than on what this
+    # test actually checks).
     $fakeRepo = Join-Path $tempRoot "repo"
     New-Item -ItemType Directory -Path $fakeRepo | Out-Null
     Push-Location $fakeRepo
@@ -32,6 +33,7 @@ try {
     Copy-Item -Path $installerAbs -Destination "scripts/install-git-hooks.ps1"
     Set-Content -Path "scripts/check_no_example_secrets.ps1" -Value "exit 0" -Encoding ascii
     Set-Content -Path "scripts/validate_skills.ps1" -Value "exit 0" -Encoding ascii
+    Set-Content -Path "scripts/check_security_hotspots.ps1" -Value "exit 0" -Encoding ascii
     "placeholder" | Out-File "readme.txt" -Encoding ascii
     git add -A | Out-Null
     git commit -m "init" --quiet | Out-Null
