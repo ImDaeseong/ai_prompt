@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ai_prompt — 쉬운 설명</title>
+<style>
+  :root{
+    --bg:#fdf8f3; --card:#ffffff; --ink:#211a12; --sub:#7a6c5b;
+    --accent:#e07a3f; --accent-soft:#fbe6d4; --line:#f1e4d2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#1b1611; --card:#241d16; --ink:#f4ece2; --sub:#b3a390;
+      --accent:#f0985e; --accent-soft:#3a2c1b; --line:#3a3025; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Pretendard,sans-serif;
+    padding:32px 20px 56px}
+  .wrap{max-width:640px;margin:0 auto}
+  .hero{text-align:center;padding:36px 16px}
+  .emoji{font-size:88px;line-height:1}
+  h1{font-size:26px;margin:14px 0 6px}
+  .tag{color:var(--sub);font-size:15px}
+  .analogy{background:var(--accent-soft);border-radius:20px;padding:24px 22px;
+    margin:24px 0;font-size:17px;line-height:1.65}
+  .analogy b{color:var(--accent)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  @media (max-width:480px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px}
+  .card .ic{font-size:28px}
+  .card h3{font-size:14px;margin:8px 0 4px}
+  .card p{font-size:13px;color:var(--sub);margin:0;line-height:1.5}
+  .run{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px 20px;margin-top:24px}
+  .run h3{font-size:14px;margin:0 0 10px}
+  code{display:block;background:var(--accent-soft);color:var(--ink);
+    padding:12px 14px;border-radius:10px;font-size:13px;overflow-x:auto;
+    white-space:pre}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="emoji">📔🍳</div>
+    <h1>ai_prompt</h1>
+    <div class="tag">AI에게 "이렇게 일 시켜라" 정리한 레시피북</div>
+  </div>
+
+  <div class="analogy">
+    요리할 때 매번 즉흥적으로 하기보다 <b>검증된 레시피</b>(재료·순서·온도)를
+    따르면 실패가 적죠. 이 저장소는 AI에게 글쓰기·분석·기획을 시킬 때 쓰는
+    레시피(스킬)들을 모아둔 곳입니다. 직접 만든 것도, 남의 좋은 레시피를
+    확인하고 가져온 것도 있습니다.
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="ic">🧾</div><h3>레시피 본문</h3>
+      <p>antigravity_test/skills/ — 실제 스킬 파일들</p></div>
+    <div class="card"><div class="ic">📚</div><h3>사용 가이드</h3>
+      <p>antigravity_test/docs/ — 언제·어떻게 쓸지 안내</p></div>
+    <div class="card"><div class="ic">🗂️</div><h3>목차</h3>
+      <p>README.md — 어떤 레시피가 있는지 찾아보기</p></div>
+    <div class="card"><div class="ic">✅</div><h3>형식 검사</h3>
+      <p>실제 결과 품질은 아니고, 파일 연결·구조만 검사</p></div>
+  </div>
+
+  <div class="run">
+    <h3>🔍 확인해보려면</h3>
+    <code>powershell.exe -NoProfile -File scripts/verify_repo.ps1</code>
+  </div>
+</div>
+</body>
+</html>
