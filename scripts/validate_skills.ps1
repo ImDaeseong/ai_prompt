@@ -130,6 +130,18 @@ foreach ($file in $skillFiles) {
     }
 }
 
+# --- License references in skill frontmatter must resolve beside the skill. ---
+foreach ($file in $skillFiles) {
+    $text = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
+    if ($text -notmatch '(?s)^---\r?\n(.*?)\r?\n---') { continue }
+    if ($Matches[1] -match '(?m)^license:\s*Complete terms in LICENSE\.txt\s*$') {
+        $licensePath = Join-Path $file.DirectoryName 'LICENSE.txt'
+        if (-not (Test-Path -LiteralPath $licensePath -PathType Leaf)) {
+            $errors.Add("$($file.Name): [MISSING-LICENSE-TEXT] frontmatter references LICENSE.txt, but it is absent beside the skill")
+        }
+    }
+}
+
 # --- Check 4: if NOTICE.md claims to cover a skill file, that file must link back to NOTICE.md ---
 if ($noticeText) {
     foreach ($file in $skillFiles) {
@@ -168,4 +180,4 @@ if ($errors.Count -gt 0) {
     exit 1
 }
 
-Write-Output "PASS: $($skillFiles.Count) skills; frontmatter, unique names, 관련 스킬/Related Skills cross-references, and NOTICE.md back-links all valid."
+Write-Output "PASS: $($skillFiles.Count) skills; frontmatter, unique names, related-skill references, NOTICE.md back-links, and LICENSE.txt references valid."

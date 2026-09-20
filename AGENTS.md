@@ -28,7 +28,7 @@
 
 ## 검증
 
-`scripts/validate_skills.ps1`이 스킬 frontmatter·고유 이름·관련 스킬 참조·NOTICE.md 역참조를
+`scripts/validate_skills.ps1`이 스킬 frontmatter·고유 이름·관련 스킬 참조·NOTICE.md 역참조·LICENSE.txt 참조를
 검사한다. `scripts/install-git-hooks.ps1`로 pre-commit 훅을 한 번 설치하면 커밋 전 자동 실행된다
 (2026-07-30 추가 — 그 전까지는 훅이 없어 수동 실행에 의존했음). 수동 실행:
 `powershell.exe -NoProfile -File scripts/validate_skills.ps1`

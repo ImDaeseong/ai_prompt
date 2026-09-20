@@ -74,9 +74,28 @@ foreach ($case in $positiveCases) {
     Remove-Item $root -Recurse -Force -ErrorAction SilentlyContinue
 }
 
+# A license reference must identify a real bundled file, not merely a license name.
+$licenseRoot = New-Fixture "---`nname: example`ndescription: Licensed skill.`nlicense: Complete terms in LICENSE.txt`n---`n"
+try {
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    $missingOutput = & powershell.exe -NoProfile -File $validatorAbs -Root $licenseRoot 2>&1 | Out-String
+    if ($LASTEXITCODE -eq 0 -or $missingOutput -notmatch 'MISSING-LICE\s*NSE-TEXT') {
+        $failures.Add("Missing LICENSE.txt was not rejected with [MISSING-LICENSE-TEXT].")
+    }
+    Set-Content -LiteralPath (Join-Path $licenseRoot 'antigravity_test\skills\LICENSE.txt') -Value 'Fixture license text' -Encoding UTF8
+    $presentOutput = & powershell.exe -NoProfile -File $validatorAbs -Root $licenseRoot 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) {
+        $failures.Add("Present LICENSE.txt was rejected: $presentOutput")
+    }
+} finally {
+    $ErrorActionPreference = $previousErrorActionPreference
+    Remove-Item -LiteralPath $licenseRoot -Recurse -Force -ErrorAction SilentlyContinue
+}
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Error $_ }
     exit 1
 }
 
-Write-Output "PASS: validate_skills.ps1 rejects missing/empty skill collections and empty required frontmatter values, and still accepts legitimate quoted/block-scalar frontmatter."
+Write-Output "PASS: validate_skills.ps1 rejects missing/empty collections, empty frontmatter values, and absent LICENSE.txt, while accepting valid fixtures."
