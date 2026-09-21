@@ -66,7 +66,7 @@ function Get-SecurityHotspotFindings {
         $name = Split-Path -Leaf $relPath
         if ($selfExclude -contains $name) { continue }
         $ext = [System.IO.Path]::GetExtension($relPath).ToLowerInvariant()
-        if ($sourceExtensions -notcontains $ext) { continue }
+        if ($sourceExtensions -notcontains $ext -and @('.md', '.html') -notcontains $ext) { continue }
         $fullPath = Join-Path $Root $relPath
         try {
             # @(...) forces an array even for a single-line file -- Get-Content
@@ -79,6 +79,10 @@ function Get-SecurityHotspotFindings {
         }
         for ($i = 0; $i -lt $lines.Count; $i++) {
             $line = $lines[$i]
+            if ($line -match '(?i)[A-Z]:\\Users\\[^\\\s]+\\') {
+                $findings.Add("${relPath}:$($i + 1): [LOCAL-HOME-PATH] replace the machine-specific user path with a portable relative path")
+            }
+            if ($sourceExtensions -notcontains $ext) { continue }
             if ($line -like "*$allowMarker*") { continue }
             foreach ($rule in $rules) {
                 if ($line -match $rule.Pattern) {

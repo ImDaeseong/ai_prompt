@@ -16,7 +16,8 @@ function Test-Case {
         [string]$Name,
         [string]$FileName,
         [string]$Content,
-        [bool]$ExpectFinding
+        [bool]$ExpectFinding,
+        [string]$ExpectedCode = ''
     )
     $tempRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("hotspot-test-" + [guid]::NewGuid())
     try {
@@ -30,6 +31,9 @@ function Test-Case {
         $gotFinding = $findings.Count -gt 0
         if ($gotFinding -ne $ExpectFinding) {
             $script:failures.Add("${Name}: expected finding=$ExpectFinding, got=$gotFinding ($($findings -join '; '))")
+        }
+        if ($ExpectedCode -and ($findings -join '; ') -notmatch [regex]::Escape($ExpectedCode)) {
+            $script:failures.Add("${Name}: expected diagnostic $ExpectedCode, got ($($findings -join '; '))")
         }
     } finally {
         Remove-Item -LiteralPath $tempRoot -Recurse -Force -ErrorAction SilentlyContinue
@@ -66,9 +70,15 @@ Test-Case -Name 'w3.org XML namespace not flagged' -FileName 'view.ps1' `
 Test-Case -Name 'scanner self-excludes own filename' -FileName 'check_security_hotspots.ps1' `
     -Content 'Invoke-Expression $userInput' -ExpectFinding $false
 
+Test-Case -Name 'local home path in Markdown detected' -FileName 'guide.md' `
+    -Content ('See C:' + '\Users\someone\Desktop\project') -ExpectFinding $true -ExpectedCode '[LOCAL-HOME-PATH]'
+
+Test-Case -Name 'portable repository path accepted' -FileName 'guide.md' `
+    -Content 'See ../skills/writing' -ExpectFinding $false
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Error $_ }
     exit 1
 }
 
-Write-Output "PASS: check_security_hotspots rules and qa:allow suppression behave as pinned (10 case(s))."
+Write-Output "PASS: check_security_hotspots rules, local-home paths, and qa:allow suppression behave as pinned (12 case(s))."

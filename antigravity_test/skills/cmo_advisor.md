@@ -13,6 +13,8 @@ metadata:
 
 # CMO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Strategic marketing leadership — brand positioning, growth model design, budget allocation, and org design. Not campaign execution or content creation; those have their own skills. This is the engine.
 
 ## Keywords

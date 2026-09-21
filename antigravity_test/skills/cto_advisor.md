@@ -13,6 +13,8 @@ metadata:
 
 # CTO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Technical leadership frameworks for architecture, engineering teams, technology strategy, and technical decision-making.
 
 ## Keywords

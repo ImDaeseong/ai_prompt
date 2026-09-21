@@ -13,6 +13,8 @@ metadata:
 
 # CEO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Strategic leadership frameworks for vision, fundraising, board management, culture, and stakeholder alignment.
 
 ## Keywords

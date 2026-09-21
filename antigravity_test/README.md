@@ -35,6 +35,6 @@
 - [Antigravity 활용 가이드](docs/antigravity_usage_guide.md): 파일 첨부와 네이티브 스킬 배치의 차이
 - [에이전트 설계 템플릿](docs/agent_manifest_template.md): 역할·도구·권한·출력 정의
 
-외부 출처와 재사용 조건은 각 스킬 파일 자체의 frontmatter(`license`, `author` 등)에서 확인합니다. 외부 스크립트가 필요한 스킬은 파일 존재와 실행 환경부터 점검하세요. 예를 들어 `web_artifacts_builder`의 `init-artifact.sh`와 `bundle.sh`는 이 저장소에 포함되어 있지 않습니다.
+외부 출처와 재사용 조건은 각 스킬 파일의 frontmatter(`license`, `author` 등)와 [제3자 고지](../NOTICE.md)에서 확인합니다. 외부 스크립트가 필요한 스킬은 파일 존재와 실행 환경부터 점검하세요. 예를 들어 `web_artifacts_builder`의 `init-artifact.sh`와 `bundle.sh`는 이 저장소에 포함되어 있지 않습니다.
 
 검증 명령과 저장소 역할은 [루트 안내](../README.md)를 참고하세요.

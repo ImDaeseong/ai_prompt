@@ -13,6 +13,8 @@ metadata:
 
 # VP of Engineering Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Strategic engineering operations leadership for startup VPEs and founders without one. **Four decisions, no generic engineering survey:**
 
 1. **Are we delivering at the right throughput?** — DORA 4 metrics + bottleneck identification (where work waits)

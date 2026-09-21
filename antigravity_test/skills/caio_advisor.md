@@ -13,6 +13,8 @@ metadata:
 
 # Chief AI Officer Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Strategic AI leadership for startup CAIOs and founders without one. **Four decisions, no AI hype:**
 
 1. **Should we use an API, fine-tune, or build our own?** — model build-vs-buy with 3-year TCO

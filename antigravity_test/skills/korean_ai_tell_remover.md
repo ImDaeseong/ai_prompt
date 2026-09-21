@@ -54,4 +54,4 @@ description: Detect and remove Korean AI-writing "tells" (translationese, 첫째
 ## 다른 스킬과의 관계
 
 - `ai_tell_remover.md` — 같은 목적의 영문 전용 버전, 서로 대체 불가(언어별 패턴이 다름)
-- 같은 출처(im-not-ai)를 참조하는 `skills` 저장소(`C:\Users\cs930\Desktop\skills\writing`)와 내용이 겹친다 — Antigravity 전용 이식성 때문에 의도적으로 별도 유지 중이며, Claude Code 세션에서는 `writing` 스킬이 우선 적용된다(2026-09-15 감사)
+- 같은 출처(im-not-ai)를 참조하는 `skills` 저장소(`skills\writing`)와 내용이 겹친다 — Antigravity 전용 이식성 때문에 의도적으로 별도 유지 중이며, Claude Code 세션에서는 `writing` 스킬이 우선 적용된다(2026-09-15 감사)

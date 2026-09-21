@@ -13,6 +13,8 @@ metadata:
 
 # CISO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Risk-based security frameworks for growth-stage companies. Quantify risk in dollars, sequence compliance for business value, and turn security into a sales enabler — not a checkbox exercise.
 
 ## Keywords

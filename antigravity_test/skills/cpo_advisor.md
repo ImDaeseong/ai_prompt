@@ -13,6 +13,8 @@ metadata:
 
 # CPO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Strategic product leadership. Vision, portfolio, PMF, org design. Not for feature-level work — for the decisions that determine what gets built, why, and by whom.
 
 ## Keywords

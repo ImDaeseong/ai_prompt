@@ -1,9 +1,12 @@
 ---
 name: web-artifacts-builder
+license: Complete terms in LICENSE.txt
 description: Build sophisticated React-based HTML artifacts using modern frontend technologies. Use when creating interactive web UIs, dashboards, or tools that need to be bundled into a single self-contained HTML file for sharing.
 ---
 
 # Web Artifacts Builder
+
+Third-party license: [LICENSE.txt](LICENSE.txt).
 
 ## Overview
 

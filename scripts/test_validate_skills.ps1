@@ -93,9 +93,27 @@ try {
     Remove-Item -LiteralPath $licenseRoot -Recurse -Force -ErrorAction SilentlyContinue
 }
 
+$noticeRoot = New-Fixture "---`nname: example`ndescription: Noticed skill.`n---`nSee NOTICE.md.`n"
+try {
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    $missingOutput = & powershell.exe -NoProfile -File $validatorAbs -Root $noticeRoot 2>&1 | Out-String
+    if ($LASTEXITCODE -eq 0 -or $missingOutput -notmatch 'MISSING-NOTI\s*CE') {
+        $failures.Add('Missing NOTICE.md was not rejected with the expected reason.')
+    }
+    Set-Content -LiteralPath (Join-Path $noticeRoot 'NOTICE.md') -Value 'Copyright (c) 2025 Example' -Encoding UTF8
+    $presentOutput = & powershell.exe -NoProfile -File $validatorAbs -Root $noticeRoot 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) {
+        $failures.Add("Present NOTICE.md was rejected: $presentOutput")
+    }
+} finally {
+    $ErrorActionPreference = $previousErrorActionPreference
+    Remove-Item -LiteralPath $noticeRoot -Recurse -Force -ErrorAction SilentlyContinue
+}
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Error $_ }
     exit 1
 }
 
-Write-Output "PASS: validate_skills.ps1 rejects missing/empty collections, empty frontmatter values, and absent LICENSE.txt, while accepting valid fixtures."
+Write-Output "PASS: validate_skills.ps1 rejects missing collections, empty frontmatter, and absent license/notice files while accepting valid fixtures."

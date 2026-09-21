@@ -13,6 +13,8 @@ metadata:
 
 # CFO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Strategic financial frameworks for startup CFOs and finance leaders. Numbers-driven, decisions-focused.
 
 This is **not** a financial analyst skill. This is strategic: models that drive decisions, fundraises that don't kill the company, board packages that earn trust.
@@ -123,4 +125,4 @@ All output passes the Internal Quality Loop before reaching the founder (see `..
 
 ## Related skills in other repos
 
-Overlaps with `skills` 저장소(`C:\Users\cs930\Desktop\skills`)의 `biz-ops`(같은 저자 alirezarezvani/claude-skills 기반, DCF/SaaS 지표)와 `founder-finance`(runway/burn multiple/LTV:CAC, charlie-cfo-skill 라우팅) — 프레이밍이 달라 같은 질문에 다른 수치가 나올 수 있다. Antigravity 전용 이식성 때문에 의도적으로 별도 유지 중이며, Claude Code 세션에서는 `biz-ops`/`founder-finance`가 우선 적용된다(2026-09-15 감사).
+Overlaps with `skills` 저장소(`skills`)의 `biz-ops`(같은 저자 alirezarezvani/claude-skills 기반, DCF/SaaS 지표)와 `founder-finance`(runway/burn multiple/LTV:CAC, charlie-cfo-skill 라우팅) — 프레이밍이 달라 같은 질문에 다른 수치가 나올 수 있다. Antigravity 전용 이식성 때문에 의도적으로 별도 유지 중이며, Claude Code 세션에서는 `biz-ops`/`founder-finance`가 우선 적용된다(2026-09-15 감사).

@@ -13,6 +13,8 @@ metadata:
 
 # COO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 Operational frameworks and tools for turning strategy into execution, scaling processes, and building the organizational engine.
 
 ## Keywords

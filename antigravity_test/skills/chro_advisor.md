@@ -13,6 +13,8 @@ metadata:
 
 # CHRO Advisor
 
+Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
+
 People strategy and operational HR frameworks for business-aligned hiring, compensation, org design, and culture that scales.
 
 ## Keywords

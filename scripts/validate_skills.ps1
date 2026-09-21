@@ -26,12 +26,8 @@
 # (found by a follow-up audit: check 4 alone silently no-ops when NOTICE.md
 # doesn't exist, since it's gated on $noticeText).
 #
-# 2026-07-28 update: the 4 skills that originally required NOTICE.md
-# (copywriting/marketing_psychology/rag_implementation/llm_evaluation) were
-# rewritten from scratch in this repo's own voice/structure and no longer
-# reuse third-party text, so NOTICE.md was removed. Checks 3/4 are now
-# no-ops (nothing links to NOTICE.md, NOTICE.md doesn't exist) but stay in
-# place as a dormant guard in case a future skill reuses licensed content again.
+# 2026-09-21: NOTICE.md covers the 10 adapted C-level advisor skills; checks
+# 3/4 ensure their notice links and the shared copyright line remain present.
 
 $errors = [System.Collections.Generic.List[string]]::new()
 $skillsDir = Join-Path $Root 'antigravity_test\skills'
@@ -126,7 +122,7 @@ foreach ($file in $skillFiles) {
 foreach ($file in $skillFiles) {
     $text = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
     if ($text -match 'NOTICE\.md' -and -not $noticeText) {
-        $errors.Add("$($file.Name): links to NOTICE.md, but NOTICE.md does not exist")
+        $errors.Add("$($file.Name): [MISSING-NOTICE] links to NOTICE.md, but NOTICE.md does not exist")
     }
 }
 
