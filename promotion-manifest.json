@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "candidates": [
+    {"source":"antigravity_test/skills/prompt_engineer.md","targetRepository":"skills","targetSkill":"prompt-craft","status":"review-required","evaluationIds":["prompt-engineer-positive-001","prompt-engineer-ambiguous-001","prompt-engineer-negative-001"],"decision":"Compare and consolidate behavior; do not copy automatically."}
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "defaultStatus": "experimental",
+  "overrides": [
+    {"path":"antigravity_test/skills/prompt_engineer.md","status":"candidate-for-public","reason":"Representative candidate used to prove the promotion and behavior-contract workflow."}
+  ]
+}

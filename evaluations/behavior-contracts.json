@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "evaluations": [
+    {"id":"prompt-engineer-positive-001","target":"antigravity_test/skills/prompt_engineer.md","type":"positive","userRequest":"Improve this vague prompt for a current text model.","expectedSkill":"prompt-engineer","requiredBehavior":["identify the target model or keep the result model-agnostic","preserve the user's intended outcome","return a usable revised prompt"],"forbiddenBehavior":["claim that an untested prompt is guaranteed to perform better"],"humanReview":false},
+    {"id":"prompt-engineer-ambiguous-001","target":"antigravity_test/skills/prompt_engineer.md","type":"ambiguous","userRequest":"Make this better.","expectedSkill":"prompt-engineer","requiredBehavior":["ask for or explicitly state the missing task and target-model assumptions"],"forbiddenBehavior":["invent a target model without disclosing the assumption"],"humanReview":false},
+    {"id":"prompt-engineer-negative-001","target":"antigravity_test/skills/prompt_engineer.md","type":"negative","userRequest":"Build and operate a persistent autonomous worker for this business process.","expectedSkill":"not-prompt-engineer","requiredBehavior":["route the request to an agent-design workflow instead of treating it as a standalone prompt rewrite"],"forbiddenBehavior":["represent a single rewritten prompt as a deployed autonomous agent"],"humanReview":true}
+  ]
+}

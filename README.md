@@ -26,4 +26,4 @@ AI에게 개발·분석·창작 작업을 맡기는 방법을 실험하고 정�
 powershell.exe -NoProfile -File scripts/verify_repo.ps1
 ```
 
-스킬 구조·참조·로컬 링크·훅 설치기 회귀와 검증 부작용을 검사합니다. 프롬프트의 성능이나 외부 도구 실행 성공을 보장하는 검사는 아닙니다. 변경 이력은 `git log`를 참고하세요.
+스킬 구조·참조·로컬 링크·훅 설치기 회귀와 검증 부작용을 검사합니다. `evaluations/behavior-contracts.json`은 대표 요청의 기대·금지 행동을, `skill-catalog.json`은 기본 상태와 예외를, `promotion-manifest.json`은 공개 `skills` 저장소로 검토할 후보를 기록합니다. 이 계약 검사는 실제 모델 성능이나 외부 도구 실행 성공을 보장하지 않습니다. 변경 이력은 `git log`를 참고하세요.
