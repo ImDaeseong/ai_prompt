@@ -196,6 +196,27 @@ Use query parameters for filters:
 GET /api/tasks?status=in_progress&assignee=user123&createdAfter=2025-01-01
 ```
 
+### Path Parameters vs Query Parameters
+
+Not everything belongs in the URL path. Ask what the parameter does:
+
+- **Identifying** a specific resource or its position in a hierarchy → path parameter. `GET /tasks/123`, `GET /tasks/123/comments/45`.
+- **Describing, filtering, sorting, or paginating** a collection → query parameter. `GET /tasks?status=in_progress&sortBy=createdAt`.
+
+A useful test: a missing path parameter means the resource doesn't exist (404). A missing query parameter means "no constraint applied" — the collection still returns, just unfiltered (200 with the full/default list). If removing a parameter should turn a 404 into an empty 200 list, it was never a path parameter.
+
+### Versioning
+
+Pick one versioning mechanism before the first breaking change forces the decision under pressure. The three common approaches trade off differently:
+
+| Mechanism | Example | Cache-friendly | Notes |
+|---|---|---|---|
+| URL path | `GET /v2/orders/123` | Yes — same URL always returns the same shape | Most visible to consumers; easiest to route/log by version |
+| Custom header | `API-Version: 2026-09-01` | No — proxies/CDNs cache by URL, not headers, without extra config | Keeps URLs stable; used by APIs that guarantee URL-path stability |
+| Query parameter | `GET /orders/123?api-version=2` | Yes, same as URL path | Middle ground; still part of the cache key |
+
+URL-path and query-parameter versioning are cache-friendly because the same URI always maps to the same response; header versioning requires cache/proxy configuration to vary on that header, or responses from different versions can be served from the same cache entry. Whichever mechanism is chosen, apply it consistently — don't let some endpoints version by URL and others by header.
+
 ### Partial Updates (PATCH)
 
 Accept partial objects — only update what's provided:
@@ -280,6 +301,8 @@ function getTask(id: TaskId): Promise<Task> { ... }
 - List endpoints without pagination
 - Verbs in REST URLs (`/api/createTask`, `/api/getUsers`)
 - Third-party API responses used without validation or sanitization
+- Filter/sort/pagination values folded into the URL path instead of query parameters
+- No versioning mechanism chosen before the first breaking change is needed
 
 ## Verification
 
@@ -292,3 +315,5 @@ After designing an API:
 - [ ] New fields are additive and optional (backward compatible)
 - [ ] Naming follows consistent conventions across all endpoints
 - [ ] API documentation or types are committed alongside the implementation
+- [ ] Identifying values are path parameters; filtering/sorting/pagination values are query parameters
+- [ ] A versioning mechanism (URL path, header, or query parameter) is chosen and applied consistently
