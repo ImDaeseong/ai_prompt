@@ -58,7 +58,7 @@ description: "Engineers the software architecture of a self-learning trading age
 
 ## 4. 감사 가능한 결정 기록
 
-에이전트가 내린 모든 자율 결정(진입·청산·파라미터 변경)은 다음을 남겨야 한다: 시각, 입력 데이터 스냅샷 또는 해시, 판단 근거, 실행 여부, 실행 결과. 이는 "AI가 옳았다"는 증명이 아니라 사후에 어떤 컨텍스트에서 어떤 결정이 나왔는지 추적 가능하게 하는 장치다 — 이 저장소의 `review_change_ledger.py`/`record_hermes_run.py`가 코드 변경에 대해 하는 것과 같은 목적을, 트레이딩 결정을 위해 별도로 설계해야 한다(두 스크립트 자체가 트레이딩 필드를 지원하지는 않는다).
+에이전트가 내린 모든 자율 결정(진입·청산·파라미터 변경)은 다음을 남겨야 한다: 시각, 입력 데이터 스냅샷 또는 해시, 판단 근거, 실행 여부, 실행 결과. 이는 "AI가 옳았다"는 증명이 아니라 사후에 어떤 컨텍스트에서 어떤 결정이 나왔는지 추적 가능하게 하는 장치다. 이 저장소의 `review_change_ledger.py`/`record_hermes_run.py`는 **코드 변경**에 대해 같은 목적(출처·해시·결과 기록, 고위험 변경의 사람 승인 없는 자동 pass 차단)을 구현하지만, 두 스크립트 자체가 트레이딩 전용 필드(진입가·수량·포지션 ID 등)를 지원하지는 않는다 — 트레이딩 결정 로그는 같은 설계 목적을 참고해 별도로 새로 만들어야 한다.
 
 거래소·중개사의 API 이용약관과 자동매매 관련 규제는 관할·상품·중개사마다 다르며 이 스킬이 다루지 않는다. 실제 자금을 투입하기 전에 해당 거래소 약관과 소재 국가의 규제를 별도로 확인한다.
 
@@ -84,4 +84,4 @@ description: "Engineers the software architecture of a self-learning trading age
 
 ---
 
-*관련: `autonomous_loops.md`(종료조건 있는 반복 패턴), `agentic_engineering.md`, AGENTS.md의 Verification Loop Rule·Escalation Rules·"법률·세무·노동·계약·금융·의료 위험" 규칙*
+*관련: `autonomous_loops.md`(종료조건 있는 반복 패턴), `agentic_engineering.md`, AGENTS.md의 Verification Loop Rule·Escalation Rules*
