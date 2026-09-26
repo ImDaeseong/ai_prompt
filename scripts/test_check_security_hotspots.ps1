@@ -76,9 +76,12 @@ Test-Case -Name 'local home path in Markdown detected' -FileName 'guide.md' `
 Test-Case -Name 'portable repository path accepted' -FileName 'guide.md' `
     -Content 'See ../skills/writing' -ExpectFinding $false
 
+Test-Case -Name 'qa:allow as ordinary prose does not suppress a real credential' -FileName 'app.ps1' `
+    -Content '$Password = "correcthorsebattery123"  # this is not a real qa:allow situation here' -ExpectFinding $true
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Error $_ }
     exit 1
 }
 
-Write-Output "PASS: check_security_hotspots rules, local-home paths, and qa:allow suppression behave as pinned (12 case(s))."
+Write-Output "PASS: check_security_hotspots rules, local-home paths, and qa:allow suppression behave as pinned (13 case(s))."

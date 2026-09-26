@@ -12,7 +12,11 @@
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 
-$allowMarker = 'qa:allow'
+# Anchored to an actual `#`-comment, not a bare substring anywhere in the
+# line -- a plain "*qa:allow*" match would also suppress a real finding
+# whenever "qa:allow" happened to appear in ordinary prose after a `#` (or
+# even inside a string literal), with no actual suppression comment present.
+$allowMarkerPattern = '#\s*qa:allow\b'
 $selfExclude = @('check_security_hotspots.ps1', 'test_check_security_hotspots.ps1')
 
 # Each rule: CWE id, title, suggestion, regex pattern (PowerShell -match, .NET regex).
@@ -83,7 +87,7 @@ function Get-SecurityHotspotFindings {
                 $findings.Add("${relPath}:$($i + 1): [LOCAL-HOME-PATH] replace the machine-specific user path with a portable relative path")
             }
             if ($sourceExtensions -notcontains $ext) { continue }
-            if ($line -like "*$allowMarker*") { continue }
+            if ($line -match $allowMarkerPattern) { continue }
             foreach ($rule in $rules) {
                 if ($line -match $rule.Pattern) {
                     $findings.Add("${relPath}:$($i + 1): [$($rule.Cwe)] $($rule.Title) - $($rule.Suggestion)")
