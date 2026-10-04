@@ -15,7 +15,7 @@ metadata:
 
 Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
 
-> 주의: 이 문서의 수치 기준(예: 임계값, 비율, 벤치마크)은 원 저자(alirezarezvani/claude-skills, MIT)의 경험칙이며 이 저장소에서 개별 출처를 검증하지 않았다. 의사결정에 쓰기 전에 최신 공개 벤치마크로 확인한다.
+> 주의: 이 문서의 채용·이직·eNPS·보상·관리폭 임계값과 성과등급 비율은 이 저장소에서 개별 출처를 확인하지 않은 원 저자(alirezarezvani/claude-skills, MIT)의 경험칙이다. 국가·직군·기업 단계별 실제 기준과 비교한 뒤 의사결정에 쓴다. 특히 성과등급 비율은 인원 할당량이나 강제 순위로 사용하지 않는다.
 
 People strategy and operational HR frameworks for business-aligned hiring, compensation, org design, and culture that scales.
 
@@ -41,14 +41,16 @@ Right structure for the stage. Spans of control, when to add management layers, 
 ### 4. Retention & Performance
 Retention starts at hire. Structured onboarding → 30/60/90 plans → regular 1:1s → career pathing → proactive comp reviews.
 
-**Performance Rating Distribution (calibrated):**
-| Rating | Expected % | Action |
+**Illustrative Performance Rating Guidance (not a quota):**
+| Rating | Imported example range | Action |
 |--------|-----------|--------|
 | 5 – Exceptional | 5–10% | Fast-track, equity refresh |
 | 4 – Exceeds | 20–25% | Merit increase, stretch role |
 | 3 – Meets | 55–65% | Market adjust, develop |
 | 2 – Needs improvement | 8–12% | PIP, 60-day plan |
 | 1 – Underperforming | 2–5% | Exit or role change |
+
+> 근거 수준 확인(2026-10-05): 이 분포의 정확한 비율을 뒷받침하는 원 출처는 찾지 못했다. CIPD의 [*Could do better? Assessing what works in performance management*](https://www.cipd.org/globalassets/media/knowledge/knowledge-hub/reports/could-do-better_2016-assessing-what-works-in-performance-management_tcm18-16874.pdf)는 강제·유도 분포가 불공정하다고 인식되는 증거와 성과 분포 형태에 관한 미해결 논쟁을 검토하고, 그런 분포를 폐기할 근거가 충분하다고 결론낸다. 따라서 위 범위는 보정 회의에서 관찰 결과를 점검하는 예시일 뿐, 사전에 맞춰야 할 목표가 아니다.
 
 ### 5. Culture & Engagement
 Culture is behavior, not values on a wall. Measure eNPS quarterly. Act on results within 30 days or don't ask.

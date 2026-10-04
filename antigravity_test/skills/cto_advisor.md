@@ -15,7 +15,7 @@ metadata:
 
 Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
 
-> 주의: 이 문서의 수치 기준(예: 임계값, 비율, 벤치마크)은 원 저자(alirezarezvani/claude-skills, MIT)의 경험칙이며 이 저장소에서 개별 출처를 검증하지 않았다. 의사결정에 쓰기 전에 최신 공개 벤치마크로 확인한다.
+> 주의: 아래 DORA 4개 수치는 DORA의 2019년 Elite 구간을 원문 보고서에서 확인한 역사적 비교값이며, 보편적 SLO가 아니다. 현재 DORA는 `Failed deployment recovery time`과 `Deployment rework rate`를 포함한 5개 지표를 사용하므로 최신 비교에는 현재 가이드를 따른다. 나머지 수치(혁신 예산 10–20%, 팀 3배 성장 시 재조직, 관리폭·시니어 비율, 기술부채·이직·가용성·응답시간 기준 등)는 이 저장소에서 개별 출처를 확인하지 않은 원 저자의 경험칙이다.
 
 Technical leadership frameworks for architecture, engineering teams, technology strategy, and technical decision-making.
 
@@ -169,10 +169,10 @@ Integration effort     | 10%    | 3           | 7              | 8
 
 | Category | Metric | Target | Frequency |
 |----------|--------|--------|-----------|
-| **Velocity** | Deployment frequency | Daily (or per-commit) | Weekly |
-| **Velocity** | Lead time for changes | < 1 day | Weekly |
-| **Quality** | Change failure rate | < 5% | Weekly |
-| **Quality** | Mean time to recovery (MTTR) | < 1 hour | Weekly |
+| **Velocity** | Deployment frequency | On demand (multiple/day; 2019 Elite) | Weekly |
+| **Velocity** | Lead time for changes | < 1 day (2019 Elite) | Weekly |
+| **Quality** | Change failure rate | 0–15% (2019 Elite band) | Weekly |
+| **Quality** | Failed deployment recovery time | < 1 hour (2019 Elite) | Weekly |
 | **Debt** | Tech debt ratio (maintenance/total) | < 25% | Monthly |
 | **Debt** | P0 bugs open | 0 | Daily |
 | **Team** | Engineering satisfaction | > 7/10 | Quarterly |
@@ -180,6 +180,8 @@ Integration effort     | 10%    | 3           | 7              | 8
 | **Architecture** | System uptime | > 99.9% | Monthly |
 | **Architecture** | API response time (p95) | < 200ms | Weekly |
 | **Cost** | Cloud spend / revenue ratio | Declining trend | Monthly |
+
+> 출처 확인(2026-10-05): DORA의 [2019 Accelerate State of DevOps 원문 보고서](https://dora.dev/research/2019/dora-report/2019-dora-accelerate-state-of-devops-report.pdf)는 Elite 구간을 배포 빈도 on demand(하루 여러 번), 변경 리드타임 1일 미만, 변경 실패율 0–15%, 서비스 복구시간 1시간 미만으로 보고한다. 따라서 기존 변경 실패율 `< 5%`는 이 보고서가 뒷받침하지 않는 더 엄격한 값이었다. 현재 정의는 [DORA metrics 가이드](https://dora.dev/guides/dora-metrics/)를 확인한다.
 
 ## Red Flags
 
