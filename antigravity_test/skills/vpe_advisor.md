@@ -60,7 +60,7 @@ VPE, VP of Engineering, VP Engineering, engineering operations, delivery through
 | **Time to Restore Service (MTTR)** | Incident detection → resolved | < 1 hour | < 1 day | < 1 day | 1 week-1 month |
 | **Change Failure Rate** | % of deploys causing incidents | 0-15% | 0-15% | 0-15% | 46-60% |
 
-> 이 표의 구간은 DORA "Accelerate: State of DevOps 2019" 보고서 p.19 표를 원문 PDF에서 직접 읽어 맞춘 값이다(2026-10-05). 이전에 적혀 있던 Lead Time Elite "< 1 hour", MTTR Medium "1-7 days", Change Failure Rate High 16-30%·Medium 16-45%는 이 표와 달랐다(CFR은 Elite·High·Medium이 모두 0-15%이고 통계적으로 구분되지 않는다). 최신 연도 보고서는 구간이 다를 수 있다.
+> 이 표의 구간은 DORA "Accelerate: State of DevOps 2019" 보고서 p.19 표를 원문 PDF에서 직접 읽어 맞춘 값이다(2026-10-05). 이전에 적혀 있던 Lead Time Elite "< 1 hour", MTTR Medium "1-7 days", Change Failure Rate High 16-30%·Medium 16-45%는 이 표와 달랐다(CFR은 Elite·High·Medium이 모두 0-15%이고 통계적으로 구분되지 않는다). 2024년판 보고서는 군집 정의와 구간이 바뀌었다(2차 요약 기준 Elite 변경 실패율 약 5%, 원문 미확인) — 최신 구간이 필요하면 원문을 확인한다.
 
 **Bottleneck identification — where does work wait?**
 

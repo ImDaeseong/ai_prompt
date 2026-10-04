@@ -65,6 +65,8 @@ CFO, chief financial officer, burn rate, runway, unit economics, LTV, CAC, fundr
 | **Cash** | Runway | > 12 mo | Monthly |
 | **Cash** | AR > 60 days | < 5% of AR | Monthly |
 
+> 출처 확인(2026-10-05): LTV:CAC > 3은 David Skok(forentrepreneurs.com "SaaS Metrics")의 "최고의 SaaS는 LTV:CAC가 3보다 높고 때로는 7~8"에서 확인했다. 같은 글은 상위 기업이 CAC를 5~7개월에 회수한다고 하므로 이 표의 CAC Payback "< 18 mo"는 그보다 느슨한 목표이며 출처가 없다. Burn Multiple 구간은 Sacks 프레임워크와 방향이 맞는다(2차 요약). NDR > 110%, Rule of 40, Gross Margin > 65%, ARR 2배 성장은 이 저장소에서 개별 출처를 확인하지 않은 경험칙이다.
+
 ## Red Flags
 
 - Burn multiple rising while growth slows (worst combination)
