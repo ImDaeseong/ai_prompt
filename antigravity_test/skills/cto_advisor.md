@@ -15,6 +15,8 @@ metadata:
 
 Third-party copyright and MIT permission notice: [NOTICE.md](../../NOTICE.md).
 
+> 주의: 이 문서의 수치 기준(예: 임계값, 비율, 벤치마크)은 원 저자(alirezarezvani/claude-skills, MIT)의 경험칙이며 이 저장소에서 개별 출처를 검증하지 않았다. 의사결정에 쓰기 전에 최신 공개 벤치마크로 확인한다.
+
 Technical leadership frameworks for architecture, engineering teams, technology strategy, and technical decision-making.
 
 ## Keywords
