@@ -55,12 +55,12 @@ VPE, VP of Engineering, VP Engineering, engineering operations, delivery through
 
 | Metric | What it measures | Elite | High | Medium | Low |
 |---|---|---|---|---|---|
-| **Deployment Frequency** | How often code reaches prod | Multiple/day | Daily-weekly | Weekly-monthly | < monthly |
-| **Lead Time for Changes** | Commit → production | < 1 hour | 1 day-1 week | 1 week-1 month | > 1 month |
-| **Mean Time to Recovery (MTTR)** | Incident detection → resolved | < 1 hour | < 1 day | 1-7 days | > 7 days |
+| **Deployment Frequency** | How often code reaches prod | On-demand (multiple/day) | Once/day to once/week | Once/week to once/month | Once/month to once/6 months |
+| **Lead Time for Changes** | Commit → production | < 1 day | 1 day-1 week | 1 week-1 month | 1-6 months |
+| **Time to Restore Service (MTTR)** | Incident detection → resolved | < 1 hour | < 1 day | < 1 day | 1 week-1 month |
 | **Change Failure Rate** | % of deploys causing incidents | 0-15% | 0-15% | 0-15% | 46-60% |
 
-> Change Failure Rate 행은 DORA 2019 보고서 기준이다(2차 요약으로 확인, dora.dev 원표는 열리지 않음). 이전에 적혀 있던 High 16-30%, Medium 16-45%는 구간이 서로 겹치고 근거를 찾지 못해 바꿨다(2026-10-05). 나머지 세 지표의 구간은 검증하지 않았다.
+> 이 표의 구간은 DORA "Accelerate: State of DevOps 2019" 보고서 p.19 표를 원문 PDF에서 직접 읽어 맞춘 값이다(2026-10-05). 이전에 적혀 있던 Lead Time Elite "< 1 hour", MTTR Medium "1-7 days", Change Failure Rate High 16-30%·Medium 16-45%는 이 표와 달랐다(CFR은 Elite·High·Medium이 모두 0-15%이고 통계적으로 구분되지 않는다). 최신 연도 보고서는 구간이 다를 수 있다.
 
 **Bottleneck identification — where does work wait?**
 
