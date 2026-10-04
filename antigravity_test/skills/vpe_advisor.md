@@ -58,7 +58,9 @@ VPE, VP of Engineering, VP Engineering, engineering operations, delivery through
 | **Deployment Frequency** | How often code reaches prod | Multiple/day | Daily-weekly | Weekly-monthly | < monthly |
 | **Lead Time for Changes** | Commit → production | < 1 hour | 1 day-1 week | 1 week-1 month | > 1 month |
 | **Mean Time to Recovery (MTTR)** | Incident detection → resolved | < 1 hour | < 1 day | 1-7 days | > 7 days |
-| **Change Failure Rate** | % of deploys causing incidents | 0-15% | 16-30% | 16-45% | 46-60% |
+| **Change Failure Rate** | % of deploys causing incidents | 0-15% | 0-15% | 0-15% | 46-60% |
+
+> Change Failure Rate 행은 DORA 2019 보고서 기준이다(2차 요약으로 확인, dora.dev 원표는 열리지 않음). 이전에 적혀 있던 High 16-30%, Medium 16-45%는 구간이 서로 겹치고 근거를 찾지 못해 바꿨다(2026-10-05). 나머지 세 지표의 구간은 검증하지 않았다.
 
 **Bottleneck identification — where does work wait?**
 
