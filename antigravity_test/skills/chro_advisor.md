@@ -50,7 +50,7 @@ Retention starts at hire. Structured onboarding → 30/60/90 plans → regular 1
 | 2 – Needs improvement | 8–12% | PIP, 60-day plan |
 | 1 – Underperforming | 2–5% | Exit or role change |
 
-> 근거 수준 확인(2026-10-05): 이 분포의 정확한 비율을 뒷받침하는 원 출처는 찾지 못했다. CIPD의 [*Could do better? Assessing what works in performance management*](https://www.cipd.org/globalassets/media/knowledge/knowledge-hub/reports/could-do-better_2016-assessing-what-works-in-performance-management_tcm18-16874.pdf)는 강제·유도 분포가 불공정하다고 인식되는 증거와 성과 분포 형태에 관한 미해결 논쟁을 검토하고, 그런 분포를 폐기할 근거가 충분하다고 결론낸다. 따라서 위 범위는 보정 회의에서 관찰 결과를 점검하는 예시일 뿐, 사전에 맞춰야 할 목표가 아니다.
+> 근거 수준 확인(2026-10-05): 이 분포의 정확한 비율을 뒷받침하는 원 출처는 찾지 못했다. CIPD의 [*Could do better? Assessing what works in performance management*](https://www.cipd.org/globalassets/media/knowledge/knowledge-hub/reports/could-do-better_2016-assessing-what-works-in-performance-management_tcm18-16874.pdf)는 강제·유도 분포가 불공정하다고 인식되는 증거와 성과 분포 형태에 관한 미해결 논쟁을 검토하고, 그 근거만으로도 강제 순위·유도 분포를 폐기해도 안전할 증거가 "아마 충분하다(probably enough evidence)"고 말한다. 따라서 위 범위는 보정 회의에서 관찰 결과를 점검하는 예시일 뿐, 사전에 맞춰야 할 목표가 아니다.
 
 ### 5. Culture & Engagement
 Culture is behavior, not values on a wall. Measure eNPS quarterly. Act on results within 30 days or don't ask.
